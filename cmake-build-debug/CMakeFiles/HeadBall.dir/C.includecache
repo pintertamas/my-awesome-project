@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+F:/Documents/BME/Prog1/my-awesome-project/main.c
+global.h
+F:/Documents/BME/Prog1/my-awesome-project/global.h
+game.h
+F:/Documents/BME/Prog1/my-awesome-project/game.h
+textures.h
+F:/Documents/BME/Prog1/my-awesome-project/textures.h
+
