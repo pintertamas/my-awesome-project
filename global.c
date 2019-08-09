@@ -1,11 +1,11 @@
-//
-// Created by Tomi on 15/01/2019.
-//
-
 #include "global.h"
 
-int SCREEN_WIDTH = 700;
-int SCREEN_HEIGHT = 515;
-int radius = 20;
-int speedX = 10;
-int speedY = 10;
+int screenWidth = 700;
+int screenHeight = 500;
+
+float xpos = 200;
+float ypos = 50;
+float vy = 0;
+float gravity = 0.98;
+float bounce = -1;
+int radius = 10;

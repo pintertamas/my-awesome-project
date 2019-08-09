@@ -1,53 +1,34 @@
-//
-// Created by Tomi on 30/01/2019.
-//
-#include "global.h"
-#include "textures.h"
 #include "game.h"
-#include <raylib.h>
+#include "global.h"
 
-int main()
+int main(void)
 {
     // Initialization
-    //--------------------------------------------------------------------------------------
-    InitWindow(screenWidth, screenHeight, "headball");
-    initBall();
-    loadImage();
-    SetTargetFPS(60);       // Set target frames-per-second
-    //--------------------------------------------------------------------------------------
+    //---------------------------------------------------------
+    InitWindow(screenWidth, screenHeight, "My Awesome Game");
+
+    SetTargetFPS(60);
+    //----------------------------------------------------------
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        HideCursor();
-        //collision_wall(&ball);
-        updateBall();
-        moveBall(&ball);
-        //faszkivan(&ball);
-        spawnBall();
-        //testFly(&ball);
-        testBall();
-        renderMap();
-        showFPS();
-        //----------------------------------------------------------------------------------
+        ballbounce();
 
-        // Draw
-        //----------------------------------------------------------------------------------
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-        //DrawCircle(ball.x, ball.y, radius, MAROON);
+
+        DrawFPS(10, 10);
 
         EndDrawing();
-        //----------------------------------------------------------------------------------
+        //-----------------------------------------------------
     }
 
     // De-Initialization
-    //--------------------------------------------------------------------------------------
+    //---------------------------------------------------------
     CloseWindow();        // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
+    //----------------------------------------------------------
 
     return 0;
 }

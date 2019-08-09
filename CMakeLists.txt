@@ -1,12 +1,10 @@
-cmake_minimum_required(VERSION 3.12)
-project(farmville2 C)
+cmake_minimum_required(VERSION 3.13)
+project(my-awesome-project C)
 
 set(CMAKE_C_STANDARD 99)
+set(raylib_INCLUDE_DIR C:/MinGW/include)
+set(raylib_LIBRARY C:/MinGW/lib)
 
-set(SOURCE_FILES main.c)
-set(SDL2_INCLUDE_DIR C:/MinGW/include/SDL2)
-set(SDL2_LIBRARY C:/MinGW/lib)
-
-add_executable(HeadBall ${SOURCE_FILES})
-include_directories(${SDL2_INCLUDE_DIR})
-target_link_libraries(HeadBall ${SDL2_LIBRARY} -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf)
+add_executable(my-awesome-project main.c game.c game.h textures.c textures.h global.c global.h)
+include_directories(${raylib_INCLUDE_DIR})
+target_link_libraries(my-awesome-project ${raylib_LIBRARY} -lmingw32 -lraylib)
