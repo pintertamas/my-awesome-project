@@ -11,11 +11,20 @@
 
 extern int screenWidth;
 extern int screenHeight;
-extern float xpos;
-extern float ypos;
-extern float vy;
-extern float gravity;
-extern float bounce;
-extern int radius;
+
+typedef struct Ball{
+        float xpos;
+        float ypos;
+        float vy;
+        float vx;
+        float gravity;
+        float bounce;
+        int radius;
+}Ball;
+
+extern int ballNumber;
+Ball *Balls;
+
+
 
 #endif //HEADBALL_GLOBAL_H

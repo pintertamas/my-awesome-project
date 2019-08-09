@@ -8,12 +8,13 @@ int main(void)
     InitWindow(screenWidth, screenHeight, "My Awesome Game");
 
     SetTargetFPS(60);
-    //----------------------------------------------------------
 
+    setupBalls();
+    //----------------------------------------------------------
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        ballbounce();
+        applyPhysics();
 
         BeginDrawing();
 
@@ -25,7 +26,6 @@ int main(void)
         //-----------------------------------------------------
     }
 
-    // De-Initialization
     //---------------------------------------------------------
     CloseWindow();        // Close window and OpenGL context
     //----------------------------------------------------------
