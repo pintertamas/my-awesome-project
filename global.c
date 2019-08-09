@@ -1,5 +1,5 @@
 #include "global.h"
 
-int screenWidth = 500;
+int screenWidth = 600;
 int screenHeight = 900;
-int ballNumber = 50;
+int ballNumber = 10;

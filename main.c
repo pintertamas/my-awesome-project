@@ -3,22 +3,20 @@
 
 int main(void)
 {
-    // Initialization
-    //---------------------------------------------------------
+    //---------------------------------------------------------                                        // Initialization
     InitWindow(screenWidth, screenHeight, "My Awesome Game");
 
     SetTargetFPS(60);
 
     setupBalls();
-    //----------------------------------------------------------
-    // Main game loop
-    while (!WindowShouldClose())    // Detect window close button or ESC key
+    //----------------------------------------------------------                                       // Main game loop
+    while (!WindowShouldClose())                                                // Detect window close button or ESC key
     {
         applyPhysics();
 
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(LIGHTGRAY);
 
         DrawFPS(10, 10);
 
@@ -27,7 +25,7 @@ int main(void)
     }
 
     //---------------------------------------------------------
-    CloseWindow();        // Close window and OpenGL context
+    CloseWindow();                                                                    // Close window and OpenGL context
     //----------------------------------------------------------
 
     return 0;
