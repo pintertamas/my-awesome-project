@@ -20,7 +20,6 @@ int main(void)
         applyPhysics_Balls(Balls);
         moveShip();
         ShipBallCollision();
-
         BeginDrawing();
         ClearBackground(LIGHTGRAY);
         DrawFPS(10, 10);

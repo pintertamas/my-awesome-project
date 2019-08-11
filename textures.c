@@ -1,5 +1,4 @@
 #include "global.h"
-#include "textures.h"
 
 void loadImage(){
     textures[0] = LoadImage("Textures/ship.png");                                                                       // Loaded in CPU memory (RAM)
