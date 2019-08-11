@@ -44,23 +44,56 @@ void setupBalls(){
     }
 }
 
-void ballbounce(Ball *ball){
+void setupShip(){                                                                                                       //the ship is a 50x70 image
+    ship.xsize = 50;
+    ship.ysize = 70;
+    ship.xpos = (float)screenWidth/2 - (float)ship.xsize/2;
+    ship.ypos = (float)screenHeight - ship.ysize;
+    ship.speed = 10;
+}
+
+void setupBullets(){
+    bullets = (Bullet **) malloc(bulletPower * sizeof(Bullet *));
+
+
+}
+
+bool ShipBallCollision(){
+    for (int i = 0; i < ballNumber; i++) {
+        float d = Balls[i].ypos + Balls[i].radius;
+        if (screenHeight - (float)ship.ysize/2 > d && d > screenHeight - ship.ysize) {
+            if(Balls[i].xpos > ship.xpos - (float) ship.xsize / 4 &&
+            Balls[i].xpos < ship.xpos + (float) ship.xsize / 4)
+            return true;
+        }else if(screenHeight - (float)ship.ysize/2 < d) {
+            if (Balls[i].xpos > ship.xpos - (float) ship.xsize &&
+                Balls[i].xpos < ship.xpos + (float) ship.xsize)
+                return true;
+        }
+    }
+}
+
+void ballbounce(Ball *ball, bool gravity){
     ball->vy += ball->gravity;
-    ball->ypos += ball->vy/5;
+    ball->ypos += ball->vy/10;
     if(ball->ypos > screenHeight - ball->radius)
     {
         ball->ypos = screenHeight - ball->radius;
-        ball->vy *= ball->bounce;
+        if(gravity == true)
+            ball->vy *= ball->bounce/5;
+        else
+            ball->vy *= ball->bounce;
     }
 
     ball->xpos += ball->vx;
     //---------------------
-    //ball->vx*=.996;                                                              //slowing the ball down in the x axis
-    //ball->vy*=.995;                                                             //slowing down the ball int the y axis
+    //ball->vy *= .99;                                                                                                  //slowing down the ball int the y axis
+    if(gravity == true) {
+        ball->vx *= .996;                                                                                               //slowing the ball down in the x axis
+    }
     //---------------------
     DrawCircle((int)ball->xpos,(int)ball->ypos,ball->radius,ball->color);
-    DrawText(FormatText("%d", ball->HP), (int)ball->xpos - ball->radius, (int)ball->ypos - ball->radius/2, ball->radius, BLACK);
-
+    DrawText(FormatText("%d", ball->HP), (int)ball->xpos - ball->radius/2, (int)ball->ypos - ball->radius/2, 2*ball->radius/3, BLACK);
 }
 
 void collisionWall(Ball *ball){
@@ -75,9 +108,32 @@ void collisionWall(Ball *ball){
     }
 }
 
-void applyPhysics(){
+void applyPhysics_Balls(Ball *ball){
     for(int i=0; i<ballNumber; i++){
-        ballbounce(&Balls[i]);
-        collisionWall(&Balls[i]);
+        ballbounce(&ball[i], false);
+        collisionWall(&ball[i]);
     }
+}
+
+void applyPhysics_Coins(Ball *ball){
+    for(int i=0; i<ballNumber; i++){
+        ballbounce(&ball[i], true);
+        collisionWall(&ball[i]);
+    }
+}
+
+void moveShip(){
+    if(IsKeyDown(KEY_LEFT))
+        ship.xpos -= ship.speed;
+    if(ship.xpos < 0)
+        ship.xpos = 0;
+    if(IsKeyDown(KEY_RIGHT))
+        ship.xpos += ship.speed;
+    if(ship.xpos > screenWidth - ship.xsize)
+        ship.xpos = screenWidth - ship.xsize;
+}
+
+void freeBalls(){
+    for(int i=0;i<ballNumber;i++)
+        free(&Balls[i]);
 }
