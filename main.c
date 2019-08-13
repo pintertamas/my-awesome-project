@@ -1,6 +1,6 @@
 #include "game.h"
-#include "global.h"
 #include "textures.h"
+#include "global.h"
 
 int main(void)
 {
@@ -12,14 +12,21 @@ int main(void)
     loadImage();
     setupBalls();
     setupShip();
-    setupBullets();
+    setupBullet();
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
-        renderMap();
-        applyPhysics_Balls(Balls);
+        renderShip();
+
         moveShip();
+        applyPhysics_Balls(Balls);
         ShipBallCollision();
+
+        //bulletTest();
+        spawnBullet();
+        updateBullet();
+        renderBullet();
+
         BeginDrawing();
         ClearBackground(LIGHTGRAY);
         DrawFPS(10, 10);
@@ -29,7 +36,8 @@ int main(void)
 
     //---------------------------------------------------------
     freeBalls();
-    CloseWindow();                                                                    // Close window and OpenGL context
+    //freeBullets();
+    CloseWindow();                                                                                                      // Close window and OpenGL context
     //----------------------------------------------------------
 
     return 0;

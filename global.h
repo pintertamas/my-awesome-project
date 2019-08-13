@@ -1,5 +1,6 @@
 #ifndef HEADBALL_GLOBAL_H
 #define HEADBALL_GLOBAL_H
+#define bulletMax 1000
 
 #include "raylib.h"
 #include <stdio.h>
@@ -33,23 +34,28 @@ typedef struct Ball{
     float gravity;
     float bounce;
     int radius;
-    Color color;
     int HP;
+    Color color;
 }Ball;
+
+Ball *Balls;
 
 typedef struct Bullet{
     float xpos;
     float ypos;
     float speed;
     Color color;
+    bool visible;
 }Bullet;
-
-extern int bulletRadius; //size of the bullets
-extern int bulletPower; //number of bullets in one row
 
 Bullet **bullets;
 
+extern int shipSpeed;                                                                                                 //the speed of the bullets
+extern int ballGravity;
+extern int bulletRadius;                                                                                                //size of the bullets
+extern int bulletPower;                                                                                                 //number of bullets in one row
+extern int bulletSpeed;                                                                                                 //the speed of the bullets
+
 extern int ballNumber;
-Ball *Balls;
 
 #endif //HEADBALL_GLOBAL_H

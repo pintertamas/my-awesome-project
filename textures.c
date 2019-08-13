@@ -6,6 +6,6 @@ void loadImage(){
     shipTexture = LoadTextureFromImage(textures[0]);                                                                           // Image converted to texture, GPU memory (VRAM)
 }
 
-void renderMap(){
+void renderShip(){
     DrawTexture(shipTexture, (int)ship.xpos, (int)ship.ypos, WHITE);
 }

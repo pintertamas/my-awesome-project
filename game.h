@@ -5,7 +5,14 @@
 
 void setupBalls();
 void setupShip();
-void setupBullets();
+void setupBullet();
+void addBullet(float x, float y, float dy, int i);
+void spawnBullet();
+void renderBullet();
+void updateBullet();
+void freeBullets();
+void pauseGame();
+void bulletTest();
 bool ShipBallCollision();
 void applyPhysics_Balls(Ball *ball);
 void applyPhysics_Coins(Ball *ball);

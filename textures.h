@@ -2,6 +2,6 @@
 #define HEADBALL_TEXTURES_H
 
 void loadImage();
-void renderMap();
+void renderShip();
 
 #endif //HEADBALL_TEXTURES_H
