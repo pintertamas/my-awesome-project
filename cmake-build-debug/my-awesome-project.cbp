@@ -76,6 +76,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/school/my-awesome-project/ball.c">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="D:/school/my-awesome-project/ball.h">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="D:/school/my-awesome-project/bullet.c">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="D:/school/my-awesome-project/bullet.h">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="D:/school/my-awesome-project/coin.c">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="D:/school/my-awesome-project/coin.h">
+			<Option target="my-awesome-project"/>
+		</Unit>
 		<Unit filename="D:/school/my-awesome-project/game.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
@@ -91,10 +109,10 @@
 		<Unit filename="D:/school/my-awesome-project/main.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="D:/school/my-awesome-project/textures.c">
+		<Unit filename="D:/school/my-awesome-project/ship.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="D:/school/my-awesome-project/textures.h">
+		<Unit filename="D:/school/my-awesome-project/ship.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
 		<Unit filename="D:/school/my-awesome-project/CMakeLists.txt">

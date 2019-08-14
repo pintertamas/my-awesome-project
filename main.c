@@ -1,6 +1,9 @@
 #include "game.h"
-#include "textures.h"
+#include "ship.h"
 #include "global.h"
+#include "game.h"
+#include "ball.h"
+#include "bullet.h"
 
 int main(void)
 {

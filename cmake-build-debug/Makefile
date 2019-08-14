@@ -122,6 +122,87 @@ my-awesome-project/fast:
 	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/build
 .PHONY : my-awesome-project/fast
 
+ball.obj: ball.c.obj
+
+.PHONY : ball.obj
+
+# target to build an object file
+ball.c.obj:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ball.c.obj
+.PHONY : ball.c.obj
+
+ball.i: ball.c.i
+
+.PHONY : ball.i
+
+# target to preprocess a source file
+ball.c.i:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ball.c.i
+.PHONY : ball.c.i
+
+ball.s: ball.c.s
+
+.PHONY : ball.s
+
+# target to generate assembly for a file
+ball.c.s:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ball.c.s
+.PHONY : ball.c.s
+
+bullet.obj: bullet.c.obj
+
+.PHONY : bullet.obj
+
+# target to build an object file
+bullet.c.obj:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/bullet.c.obj
+.PHONY : bullet.c.obj
+
+bullet.i: bullet.c.i
+
+.PHONY : bullet.i
+
+# target to preprocess a source file
+bullet.c.i:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/bullet.c.i
+.PHONY : bullet.c.i
+
+bullet.s: bullet.c.s
+
+.PHONY : bullet.s
+
+# target to generate assembly for a file
+bullet.c.s:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/bullet.c.s
+.PHONY : bullet.c.s
+
+coin.obj: coin.c.obj
+
+.PHONY : coin.obj
+
+# target to build an object file
+coin.c.obj:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/coin.c.obj
+.PHONY : coin.c.obj
+
+coin.i: coin.c.i
+
+.PHONY : coin.i
+
+# target to preprocess a source file
+coin.c.i:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/coin.c.i
+.PHONY : coin.c.i
+
+coin.s: coin.c.s
+
+.PHONY : coin.s
+
+# target to generate assembly for a file
+coin.c.s:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/coin.c.s
+.PHONY : coin.c.s
+
 game.obj: game.c.obj
 
 .PHONY : game.obj
@@ -203,32 +284,32 @@ main.c.s:
 	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/main.c.s
 .PHONY : main.c.s
 
-textures.obj: textures.c.obj
+ship.obj: ship.c.obj
 
-.PHONY : textures.obj
+.PHONY : ship.obj
 
 # target to build an object file
-textures.c.obj:
-	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/textures.c.obj
-.PHONY : textures.c.obj
+ship.c.obj:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ship.c.obj
+.PHONY : ship.c.obj
 
-textures.i: textures.c.i
+ship.i: ship.c.i
 
-.PHONY : textures.i
+.PHONY : ship.i
 
 # target to preprocess a source file
-textures.c.i:
-	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/textures.c.i
-.PHONY : textures.c.i
+ship.c.i:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ship.c.i
+.PHONY : ship.c.i
 
-textures.s: textures.c.s
+ship.s: ship.c.s
 
-.PHONY : textures.s
+.PHONY : ship.s
 
 # target to generate assembly for a file
-textures.c.s:
-	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/textures.c.s
-.PHONY : textures.c.s
+ship.c.s:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ship.c.s
+.PHONY : ship.c.s
 
 # Help Target
 help:
@@ -239,6 +320,15 @@ help:
 	@echo ... my-awesome-project
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... ball.obj
+	@echo ... ball.i
+	@echo ... ball.s
+	@echo ... bullet.obj
+	@echo ... bullet.i
+	@echo ... bullet.s
+	@echo ... coin.obj
+	@echo ... coin.i
+	@echo ... coin.s
 	@echo ... game.obj
 	@echo ... game.i
 	@echo ... game.s
@@ -248,9 +338,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... textures.obj
-	@echo ... textures.i
-	@echo ... textures.s
+	@echo ... ship.obj
+	@echo ... ship.i
+	@echo ... ship.s
 .PHONY : help
 
 
