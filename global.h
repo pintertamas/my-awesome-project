@@ -36,6 +36,7 @@ typedef struct Ball{
     int radius;
     int HP;
     Color color;
+    bool visible;
 }Ball;
 
 Ball *Balls;
@@ -45,6 +46,7 @@ typedef struct Bullet{
     float ypos;
     float speed;
     Color color;
+    bool visible;
 }Bullet;
 
 Bullet **bullets;

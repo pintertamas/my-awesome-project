@@ -1,10 +1,10 @@
 #include "global.h"
-#include "game.h"
 
 void setupBalls(){
     Balls = (Ball *) malloc(ballNumber * sizeof(Ball));
 
     for(int i=0; i<ballNumber; i++){
+        Balls[i].visible = true;
         int size = GetRandomValue(1,5);
         switch(size){
             case 1:
@@ -63,25 +63,36 @@ void setupBullet() {
     for(int i = 0; i < bulletMax; i++) {
         bullets[i] = (Bullet *) malloc(bulletPower * sizeof(Bullet));
     }
+    for(int i = 0; i < bulletMax; i++) {
+        for(int j = 0; j < bulletPower; j++) {
+            bullets[i][j].xpos =
+                    (float) (ship.xpos + (float) ship.xsize / 2 -
+                    (bulletPower - 0.5) * 2 * bulletRadius + i * 4 * bulletRadius) + (float) bulletRadius;
+            bullets[i][j].ypos = (float)(screenHeight - ship.ysize - bulletRadius * 3);
+            bullets[i][j].visible = false;
+        }
+    }
 }
 
 void addBullet(float x, float y, float dy, int i) {
     bullets[i][0].xpos = x;
     bullets[i][0].ypos = y;
     bullets[i][0].speed = dy;
+    bullets[i][0].visible = true;
 }
 
 void bulletTest() {
-    printf("%2f %2f\n", ship.xpos, ship.ypos);
+    //printf("%2f %2f\n", ship.xpos, ship.ypos);
+    for(int i = 0; i < bulletMax; i++) {
+        for(int j = 0; j < bulletPower; j++) {
+            if(bullets[i][j].visible == true)
+                printf("%d\n", bullets[i][j].visible);
+        }
+    }
 }
 
 void spawnBullet() {
     if(IsKeyPressed(KEY_SPACE)) {
-        printf("geci");
-        for (int i = bulletMax - 1; i > 1; i--) {
-            bullets[i]->xpos = bullets[i - 1]->xpos;
-            bullets[i]->ypos = bullets[i - 1]->ypos;
-        }
         for (int i = 0; i < bulletPower; i++) {
             addBullet(
                     (float) (ship.xpos + (float) ship.xsize / 2 -
@@ -93,23 +104,50 @@ void spawnBullet() {
 
 void renderBullet() {
     for(int i = 0; i < bulletPower; i++) {
-        DrawCircle((int)bullets[i]->xpos, (int)bullets[i]->ypos, (float)bulletRadius, BLACK);
+        for(int j = 0; j < bulletPower; j++) {
+            if(bullets[i][j].visible == true)
+                DrawCircle((int)bullets[i]->xpos, (int)bullets[i]->ypos, (float)bulletRadius, BLACK);
+        }
     }
 }
 
 void updateBullet() {
     for(int i = 0; i < bulletMax; i++) {
         for(int j = 0; j < bulletPower; j++) {
-            bullets[i][j].ypos -= (float)bulletSpeed;
+            if(bullets[i][j].visible == true)
+                bullets[i][j].ypos -= (float)bulletSpeed;
         }
     }
 }
 
 void freeBullets() {
-
+    for(int i = 0; i < bulletMax; i++) {
+        for(int j = 0; j < bulletPower; j++) {
+            if(bullets[i][j].ypos <= 0) {
+                bullets[i][j].visible = false;
+                //printf("%d, %d\n", i, j);
+            }
+        }
+    }
 }
 
-
+void BulletBallCollision() {
+    for(int i = 0; i < bulletMax; i++) {
+        for(int j = 0; j < bulletPower; j++) {
+            for(int k = 0; k < ballNumber; k++) {
+                if(
+                    bullets[i][j].visible == true && Balls[k].visible == true &&
+                    sqrt(
+                       pow( abs( (int)(bullets[i][j].ypos - Balls[k].ypos) ),2) +
+                       pow( abs( (int)(bullets[i][j].xpos - Balls[k].xpos) ),2)) <=
+                            bulletRadius + Balls[k].radius) {
+                                Balls[k].HP /= 2;
+                                bullets[i][j].visible = false;
+                }
+            }
+        }
+    }
+}
 
 /*
 void setupBullet(){
@@ -222,9 +260,14 @@ void ballbounce(Ball *ball, bool gravity){
         ball->vx *= (float).996;                                                                                               //slowing the ball down in the x axis
     }
     //---------------------
-    DrawCircle((int)ball->xpos,(int)ball->ypos, (float)ball->radius, ball->color);
-    DrawText(FormatText ("%d", ball->HP), (int)ball->xpos - ball->radius / 2,
-                        (int)ball->ypos - ball->radius/4, 2 * ball->radius / 3, BLACK);
+    for(int i = 0; i < ballNumber; i++) {
+        if(Balls[i].visible == true) {
+            DrawCircle((int)ball->xpos,(int)ball->ypos, (float)ball->radius, ball->color);
+            DrawText(FormatText ("%d", ball->HP), (int)ball->xpos - ball->radius / 2,
+                     (int)ball->ypos - ball->radius/4, 2 * ball->radius / 3, BLACK);
+        }
+    }
+
 }
 
 void collisionWall(Ball *ball) {
@@ -241,8 +284,10 @@ void collisionWall(Ball *ball) {
 
 void applyPhysics_Balls(Ball *ball) {
     for(int i=0; i<ballNumber; i++) {
-        ballbounce(&ball[i], false);
-        collisionWall(&ball[i]);
+        if(Balls[i].visible == true) {
+            ballbounce(&ball[i], false);
+            collisionWall(&ball[i]);
+        }
     }
 }
 
@@ -267,4 +312,11 @@ void moveShip() {
 void freeBalls() {
     for(int i=0;i<ballNumber;i++)
         free(&Balls[i]);
+}
+
+void isBallAlive() {
+    for(int i = 0; i < ballNumber; i++) {
+        if(Balls[i].HP == 0)
+            Balls[i].visible = false;
+    }
 }

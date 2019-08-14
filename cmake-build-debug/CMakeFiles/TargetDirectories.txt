@@ -1,3 +1,3 @@
-F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/CMakeFiles/my-awesome-project.dir
-F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/CMakeFiles/edit_cache.dir
-F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/school/my-awesome-project/cmake-build-debug/CMakeFiles/my-awesome-project.dir
+D:/school/my-awesome-project/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/school/my-awesome-project/cmake-build-debug/CMakeFiles/rebuild_cache.dir

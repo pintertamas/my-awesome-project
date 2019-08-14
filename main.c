@@ -22,10 +22,13 @@ int main(void)
         applyPhysics_Balls(Balls);
         ShipBallCollision();
 
-        //bulletTest();
+        bulletTest();
         spawnBullet();
         updateBullet();
         renderBullet();
+        freeBullets();
+        BulletBallCollision();
+        isBallAlive();
 
         BeginDrawing();
         ClearBackground(LIGHTGRAY);
