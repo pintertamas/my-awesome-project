@@ -45,7 +45,6 @@ typedef struct Bullet{
     float ypos;
     float speed;
     Color color;
-    bool visible;
 }Bullet;
 
 Bullet **bullets;
