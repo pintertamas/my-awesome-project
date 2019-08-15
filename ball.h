@@ -4,6 +4,7 @@
 void setupBalls();
 void ballbounce(Ball *ball, bool gravity);
 void collisionWall(Ball *ball);
+void updateBalls();
 void freeBalls();
 void isBallAlive();
 void applyPhysics_Balls(Ball *ball);

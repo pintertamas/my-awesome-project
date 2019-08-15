@@ -4,9 +4,8 @@
 #include "global.h"
 
 void BulletBallCollision();
+bool ShipBallCollision();
 void pauseGame();
 void resumeGame();
-bool ShipBallCollision();
-void applyPhysics_Coins(Ball *ball);
 
 #endif //HEADBALL_GAME_H

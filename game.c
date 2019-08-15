@@ -18,24 +18,6 @@ void BulletBallCollision() {
     }
 }
 
-void pauseGame() {
-    for(int i = 0; i < ballNumber; i++) {
-        Balls[i].vx = 0;
-        Balls[i].vy = 0;
-        Balls[i].gravity = 0;
-        ship.speed = 0;
-    }
-}
-
-void resumeGame() {
-    for(int i = 0; i < ballNumber; i++) {
-        Balls[i].vx = 10;
-        Balls[i].vy = 10;
-        Balls[i].gravity = 1;
-        ship.speed = shipSpeed;
-    }
-}
-
 bool ShipBallCollision(){
     for (int i = 0; i < ballNumber; i++) {
         float d = Balls[i].ypos + (float)Balls[i].radius;
@@ -54,5 +36,23 @@ bool ShipBallCollision(){
                 return true;
             }
         } else return false;
+    }
+}
+
+void pauseGame() {
+    for(int i = 0; i < ballNumber; i++) {
+        Balls[i].vx = 0;
+        Balls[i].vy = 0;
+        Balls[i].gravity = 0;
+        ship.speed = 0;
+    }
+}
+
+void resumeGame() {
+    for(int i = 0; i < ballNumber; i++) {
+        Balls[i].vx = 10;
+        Balls[i].vy = 10;
+        Balls[i].gravity = 1;
+        ship.speed = shipSpeed;
     }
 }

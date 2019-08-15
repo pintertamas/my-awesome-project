@@ -7,14 +7,6 @@ void spawnBullet();
 void renderBullet();
 void updateBullet();
 void freeBullets();
-
-
-
-
-
-
-
 void bulletTest();
-
 
 #endif //MY_AWESOME_PROJECT_BULLET_H

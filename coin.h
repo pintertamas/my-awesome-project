@@ -1,8 +1,6 @@
-//
-// Created by Tomi on 15/08/2019.
-//
-
 #ifndef MY_AWESOME_PROJECT_COIN_H
 #define MY_AWESOME_PROJECT_COIN_H
+
+void applyPhysics_Coins(Ball *ball);
 
 #endif //MY_AWESOME_PROJECT_COIN_H

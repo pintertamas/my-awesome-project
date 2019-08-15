@@ -1,9 +1,9 @@
-#include "game.h"
-#include "ship.h"
 #include "global.h"
 #include "game.h"
+#include "ship.h"
 #include "ball.h"
 #include "bullet.h"
+#include "coin.h"
 
 int main(void)
 {
@@ -24,8 +24,9 @@ int main(void)
         moveShip();
         applyPhysics_Balls(Balls);
         ShipBallCollision();
+        updateBalls();
 
-        bulletTest();
+        //bulletTest();
         spawnBullet();
         updateBullet();
         renderBullet();
@@ -41,7 +42,7 @@ int main(void)
     }
 
     //---------------------------------------------------------
-    freeBalls();
+    //freeBalls();
     //freeBullets();
     CloseWindow();                                                                                                      // Close window and OpenGL context
     //----------------------------------------------------------

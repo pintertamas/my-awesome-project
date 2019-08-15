@@ -1,12 +1,12 @@
 #include "global.h"
 
-void setupBalls(){
+void setupBalls() {
     Balls = (Ball *) malloc(ballNumber * sizeof(Ball));
 
-    for(int i=0; i<ballNumber; i++){
+    for(int i=0; i<ballNumber; i++) {
         Balls[i].visible = true;
         int size = GetRandomValue(1,5);
-        switch(size){
+        switch(size) {
             case 1:
                 Balls[i].radius = 20;
                 Balls[i].color = DARKGREEN;
@@ -50,7 +50,7 @@ void setupBalls(){
     }
 }
 
-void ballbounce(Ball *ball, bool gravity){
+void ballbounce(Ball *ball, bool gravity) {
     ball->vy += ball->gravity;
     ball->ypos += ball->vy/10;
     if(ball->ypos > (float)screenHeight - (float)ball->radius)
@@ -66,7 +66,7 @@ void ballbounce(Ball *ball, bool gravity){
     //---------------------
     //ball->vy *= .99;                                                                                                  //slowing down the ball int the y axis
     if(gravity == true) {
-        ball->vx *= (float).996;                                                                                               //slowing the ball down in the x axis
+        ball->vx *= (float).996;                                                                                        //slowing the ball down in the x axis
     }
     //---------------------
     for(int i = 0; i < ballNumber; i++) {
@@ -76,7 +76,6 @@ void ballbounce(Ball *ball, bool gravity){
                      (int)ball->ypos - ball->radius/4, 2 * ball->radius / 3, BLACK);
         }
     }
-
 }
 
 void collisionWall(Ball *ball) {
@@ -96,6 +95,31 @@ void applyPhysics_Balls(Ball *ball) {
         if(Balls[i].visible == true) {
             ballbounce(&ball[i], false);
             collisionWall(&ball[i]);
+        }
+    }
+}
+
+void updateBalls() {
+    for(int i = 0; i < ballNumber; i++) {
+        if(Balls[i].HP <= 64) {
+            Balls[i].color = DARKGREEN;
+            Balls[i].radius = 20;
+        }
+        if(Balls[i].HP > 64 && Balls[i].HP <= 128) {
+            Balls[i].color = DARKBLUE;
+            Balls[i].radius = 25;
+        }
+        if(Balls[i].HP > 128 && Balls[i].HP <= 256) {
+            Balls[i].color = ORANGE;
+            Balls[i].radius = 30;
+        }
+        if(Balls[i].HP > 256 && Balls[i].HP <= 512) {
+            Balls[i].color = RED;
+            Balls[i].radius = 35;
+        }
+        if(Balls[i].HP > 512 && Balls[i].HP <= 1024) {
+            Balls[i].color = DARKPURPLE;
+            Balls[i].radius = 40;
         }
     }
 }

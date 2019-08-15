@@ -7,9 +7,6 @@ void setupBullet() {
     }
     for(int i = 0; i < bulletMax; i++) {
         for(int j = 0; j < bulletPower; j++) {
-            bullets[i][j].xpos =
-                    (float) (ship.xpos + (float) ship.xsize / 2 -
-                             (bulletPower - 0.5) * 2 * bulletRadius + i * 4 * bulletRadius) + (float) bulletRadius;
             bullets[i][j].ypos = (float)(screenHeight - ship.ysize - bulletRadius * 3);
             bullets[i][j].visible = false;
         }
@@ -17,10 +14,8 @@ void setupBullet() {
 }
 
 void addBullet(float x, float y, float dy, int i) {
-    for(int j = 0; j< bulletMax - 1; j++) {
+    for(int j = 0; j < bulletMax - 1; j++) {
         if(bullets[i][j].visible == false) {
-            //printf("%d", j);
-            //break;
             bullets[i][j].xpos = x;
             bullets[i][j].ypos = y;
             bullets[i][j].speed = dy;
@@ -28,25 +23,29 @@ void addBullet(float x, float y, float dy, int i) {
             break;
         }
     }
-
 }
 
 void spawnBullet() {
     if(IsKeyPressed(KEY_SPACE)) {
+        bool isWholeLineReady = true;
+        for(int i = 0; i < bulletMax; i++)
+            for(int j = 0; j < bulletPower; j++)
+                if(bullets[i][j].visible == true) {
+                    isWholeLineReady = false;
+                    break;
+                }
+
         for (int i = 0; i < bulletPower; i++) {
-            addBullet(
-                    (float) (ship.xpos + (float) ship.xsize / 2 -
-                             (bulletPower - 0.5) * 2 * bulletRadius + i * 4 * bulletRadius) + (float) bulletRadius,
-                    (float)(screenHeight - ship.ysize - bulletRadius * 3), (float)bulletSpeed, i);
+            if(isWholeLineReady == true)
+                addBullet(
+                        (float) (ship.xpos + (float) ship.xsize / 2 -
+                        (bulletPower - 0.5) * 2 * bulletRadius + i * 4 * bulletRadius) + (float) bulletRadius,
+                        (float)(screenHeight - ship.ysize - bulletRadius * 3), (float)bulletSpeed, i);
         }
     }
 }
 
-
-
-
 void bulletTest() {
-    //printf("%2f %2f\n", ship.xpos, ship.ypos);
     for(int i = 0; i < bulletMax; i++) {
         for(int j = 0; j < bulletPower; j++) {
             if(bullets[i][j].visible == true)
