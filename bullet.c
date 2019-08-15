@@ -15,7 +15,7 @@ void setupBullet() {
 
 void addBullet(float x, float y, float dy, int i) {
     for(int j = 0; j < bulletMax - 1; j++) {
-        if(bullets[i][j].visible == false) {
+        if( bullets[i][j].visible == false) {
             bullets[i][j].xpos = x;
             bullets[i][j].ypos = y;
             bullets[i][j].speed = dy;
