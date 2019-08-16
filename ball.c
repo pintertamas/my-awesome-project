@@ -36,16 +36,16 @@ void setupBalls() {
         }
         int d = GetRandomValue(0,1);
         if(d == 0)
-            Balls[i].xpos = (float)Balls[i].radius;
+            Balls[i].xpos = (double)Balls[i].radius;
         else
-            Balls[i].xpos = (float)(screenWidth - Balls[i].radius);
+            Balls[i].xpos = (double)(screenWidth - Balls[i].radius);
         Balls[i].vx = 0;
         while(Balls[i].vx == 0)
-            Balls[i].vx = (float)GetRandomValue(-5, +5);
-        Balls[i].vy = (float)GetRandomValue(-10, 0);
+            Balls[i].vx = (double)GetRandomValue(-5, +5);
+        Balls[i].vy = (double)GetRandomValue(-10, 0);
         //Balls[i].xpos = GetRandomValue(Balls[i].radius, screenWidth - Balls[i].radius);
-        Balls[i].ypos = (float)GetRandomValue(Balls[i].radius,screenHeight/2);
-        Balls[i].gravity = (float)ballGravity;
+        Balls[i].ypos = (double)GetRandomValue(Balls[i].radius,screenHeight/2);
+        Balls[i].gravity = (double)ballGravity;
         Balls[i].bounce = -1;
     }
 }
@@ -53,9 +53,9 @@ void setupBalls() {
 void ballbounce(Ball *ball, bool gravity) {
     ball->vy += ball->gravity;
     ball->ypos += ball->vy/10;
-    if(ball->ypos > (float)screenHeight - (float)ball->radius)
+    if(ball->ypos > (double)screenHeight - (double)ball->radius)
     {
-        ball->ypos = (float)(screenHeight - ball->radius);
+        ball->ypos = (double)(screenHeight - ball->radius);
         if(gravity == true)
             ball->vy *= ball->bounce/5;
         else
@@ -66,12 +66,12 @@ void ballbounce(Ball *ball, bool gravity) {
     //---------------------
     //ball->vy *= .99;                                                                                                  //slowing down the ball int the y axis
     if(gravity == true) {
-        ball->vx *= (float).996;                                                                                        //slowing the ball down in the x axis
+        ball->vx *= (double).996;                                                                                       //slowing the ball down in the x axis
     }
     //---------------------
     for(int i = 0; i < ballNumber; i++) {
         if(Balls[i].visible == true) {
-            DrawCircle((int)ball->xpos,(int)ball->ypos, (float)ball->radius, ball->color);
+            DrawCircle((int)ball->xpos,(int)ball->ypos, (double)ball->radius, ball->color);
             DrawText(FormatText ("%d", ball->HP), (int)ball->xpos - ball->radius / 2,
                      (int)ball->ypos - ball->radius/4, 2 * ball->radius / 3, BLACK);
         }
@@ -79,14 +79,14 @@ void ballbounce(Ball *ball, bool gravity) {
 }
 
 void collisionWall(Ball *ball) {
-    if(ball->xpos >= (float)(screenWidth - ball->radius)) {
-        ball->xpos = (float)(screenWidth -ball->radius); ball->vx = -ball->vx;
+    if(ball->xpos >= (double)(screenWidth - ball->radius)) {
+        ball->xpos = (double)(screenWidth -ball->radius); ball->vx = -ball->vx;
     }
-    if(ball->xpos <= (float)ball->radius) {
-        ball->xpos = (float)ball->radius; ball->vx = -ball->vx;
+    if(ball->xpos <= (double)ball->radius) {
+        ball->xpos = (double)ball->radius; ball->vx = -ball->vx;
     }
-    if(ball->ypos < (float)ball->radius) {
-        ball->ypos = (float)ball->radius; ball->vy = -ball->vy;
+    if(ball->ypos < (double)ball->radius) {
+        ball->ypos = (double)ball->radius; ball->vy = -ball->vy;
     }
 }
 

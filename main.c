@@ -7,7 +7,7 @@
 
 int main(void)
 {
-    //---------------------------------------------------------                                                         // Initialization
+    //----------------------------------------------------------                                                        // Initialization
     InitWindow(screenWidth, screenHeight, "My Awesome Game");
 
     SetTargetFPS(60);
@@ -15,25 +15,24 @@ int main(void)
     loadImage();
     setupBalls();
     setupShip();
-    setupBullet();
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
         renderShip();
+        renderBullets(bullets);
 
         moveShip();
         applyPhysics_Balls(Balls);
         ShipBallCollision();
         updateBalls();
 
-        //bulletTest();
-        spawnBullet();
-        updateBullet();
-        renderBullet();
-        freeBullets();
-        BulletBallCollision();
+        spawnBullets(bullets);
+        updateBullets(bullets);
+        //freeBullets();
+        //BulletBallCollision();
         isBallAlive();
 
+        //-----------------------------------------------------
         BeginDrawing();
         ClearBackground(LIGHTGRAY);
         DrawFPS(10, 10);
@@ -45,7 +44,7 @@ int main(void)
     //freeBalls();
     //freeBullets();
     CloseWindow();                                                                                                      // Close window and OpenGL context
-    //----------------------------------------------------------
+    //---------------------------------------------------------
 
     return 0;
 }

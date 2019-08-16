@@ -1,6 +1,5 @@
 #ifndef HEADBALL_GLOBAL_H
 #define HEADBALL_GLOBAL_H
-#define bulletMax 1000
 
 #include "raylib.h"
 #include <stdio.h>
@@ -13,12 +12,9 @@
 extern int screenWidth;
 extern int screenHeight;
 
-Image textures[1];
-Texture2D shipTexture;
-
 typedef struct Ship{
-    float xpos;
-    float ypos;
+    double xpos;
+    double ypos;
     int xsize;
     int ysize;
     int speed;
@@ -26,13 +22,17 @@ typedef struct Ship{
 
 Ship ship;
 
+Image textures[1];
+Texture2D shipTexture;
+extern int shipSpeed;                                                                                                   //the speed of the ship
+
 typedef struct Ball{
-    float xpos;
-    float ypos;
-    float vy;
-    float vx;
-    float gravity;
-    float bounce;
+    double xpos;
+    double ypos;
+    double vy;
+    double vx;
+    double gravity;
+    double bounce;
     int radius;
     int HP;
     Color color;
@@ -41,22 +41,21 @@ typedef struct Ball{
 
 Ball *Balls;
 
+extern int ballGravity;                                                                                                 //the strengty of the gravity
+extern int ballNumber;                                                                                                  //number of balls on the playfield at a time
+
 typedef struct Bullet{
-    float xpos;
-    float ypos;
-    float speed;
+    double xpos;
+    double ypos;
     Color color;
     bool visible;
+    struct Bullet *next;
 }Bullet;
 
-Bullet **bullets;
+Bullet *bullets;
 
-extern int shipSpeed;                                                                                                 //the speed of the bullets
-extern int ballGravity;
+extern int bulletCount;                                                                                                 //number of bullets in one row
 extern int bulletRadius;                                                                                                //size of the bullets
-extern int bulletPower;                                                                                                 //number of bullets in one row
 extern int bulletSpeed;                                                                                                 //the speed of the bullets
-
-extern int ballNumber;
 
 #endif //HEADBALL_GLOBAL_H

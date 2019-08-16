@@ -1,6 +1,6 @@
 #include "global.h"
 
-void BulletBallCollision() {
+/*void BulletBallCollision() {
     for(int i = 0; i < bulletMax; i++) {
         for(int j = 0; j < bulletPower; j++) {
             for(int k = 0; k < ballNumber; k++) {
@@ -16,21 +16,21 @@ void BulletBallCollision() {
             }
         }
     }
-}
+}*/
 
 bool ShipBallCollision(){
     for (int i = 0; i < ballNumber; i++) {
-        float d = Balls[i].ypos + (float)Balls[i].radius;
-        if ((float)screenHeight - (float)ship.ysize/2 > d && d > (float)(screenHeight - ship.ysize)) {
-            if (Balls[i].xpos > ship.xpos - (float) ship.xsize / 4 &&
-                Balls[i].xpos < ship.xpos + (float) ship.xsize / 4) {
+        double d = Balls[i].ypos + Balls[i].radius;
+        if (screenHeight - (double)ship.ysize/2 > d && d > (screenHeight - ship.ysize)) {
+            if (Balls[i].xpos > ship.xpos - (double) ship.xsize / 4 &&
+                Balls[i].xpos < ship.xpos + (double) ship.xsize / 4) {
                 //Balls[i].color = BLACK;
                 //pauseGame();
                 return true;
             }
-        }else if((float)screenHeight - (float)ship.ysize/2 < d) {
-            if (Balls[i].xpos > ship.xpos - (float) ship.xsize &&
-                Balls[i].xpos < ship.xpos + (float) ship.xsize) {
+        }else if((double)screenHeight - (double)ship.ysize/2 < d) {
+            if (Balls[i].xpos > ship.xpos - (double) ship.xsize &&
+                Balls[i].xpos < ship.xpos + (double) ship.xsize) {
                 //Balls[i].color = BLACK;
                 //pauseGame();
                 return true;
