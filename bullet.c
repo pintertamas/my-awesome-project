@@ -24,8 +24,10 @@ void spawnBullets () {
     double shipCenter = ship.xpos + (double)ship.xsize / 2;
     double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
 
-    if(IsKeyPressed(KEY_SPACE)) {
-        printf("\n");
+
+    if(IsKeyDown(KEY_SPACE) && time(NULL) - shoot > 0.001) {
+        shoot = time(NULL);
+
         for(int i = 0; i < bulletCount; i++) {
             bullets = list_prepend(
                     bullets,

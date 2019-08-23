@@ -29,7 +29,6 @@ void BulletBallCollision () {
             int a_square = pow(abs((int)cursor->xpos - (int)Balls[i].xpos), 2);
             int b_square = pow(abs((int)cursor->ypos - (int)Balls[i].ypos), 2);
             if (sqrt(a_square + b_square) < bulletRadius + Balls[i].radius) {
-                //Balls[i].visible = false;
                 Balls[i].HP -= 1;
             }
             if(Balls[i].HP == 0)
