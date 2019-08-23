@@ -1,7 +1,7 @@
 #include "menu.h"
 
 void loadMenu () {
-    textures[1] = LoadImage("Textures/background.png");                                                              // Loaded in CPU memory (RAM)
+    textures[1] = LoadImage("Textures/background_900x600.png");                                                              // Loaded in CPU memory (RAM)
     ImageFormat(&textures[1], UNCOMPRESSED_R8G8B8A8);                                                         // Format image to RGBA 32bit (required for texture update)
     menuTexture = LoadTextureFromImage(textures[1]);                                                             // Image converted to texture, GPU memory (VRAM)
 }
