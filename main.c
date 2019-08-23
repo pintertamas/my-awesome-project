@@ -4,9 +4,11 @@
 #include "ball.h"
 #include "bullet.h"
 #include "coin.h"
+#include "menu.h"
 
 int main(void)
 {
+    menu();
     //----------------------------------------------------------                                                        // Initialization
     InitWindow(screenWidth, screenHeight, "My Awesome Game");
 

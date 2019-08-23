@@ -109,6 +109,12 @@
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/main.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/menu.c">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/menu.h">
+			<Option target="my-awesome-project"/>
+		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/ship.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
