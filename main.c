@@ -9,6 +9,7 @@
 int main(void)
 {
     menu();
+    /*
     //----------------------------------------------------------                                                        // Initialization
     InitWindow(screenWidth, screenHeight, "My Awesome Game");
 
@@ -49,6 +50,6 @@ int main(void)
     //freeList(bullets);
     CloseWindow();                                                                                                      // Close window and OpenGL context
     //---------------------------------------------------------
-
+*/
     return 0;
 }

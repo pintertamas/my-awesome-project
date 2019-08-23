@@ -3,7 +3,6 @@
 
 void setupShip();
 void moveShip();
-void loadImage();
 void renderShip();
 
 #endif //HEADBALL_TEXTURES_H
