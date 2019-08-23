@@ -8,4 +8,4 @@ int ballNumber = 10;
 int ballGravity = 1;
 int bulletCount = 5;
 int bulletRadius = 5;
-int bulletSpeed = 10;
+int bulletSpeed = 30;

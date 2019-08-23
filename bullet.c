@@ -24,7 +24,7 @@ void spawnBullets () {
     double shipCenter = ship.xpos + (double)ship.xsize / 2;
     double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
 
-    if(IsKeyDown(KEY_SPACE)) {
+    if(IsKeyPressed(KEY_SPACE)) {
         printf("\n");
         for(int i = 0; i < bulletCount; i++) {
             bullets = list_prepend(
@@ -33,7 +33,7 @@ void spawnBullets () {
                     screenHeight - ship.ysize - bulletRadius * 3,
                     BLACK
                     );
-            printf("%d ", (int)bullets->xpos);
+            //printf("%d ", (int)bullets->xpos);
             //DrawCircle(bullets->xpos, bullets->ypos, bulletRadius, bullets->color);
         }
     }
@@ -43,6 +43,7 @@ void updateBullets () {
     Bullet *cursor;
     for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
         cursor->ypos -= bulletSpeed;
+
         //DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
         /*if(cursor->ypos < 0) {
             freeList(cursor);
@@ -57,6 +58,8 @@ void updateBullets () {
 void renderBullets () {
     Bullet *cursor;
     for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-        DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
+        if(cursor->ypos > bulletRadius)
+            DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
+        //printf("%d, %d\n", (int)cursor->xpos, (int)cursor->ypos);
     }
 }
