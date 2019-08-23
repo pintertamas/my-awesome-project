@@ -41,7 +41,7 @@ int main(void)
     }
 
     //---------------------------------------------------------
-    //freeBalls();
+    freeBalls();
 
     //freeList(bullets);
     CloseWindow();                                                                                                      // Close window and OpenGL context

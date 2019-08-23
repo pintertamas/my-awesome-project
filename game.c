@@ -1,6 +1,6 @@
 #include "global.h"
 
-bool ShipBallCollision(){
+bool ShipBallCollision (){
     for (int i = 0; i < ballNumber; i++) {
         double d = Balls[i].ypos + Balls[i].radius;
         if (screenHeight - (double)ship.ysize/2 > d && d > (screenHeight - ship.ysize)) {
@@ -37,7 +37,7 @@ void BulletBallCollision () {
     }
 }
 
-void pauseGame() {
+void pauseGame () {
     for(int i = 0; i < ballNumber; i++) {
         Balls[i].vx = 0;
         Balls[i].vy = 0;
@@ -46,7 +46,7 @@ void pauseGame() {
     }
 }
 
-void resumeGame() {
+void resumeGame () {
     for(int i = 0; i < ballNumber; i++) {
         Balls[i].vx = 10;
         Balls[i].vy = 10;

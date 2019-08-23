@@ -1,15 +1,15 @@
 #include "global.h"
 
-void freeList (Bullet *first) {
-    Bullet *cursor = first;
-    while (cursor != NULL) {
+void freeList (Bullet *fromHere) {
+    Bullet *cursor = fromHere;
+    while (cursor->next != NULL) {
         Bullet *next = cursor->next;
         free(cursor);
         cursor = next;
     }
 }
 
-Bullet *list_prepend(Bullet *first, double xpos, double ypos, Color color) {
+Bullet *list_prepend (Bullet *first, double xpos, double ypos, Color color) {
     Bullet *new;
     new = (Bullet*) malloc(sizeof(Bullet));
     new->xpos = xpos;
@@ -25,8 +25,9 @@ void spawnBullets () {
     double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
 
 
-    if(IsKeyDown(KEY_SPACE) && time(NULL) - shoot > 0.001) {
-        shoot = time(NULL);
+    if(IsKeyDown(KEY_SPACE) && time(0) - shoot >= 0.1) {
+        printf("%ld\n", time(0) - shoot);
+        shoot = time(0);
 
         for(int i = 0; i < bulletCount; i++) {
             bullets = list_prepend(
@@ -45,23 +46,13 @@ void updateBullets () {
     Bullet *cursor;
     for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
         cursor->ypos -= bulletSpeed;
-
-        //DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
-        /*if(cursor->ypos < 0) {
-            freeList(cursor);
-            freeList(cursor);
-            printf("%d ", (int) cursor->ypos);
-            break;
-        }*/
-        //printf("%d ", (int) cursor->ypos);
     }
 }
 
 void renderBullets () {
     Bullet *cursor;
     for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-        if(cursor->ypos > bulletRadius)
+        if(cursor->ypos >= bulletRadius)
             DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
-        //printf("%d, %d\n", (int)cursor->xpos, (int)cursor->ypos);
     }
 }
