@@ -15,6 +15,7 @@ int main(void)
     loadImage();
     setupBalls();
     setupShip();
+    shoot = clock();
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
@@ -41,7 +42,7 @@ int main(void)
     }
 
     //---------------------------------------------------------
-    freeBalls();
+    //freeBalls();
 
     //freeList(bullets);
     CloseWindow();                                                                                                      // Close window and OpenGL context

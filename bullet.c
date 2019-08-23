@@ -25,9 +25,9 @@ void spawnBullets () {
     double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
 
 
-    if(IsKeyDown(KEY_SPACE) && time(0) - shoot >= 0.1) {
-        printf("%ld\n", time(0) - shoot);
-        shoot = time(0);
+    if(IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= 69) {
+        printf("%f\n", (double)(clock() - shoot));
+        shoot = clock();
 
         for(int i = 0; i < bulletCount; i++) {
             bullets = list_prepend(

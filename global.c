@@ -3,10 +3,10 @@
 int screenWidth = 600;
 int screenHeight = 900;
 Bullet *bullets = NULL;
-time_t shoot;
+clock_t shoot;
 int shipSpeed = 10;                                                                                                     //the speed of the bullets
 int ballNumber = 10;
 int ballGravity = 1;
 int bulletCount = 5;
 int bulletRadius = 5;
-int bulletSpeed = 30;
+int bulletSpeed = 20;

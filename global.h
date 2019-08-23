@@ -54,7 +54,7 @@ typedef struct Bullet{
 
 extern Bullet *bullets;
 
-extern time_t shoot;
+extern clock_t shoot;
 extern int bulletCount;                                                                                                 //number of bullets in one row
 extern int bulletRadius;                                                                                                //size of the bullets
 extern int bulletSpeed;                                                                                                 //the speed of the bullets
