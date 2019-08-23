@@ -3,9 +3,9 @@
 
 #include "global.h"
 
-void BulletBallCollision();
-bool ShipBallCollision();
-void pauseGame();
-void resumeGame();
+bool ShipBallCollision ();
+void BulletBallCollision (Bullet *first);
+void pauseGame ();
+void resumeGame ();
 
 #endif //HEADBALL_GAME_H

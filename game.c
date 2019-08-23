@@ -1,23 +1,5 @@
 #include "global.h"
 
-/*void BulletBallCollision() {
-    for(int i = 0; i < bulletMax; i++) {
-        for(int j = 0; j < bulletPower; j++) {
-            for(int k = 0; k < ballNumber; k++) {
-                if(
-                    bullets[i][j].visible == true && Balls[k].visible == true &&
-                    sqrt(
-                       pow( abs( (int)(bullets[i][j].ypos - Balls[k].ypos) ),2) +
-                       pow( abs( (int)(bullets[i][j].xpos - Balls[k].xpos) ),2)) <=
-                            bulletRadius + Balls[k].radius) {
-                                Balls[k].HP /= 2;
-                                bullets[i][j].visible = false;
-                }
-            }
-        }
-    }
-}*/
-
 bool ShipBallCollision(){
     for (int i = 0; i < ballNumber; i++) {
         double d = Balls[i].ypos + Balls[i].radius;
@@ -35,7 +17,24 @@ bool ShipBallCollision(){
                 //pauseGame();
                 return true;
             }
-        } else return false;
+        }
+    }
+    return false;
+}
+
+void BulletBallCollision (Bullet *first) {
+    Bullet *cursor;
+    for(cursor = first; cursor != NULL; cursor = cursor->next) {
+        for(int i = 0; i < ballNumber; i++) {
+            int a_square = pow(abs((int)cursor->xpos - (int)Balls[i].xpos), 2);
+            int b_square = pow(abs((int)cursor->ypos - (int)Balls[i].ypos), 2);
+            if (sqrt(a_square + b_square) < bulletRadius + Balls[i].radius) {
+                //Balls[i].visible = false;
+                Balls[i].HP -= 1;
+            }
+            if(Balls[i].HP == 0)
+                Balls[i].visible = 0;
+        }
     }
 }
 

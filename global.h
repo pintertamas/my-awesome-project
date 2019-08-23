@@ -52,7 +52,7 @@ typedef struct Bullet{
     struct Bullet *next;
 }Bullet;
 
-Bullet *bullets;
+extern Bullet *bullets;
 
 extern int bulletCount;                                                                                                 //number of bullets in one row
 extern int bulletRadius;                                                                                                //size of the bullets

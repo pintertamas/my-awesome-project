@@ -19,17 +19,17 @@ int main(void)
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
         renderShip();
-        renderBullets(bullets);
-
         moveShip();
-        applyPhysics_Balls(Balls);
         ShipBallCollision();
+
+        applyPhysics_Balls(Balls);
         updateBalls();
 
-        spawnBullets(bullets);
+        spawnBullets();
         updateBullets(bullets);
-        //freeBullets();
-        //BulletBallCollision();
+        BulletBallCollision(bullets);
+        renderBullets(bullets);
+
         isBallAlive();
 
         //-----------------------------------------------------
@@ -42,7 +42,8 @@ int main(void)
 
     //---------------------------------------------------------
     //freeBalls();
-    //freeBullets();
+
+    //freeList(bullets);
     CloseWindow();                                                                                                      // Close window and OpenGL context
     //---------------------------------------------------------
 
