@@ -26,9 +26,9 @@ int main(void)
         updateBalls();
 
         spawnBullets();
-        updateBullets(bullets);
-        BulletBallCollision(bullets);
-        renderBullets(bullets);
+        updateBullets();
+        BulletBallCollision();
+        renderBullets();
 
         isBallAlive();
 

@@ -4,7 +4,7 @@
 #include "global.h"
 
 bool ShipBallCollision ();
-void BulletBallCollision (Bullet *first);
+void BulletBallCollision ();
 void pauseGame ();
 void resumeGame ();
 

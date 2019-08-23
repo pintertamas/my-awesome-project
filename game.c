@@ -22,9 +22,9 @@ bool ShipBallCollision(){
     return false;
 }
 
-void BulletBallCollision (Bullet *first) {
+void BulletBallCollision () {
     Bullet *cursor;
-    for(cursor = first; cursor != NULL; cursor = cursor->next) {
+    for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
         for(int i = 0; i < ballNumber; i++) {
             int a_square = pow(abs((int)cursor->xpos - (int)Balls[i].xpos), 2);
             int b_square = pow(abs((int)cursor->ypos - (int)Balls[i].ypos), 2);
