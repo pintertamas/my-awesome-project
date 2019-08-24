@@ -25,8 +25,8 @@ void spawnBullets () {
     double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
 
 
-    if(IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= delay) {
-        printf("%f\n", (double)(clock() - shoot));
+    if(IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay) {
+        //printf("%f\n", (double)(clock() - shoot));
         shoot = clock();
 
         for(int i = 0; i < bulletCount; i++) {

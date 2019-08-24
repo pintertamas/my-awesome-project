@@ -22,8 +22,8 @@ typedef struct Ship{
 
 Ship ship;
 
-Image textures[2];
-Texture2D shipTexture, menuTexture;
+Image textures[4];
+Texture2D shipTexture, menuTexture, startButton_simple, startButton_clicked;
 extern int shipSpeed;                                                                                                   //the speed of the ship
 
 typedef struct Ball{
@@ -55,7 +55,7 @@ typedef struct Bullet{
 extern Bullet *bullets;
 
 extern clock_t shoot;
-extern int delay;
+extern int shootDelay;
 extern int bulletCount;                                                                                                 //number of bullets in one row
 extern int bulletRadius;                                                                                                //size of the bullets
 extern int bulletSpeed;                                                                                                 //the speed of the bullets

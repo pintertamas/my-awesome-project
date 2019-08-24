@@ -9,9 +9,8 @@
 int main(void)
 {
     menu();
-    /*
     //----------------------------------------------------------                                                        // Initialization
-    InitWindow(screenWidth, screenHeight, "My Awesome Game");
+    /*InitWindow(screenWidth, screenHeight, "My Awesome Game");
 
     SetTargetFPS(60);
 
