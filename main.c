@@ -10,7 +10,7 @@ int main(void)
 {
     menu();
     //----------------------------------------------------------                                                        // Initialization
-    /*InitWindow(screenWidth, screenHeight, "My Awesome Game");
+    InitWindow(screenWidth, screenHeight, "My Awesome Game");
 
     SetTargetFPS(60);
 
@@ -37,6 +37,7 @@ int main(void)
 
         //-----------------------------------------------------
         BeginDrawing();
+        renderBackground();
         ClearBackground(LIGHTGRAY);
         DrawFPS(10, 10);
         EndDrawing();
@@ -49,6 +50,5 @@ int main(void)
     //freeList(bullets);
     CloseWindow();                                                                                                      // Close window and OpenGL context
     //---------------------------------------------------------
-*/
     return 0;
 }

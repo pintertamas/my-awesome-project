@@ -3,7 +3,7 @@
 void loadMenu () {
     textures[1] = LoadImage("Textures/background_blank.png");                                                  // Loaded in CPU memory (RAM)
     ImageFormat(&textures[1], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    menuTexture = LoadTextureFromImage(textures[1]);                                                             // Image converted to texture, GPU memory (VRAM)
+    menuBackground = LoadTextureFromImage(textures[1]);                                                             // Image converted to texture, GPU memory (VRAM)
 
     textures[2] = LoadImage("Textures/startButton_simple.png");                                                // Loaded in CPU memory (RAM)
     ImageFormat(&textures[2], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
@@ -12,6 +12,10 @@ void loadMenu () {
     textures[3] = LoadImage("Textures/startButton_clicked.png");                                               // Loaded in CPU memory (RAM)
     ImageFormat(&textures[3], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     startButton_clicked = LoadTextureFromImage(textures[3]);                                                     // Image converted to texture, GPU memory (VRAM)
+
+    textures[4] = LoadImage("Textures/background_mountain.png");                                               // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[4], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    background_mountain = LoadTextureFromImage(textures[4]);                                                     // Image converted to texture, GPU memory (VRAM)
 
 }
 
@@ -31,7 +35,7 @@ void renderMenu () {
         BACKGROUND_COLOR.b++;
     }
 
-    DrawTexture(menuTexture, 0, 0, WHITE);
+    DrawTexture(menuBackground, 0, 0, WHITE);
 }
 
 bool isOverButton (int x, int y, int w, int h) {
@@ -46,7 +50,7 @@ bool isOverButton (int x, int y, int w, int h) {
 }
 
 void buttonClick () {
-    if(isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight) && IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
+    if(isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(startButton_clicked, startButtonX, startButtonY, WHITE);
         startTime = clock();
     }
@@ -56,16 +60,18 @@ void renderButtons () {
     DrawTexture(startButton_simple, startButtonX, startButtonY, WHITE);
 
     int timeDiff = clock() - startTime;
-    printf("%d\n", timeDiff);
-
+    printf("%ld\n", startTime);
+    if(startTime != 0) {
         if(timeDiff >= 0 && timeDiff < 1000)
             DrawText("3", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
         else if(timeDiff >= 1000 && timeDiff < 2000)
             DrawText("2", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
-        else if(timeDiff >= 2000 && timeDiff < 3000) {
+        else if(timeDiff >= 2000 && timeDiff < 3000)
             DrawText("1", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
-            //CloseWindow();
-        }
+        else if(timeDiff >= 3000 && timeDiff < 5000)
+            DrawText("LET'S GO", menu_screenWidth / 2 - 150, menu_screenHeight / 3, 60, BLACK);
+        else CloseWindow();
+    }
 }
 
 void menu () {
