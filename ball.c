@@ -2,10 +2,17 @@
 
 void setupBalls() {
     Balls = (Ball *) malloc(ballNumber * sizeof(Ball));
+    int difficultyBalance;
+
+    if(ballNumber % 2 == 0)
+        difficultyBalance = ballNumber / 2;
+    else
+        difficultyBalance = (ballNumber + 1) / 2;
 
     for(int i=0; i<ballNumber; i++) {
         Balls[i].visible = true;
-        int size = GetRandomValue(1,5);
+
+        int size = GetRandomValue(1, difficultyBalance);
         switch(size) {
             case 1:
                 Balls[i].radius = 20;

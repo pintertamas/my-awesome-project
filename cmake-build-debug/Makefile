@@ -311,6 +311,33 @@ menu.c.s:
 	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/menu.c.s
 .PHONY : menu.c.s
 
+settings.obj: settings.c.obj
+
+.PHONY : settings.obj
+
+# target to build an object file
+settings.c.obj:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/settings.c.obj
+.PHONY : settings.c.obj
+
+settings.i: settings.c.i
+
+.PHONY : settings.i
+
+# target to preprocess a source file
+settings.c.i:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/settings.c.i
+.PHONY : settings.c.i
+
+settings.s: settings.c.s
+
+.PHONY : settings.s
+
+# target to generate assembly for a file
+settings.c.s:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/settings.c.s
+.PHONY : settings.c.s
+
 ship.obj: ship.c.obj
 
 .PHONY : ship.obj
@@ -368,6 +395,9 @@ help:
 	@echo ... menu.obj
 	@echo ... menu.i
 	@echo ... menu.s
+	@echo ... settings.obj
+	@echo ... settings.i
+	@echo ... settings.s
 	@echo ... ship.obj
 	@echo ... ship.i
 	@echo ... ship.s
