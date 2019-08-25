@@ -77,14 +77,21 @@ void loadImage(){
     ImageFormat(&textures[2], UNCOMPRESSED_R8G8B8A8);
     background_mountain = LoadTextureFromImage(textures[2]);
 
-    textures[22] = LoadImage("Textures/backgrounds/background_mountain.png");
+    textures[22] = LoadImage("Textures/backgrounds/background_japan.png");
     ImageFormat(&textures[22], UNCOMPRESSED_R8G8B8A8);
-    background_mountain = LoadTextureFromImage(textures[22]);
+    background_japan = LoadTextureFromImage(textures[22]);
 
-    textures[23] = LoadImage("Textures/backgrounds/background_mountain.png");
+    textures[23] = LoadImage("Textures/backgrounds/background_spacen.png");
     ImageFormat(&textures[23], UNCOMPRESSED_R8G8B8A8);
-    background_mountain = LoadTextureFromImage(textures[23]);
+    background_space = LoadTextureFromImage(textures[23]);
 
+    textures[24] = LoadImage("Textures/thumbnails/frame_selected.png");
+    ImageFormat(&textures[24], UNCOMPRESSED_R8G8B8A8);
+    frame_selected = LoadTextureFromImage(textures[24]);
+
+    textures[25] = LoadImage("Textures/thumbnails/frame_unselected.png");
+    ImageFormat(&textures[25], UNCOMPRESSED_R8G8B8A8);
+    frame_unselected = LoadTextureFromImage(textures[25]);
 }
 
 void renderBackground () {
