@@ -73,11 +73,11 @@ void loadMenuImages () {
     ImageFormat(&textures[20], UNCOMPRESSED_R8G8B8A8);
     settingsLogo = LoadTextureFromImage(textures[20]);
 
-    textures[26] = LoadImage("Textures/japan_small.png");
+    textures[26] = LoadImage("Textures/thumbnails/japan_small.png");
     ImageFormat(&textures[26], UNCOMPRESSED_R8G8B8A8);
     japan_small = LoadTextureFromImage(textures[26]);
 
-    textures[27] = LoadImage("Textures/space_small.png");
+    textures[27] = LoadImage("Textures/thumbnails/space_small.png");
     ImageFormat(&textures[27], UNCOMPRESSED_R8G8B8A8);
     space_small = LoadTextureFromImage(textures[27]);
 }
