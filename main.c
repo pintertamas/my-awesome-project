@@ -22,6 +22,7 @@ int main(void)
     shoot = clock();
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
+    background = BACKGROUND_UNSET;
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
