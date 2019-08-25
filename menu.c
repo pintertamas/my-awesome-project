@@ -29,6 +29,19 @@ void loadMenuImages () {
     ImageFormat(&textures[8], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     scoresButton_clicked = LoadTextureFromImage(textures[8]);                                                    // Image converted to texture, GPU memory (VRAM)
 
+    textures[10] = LoadImage("Textures/easyMode.png");                                              // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[10], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    easyMode = LoadTextureFromImage(textures[10]);                                                    // Image converted to texture, GPU memory (VRAM)
+
+    textures[11] = LoadImage("Textures/mediumMode.png");                                              // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[11], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    mediumMode = LoadTextureFromImage(textures[11]);                                                    // Image converted to texture, GPU memory (VRAM)
+
+    textures[12] = LoadImage("Textures/hardMode.png");                                              // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[12], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    hardMode = LoadTextureFromImage(textures[12]);                                                    // Image converted to texture, GPU memory (VRAM)
+
+
 }
 
 void renderMenu () {
