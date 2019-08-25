@@ -27,7 +27,7 @@ void settingsButtonClick () {
 void renderSettings () {
 
     DrawText("SETTINGS", menu_screenWidth / 2 - 200, 10, buttonHeight, LIGHTGRAY);
-    DrawTexture(backButton, );
+    DrawTexture(backButton_simple, );
 
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:
