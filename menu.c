@@ -68,6 +68,10 @@ void loadMenuImages () {
     textures[19] = LoadImage("Textures/buttons/backButton_clicked.png");
     ImageFormat(&textures[19], UNCOMPRESSED_R8G8B8A8);
     backButton_clicked = LoadTextureFromImage(textures[19]);
+
+    textures[20] = LoadImage("Textures/settingsLogo.png");
+    ImageFormat(&textures[20], UNCOMPRESSED_R8G8B8A8);
+    settingsLogo = LoadTextureFromImage(textures[20]);
 }
 
 void renderMenu () {
@@ -98,7 +102,7 @@ bool isOverButton (int x, int y, int w, int h) {
 }
 
 void menuButtonClick () {
-    if(isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    if((isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) || IsKeyPressed(KEY_ENTER)) {
         DrawTexture(startButton_clicked, startButtonX, startButtonY, WHITE);
         startTime = clock();
     }

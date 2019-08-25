@@ -141,3 +141,11 @@ void isBallAlive() {
             Balls[i].visible = false;
     }
 }
+
+bool IsThereAnyBall () {
+    for(int i = 0; i < ballNumber; i++) {
+        if(Balls[i].visible)
+            return true;
+    }
+    return false;
+}

@@ -29,7 +29,7 @@ void settingsButtonClick () {
 
 void renderSettings () {
 
-    DrawText("SETTINGS", menu_screenWidth / 2 - 200, 10, buttonHeight, LIGHTGRAY);
+    DrawTexture(settingsLogo, menu_screenWidth / 2 - 440 / 2, 30, WHITE);
     DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
 
     switch (gameDifficulty) {
@@ -59,7 +59,7 @@ void renderSettings () {
 void settings () {
 
     backButtonX = buttonHeight / 4;
-    backButtonY =buttonHeight / 4;
+    backButtonY = buttonHeight / 4;
     easyButtonX = buttonWidth / 2;
     easyButtonY = buttonHeight + buttonHeight / 2;
     mediumButtonX = menu_screenWidth / 2 - buttonWidth / 2;
@@ -86,6 +86,7 @@ void settings () {
 
     if(IsKeyDown(KEY_BACKSPACE) && gameState != DIFFICULTY_UNSET)
         gameState = MENU;
+
 
 
 

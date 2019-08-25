@@ -22,7 +22,8 @@ int main(void)
     shoot = clock();
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
-    background = BACKGROUND_UNSET;
+    background = MOUNTAINS;
+    Color settingsBackground = {0,190,255};
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
@@ -40,12 +41,12 @@ int main(void)
                 SetWindowPosition(resolutionX / 2 - screenWidth / 2, (resolutionY - screenHeight) / 2);
                 game();
                 ClearBackground(BACKGROUND_COLOR);
+                DrawFPS(10, 10);
                 break;
             case SETTINGS:
                 EnableCursor();
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
-                Color settingsBackground = {0,190,255};
                 ClearBackground(settingsBackground);
                 settings();
                 break;
@@ -54,10 +55,16 @@ int main(void)
                 SetWindowSize(screenWidth, screenHeight);
                 ClearBackground(BACKGROUND_COLOR);
                 //scores();
+                break;
+            case END:
+                EnableCursor();
+                SetWindowSize(screenWidth, screenHeight);
+                ClearBackground(BACKGROUND_COLOR);
+                endOfGame();
+                break;
         }
         //-----------------------------------------------------
         BeginDrawing();
-        DrawFPS(10, 10);
         EndDrawing();
         //-----------------------------------------------------
     }

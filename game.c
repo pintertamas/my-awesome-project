@@ -2,6 +2,7 @@
 #include "ball.h"
 #include "bullet.h"
 #include "ship.h"
+#include "settings.h"
 
 bool ShipBallCollision (){
     for (int i = 0; i < ballNumber; i++) {
@@ -77,6 +78,11 @@ void renderBackground () {
     DrawTexture(background_mountain, 0, 0, WHITE);
 }
 
+void endOfGame () {
+    DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
+
+}
+
 void game () {
     renderBackground();
 
@@ -93,4 +99,7 @@ void game () {
     renderBullets();
 
     isBallAlive();
+
+    if(!IsThereAnyBall())
+        gameState = END;
 }

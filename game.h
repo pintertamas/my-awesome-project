@@ -6,6 +6,7 @@
 void game ();
 bool ShipBallCollision ();
 void BulletBallCollision ();
+void endOfGame ();
 void pauseGame ();
 void resumeGame ();
 void loadImage ();

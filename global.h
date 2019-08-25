@@ -21,7 +21,7 @@ extern int menu_screenHeight;
 extern Color BACKGROUND_COLOR;
 
 typedef enum state {
-    MENU, GAME, SETTINGS, SCORES
+    MENU, GAME, SETTINGS, SCORES, END
 }state;
 
 state gameState;
@@ -48,12 +48,12 @@ typedef struct Ship{
 
 Ship ship;
 
-Image textures[20];
+Image textures[21];
 Texture2D   shipTexture, bulletTexture,
             menuBackground, background_mountain, baackground_mountains,
             mountains_small, mountain_small,
             startButton_simple, startButton_clicked,
-            settingsButton_simple, settingsButton_clicked,
+            settingsButton_simple, settingsButton_clicked, settingsLogo,
             scoresButton_simple, scoresButton_clicked,
             backButton_simple, backButton_clicked,
             easyMode, easyMode_selected, mediumMode, mediumMode_selected, hardMode, hardMode_selected;
