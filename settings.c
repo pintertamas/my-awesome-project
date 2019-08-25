@@ -14,20 +14,23 @@ void settingsButtonClick () {
         else {
             gameDifficulty = MEDIUM;
         }
-
     }
     if (isOverButton(hardButtonX, hardButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if(gameDifficulty == HARD)
             gameDifficulty = DIFFICULTY_UNSET;
         else
-        gameDifficulty = HARD;
+            gameDifficulty = HARD;
+    }
+    if (isOverButton(backButtonX, backButtonY, buttonWidth / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        DrawTexture(backButton_clicked, backButtonX, backButtonY, WHITE);
+        gameState = MENU;
     }
 }
 
 void renderSettings () {
 
     DrawText("SETTINGS", menu_screenWidth / 2 - 200, 10, buttonHeight, LIGHTGRAY);
-    DrawTexture(backButton_simple, );
+    DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
 
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:

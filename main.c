@@ -45,7 +45,8 @@ int main(void)
                 EnableCursor();
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
-                ClearBackground(SKYBLUE);
+                Color settingsBackground = {0,190,255};
+                ClearBackground(settingsBackground);
                 settings();
                 break;
             case SCORES:
