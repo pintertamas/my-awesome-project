@@ -27,6 +27,7 @@ void settingsButtonClick () {
 void renderSettings () {
 
     DrawText("SETTINGS", menu_screenWidth / 2 - 200, 10, buttonHeight, LIGHTGRAY);
+    DrawTexture(backButton, );
 
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:
@@ -53,6 +54,9 @@ void renderSettings () {
 }
 
 void settings () {
+
+    backButtonX = buttonHeight / 4;
+    backButtonY =buttonHeight / 4;
     easyButtonX = buttonWidth / 2;
     easyButtonY = buttonHeight + buttonHeight / 2;
     mediumButtonX = menu_screenWidth / 2 - buttonWidth / 2;

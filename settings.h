@@ -9,5 +9,7 @@ int mediumButtonX;
 int mediumButtonY;
 int hardButtonX;
 int hardButtonY;
+int backButtonX;
+int backButtonY;
 
 #endif //MY_AWESOME_PROJECT_SETTINGS_H

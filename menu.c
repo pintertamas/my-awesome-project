@@ -1,65 +1,73 @@
 #include "menu.h"
 
 void loadMenuImages () {
-    textures[1] = LoadImage("Textures/backgrounds/background_blank.png");                                      // Loaded in CPU memory (RAM)
-    ImageFormat(&textures[1], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    menuBackground = LoadTextureFromImage(textures[1]);                                                          // Image converted to texture, GPU memory (VRAM)
+    textures[3] = LoadImage("Textures/backgrounds/background_blank.png");                                      // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[3], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    menuBackground = LoadTextureFromImage(textures[3]);                                                          // Image converted to texture, GPU memory (VRAM)
 
-    textures[2] = LoadImage("Textures/buttons/startButton_simple.png");
-    ImageFormat(&textures[2], UNCOMPRESSED_R8G8B8A8);
-    startButton_simple = LoadTextureFromImage(textures[2]);
-
-    textures[3] = LoadImage("Textures/buttons/startButton_clicked.png");
-    ImageFormat(&textures[3], UNCOMPRESSED_R8G8B8A8);
-    startButton_clicked = LoadTextureFromImage(textures[3]);
-
-    textures[4] = LoadImage("Textures/buttons/settingsButton_simple.png");
+    textures[4] = LoadImage("Textures/buttons/startButton_simple.png");
     ImageFormat(&textures[4], UNCOMPRESSED_R8G8B8A8);
-    settingsButton_simple = LoadTextureFromImage(textures[4]);
+    startButton_simple = LoadTextureFromImage(textures[4]);
 
-    textures[5] = LoadImage("Textures/buttons/settingsButton_clicked.png");
+    textures[5] = LoadImage("Textures/buttons/startButton_clicked.png");
     ImageFormat(&textures[5], UNCOMPRESSED_R8G8B8A8);
-    settingsButton_clicked = LoadTextureFromImage(textures[5]);
+    startButton_clicked = LoadTextureFromImage(textures[5]);
 
-    textures[6] = LoadImage("Textures/buttons/scoresButton_simple.png");
+    textures[6] = LoadImage("Textures/buttons/settingsButton_simple.png");
     ImageFormat(&textures[6], UNCOMPRESSED_R8G8B8A8);
-    scoresButton_simple = LoadTextureFromImage(textures[6]);
+    settingsButton_simple = LoadTextureFromImage(textures[6]);
 
-    textures[7] = LoadImage("Textures/buttons/scoresButton_clicked.png");
+    textures[7] = LoadImage("Textures/buttons/settingsButton_clicked.png");
     ImageFormat(&textures[7], UNCOMPRESSED_R8G8B8A8);
-    scoresButton_clicked = LoadTextureFromImage(textures[7]);
+    settingsButton_clicked = LoadTextureFromImage(textures[7]);
 
-    textures[8] = LoadImage("Textures/buttons/easyMode.png");
+    textures[8] = LoadImage("Textures/buttons/scoresButton_simple.png");
     ImageFormat(&textures[8], UNCOMPRESSED_R8G8B8A8);
-    easyMode = LoadTextureFromImage(textures[8]);
+    scoresButton_simple = LoadTextureFromImage(textures[8]);
 
-    textures[9] = LoadImage("Textures/buttons/mediumMode.png");
+    textures[9] = LoadImage("Textures/buttons/scoresButton_clicked.png");
     ImageFormat(&textures[9], UNCOMPRESSED_R8G8B8A8);
-    mediumMode = LoadTextureFromImage(textures[9]);
+    scoresButton_clicked = LoadTextureFromImage(textures[9]);
 
-    textures[10] = LoadImage("Textures/buttons/hardMode.png");
+    textures[10] = LoadImage("Textures/buttons/easyMode.png");
     ImageFormat(&textures[10], UNCOMPRESSED_R8G8B8A8);
-    hardMode = LoadTextureFromImage(textures[10]);
+    easyMode = LoadTextureFromImage(textures[10]);
 
-    textures[11] = LoadImage("Textures/buttons/easyMode_selected.png");
+    textures[11] = LoadImage("Textures/buttons/mediumMode.png");
     ImageFormat(&textures[11], UNCOMPRESSED_R8G8B8A8);
-    easyMode_selected = LoadTextureFromImage(textures[11]);
+    mediumMode = LoadTextureFromImage(textures[11]);
 
-    textures[12] = LoadImage("Textures/buttons/mediumMode_selected.png");
+    textures[12] = LoadImage("Textures/buttons/hardMode.png");
     ImageFormat(&textures[12], UNCOMPRESSED_R8G8B8A8);
-    mediumMode_selected = LoadTextureFromImage(textures[12]);
+    hardMode = LoadTextureFromImage(textures[12]);
 
-    textures[13] = LoadImage("Textures/buttons/hardMode_selected.png");
+    textures[13] = LoadImage("Textures/buttons/easyMode_selected.png");
     ImageFormat(&textures[13], UNCOMPRESSED_R8G8B8A8);
-    hardMode_selected = LoadTextureFromImage(textures[13]);
+    easyMode_selected = LoadTextureFromImage(textures[13]);
 
-    textures[14] = LoadImage("Textures/thumbnails/mountains_small.png");
+    textures[14] = LoadImage("Textures/buttons/mediumMode_selected.png");
     ImageFormat(&textures[14], UNCOMPRESSED_R8G8B8A8);
-    mountains_small = LoadTextureFromImage(textures[14]);
+    mediumMode_selected = LoadTextureFromImage(textures[14]);
 
-    textures[15] = LoadImage("Textures/thumbnails/mountain_small.png");
+    textures[15] = LoadImage("Textures/buttons/hardMode_selected.png");
     ImageFormat(&textures[15], UNCOMPRESSED_R8G8B8A8);
-    mountain_small = LoadTextureFromImage(textures[15]);
+    hardMode_selected = LoadTextureFromImage(textures[15]);
+
+    textures[16] = LoadImage("Textures/thumbnails/mountains_small.png");
+    ImageFormat(&textures[16], UNCOMPRESSED_R8G8B8A8);
+    mountains_small = LoadTextureFromImage(textures[16]);
+
+    textures[17] = LoadImage("Textures/thumbnails/mountain_small.png");
+    ImageFormat(&textures[17], UNCOMPRESSED_R8G8B8A8);
+    mountain_small = LoadTextureFromImage(textures[17]);
+
+    textures[18] = LoadImage("Textures/buttons/backButton_simple.png");
+    ImageFormat(&textures[18], UNCOMPRESSED_R8G8B8A8);
+    backButton_simple = LoadTextureFromImage(textures[18]);
+
+    textures[19] = LoadImage("Textures/buttons/backButton_clicked.png");
+    ImageFormat(&textures[19], UNCOMPRESSED_R8G8B8A8);
+    backButton_clicked = LoadTextureFromImage(textures[19]);
 }
 
 void renderMenu () {
