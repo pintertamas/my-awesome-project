@@ -95,8 +95,8 @@ void settings () {
     hardButtonX = menu_screenWidth - buttonWidth - buttonWidth / 2;
     hardButtonY = buttonHeight + buttonHeight / 2;
 
-    frameWidth = 153;
-    frameHeight = 220;
+    thumbnailWidth = 200;
+    thumbnailHeight = 133;
     mountainThumbX = ;
     mountainThumbY = ;
     mountainsThumbX = ;
@@ -105,9 +105,6 @@ void settings () {
     japanThumbY = ;
     spaceThumbX = ;
     spaceThumbY = ;
-
-    thumbnailWidth = 200;
-    thumbnailHeight = 133;
 
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:
