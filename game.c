@@ -77,10 +77,34 @@ void loadImage(){
     ImageFormat(&textures[2], UNCOMPRESSED_R8G8B8A8);
     background_mountain = LoadTextureFromImage(textures[2]);
 
+    textures[22] = LoadImage("Textures/backgrounds/background_mountain.png");
+    ImageFormat(&textures[22], UNCOMPRESSED_R8G8B8A8);
+    background_mountain = LoadTextureFromImage(textures[22]);
+
+    textures[23] = LoadImage("Textures/backgrounds/background_mountain.png");
+    ImageFormat(&textures[23], UNCOMPRESSED_R8G8B8A8);
+    background_mountain = LoadTextureFromImage(textures[23]);
+
 }
 
 void renderBackground () {
-    DrawTexture(background_mountain, 0, 0, WHITE);
+    switch (background) {
+        case BACKGROUND_UNSET:
+            DrawTexture(background_mountains, 0, 0, WHITE);
+            break;
+        case MOUNTAIN:
+            DrawTexture(background_mountain, 0, 0, WHITE);
+            break;
+        case MOUNTAINS:
+            DrawTexture(background_mountains, 0, 0, WHITE);
+            break;
+        case JAPAN:
+            DrawTexture(background_japan, 0, 0, WHITE);
+            break;
+        case SPACE:
+            DrawTexture(background_space, 0, 0, WHITE);
+            break;
+    }
 }
 
 void endOfGame () {

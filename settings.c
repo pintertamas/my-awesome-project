@@ -54,6 +54,20 @@ void renderSettings () {
             DrawTexture(hardMode_selected, hardButtonX, hardButtonY, WHITE);
             break;
     }
+
+    switch (background) {
+        case BACKGROUND_UNSET:
+
+            break;
+        case MOUNTAIN:
+            break;
+        case MOUNTAINS:
+            break;
+        case JAPAN:
+            break;
+        case SPACE:
+            break;
+    }
 }
 
 void settings () {
@@ -86,9 +100,6 @@ void settings () {
 
     if(IsKeyDown(KEY_BACKSPACE) && gameState != DIFFICULTY_UNSET)
         gameState = MENU;
-
-
-
 
     //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
 
