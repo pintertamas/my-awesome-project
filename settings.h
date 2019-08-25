@@ -11,5 +11,13 @@ int hardButtonX;
 int hardButtonY;
 int backButtonX;
 int backButtonY;
+int mountainFrameX;
+int mountainFrameY;
+int mountainsFrameX;
+int mountainsFrameY;
+int japanFrameX;
+int japanFrameY;
+int spaceFrameX;
+int spaceFrameY;
 
 #endif //MY_AWESOME_PROJECT_SETTINGS_H

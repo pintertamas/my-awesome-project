@@ -55,17 +55,25 @@ void renderSettings () {
             break;
     }
 
+    DrawTexture(frame_unselected, mountainFrameX, mountainFramey, WHITE);
+    DrawTexture(frame_unselected, mountainsFrameX, mountainsFrameY, WHITE);
+    DrawTexture(frame_unselected, japanFrameX, japanFrameY, WHITE);
+    DrawTexture(frame_unselected, spaceFrameX, spaceFrameY, WHITE);
+
     switch (background) {
         case BACKGROUND_UNSET:
-
             break;
         case MOUNTAIN:
+            DrawTexture(frame_selected, mountainFrameX, mountainFramey, WHITE);
             break;
         case MOUNTAINS:
+            DrawTexture(frame_selected, mountainsFrameX, mountainsFrameY, WHITE);
             break;
         case JAPAN:
+            DrawTexture(frame_selected, japanFrameX, japanFrameY, WHITE);
             break;
         case SPACE:
+            DrawTexture(frame_selected, spaceFrameX, spaceFrameY, WHITE);
             break;
     }
 }
@@ -80,6 +88,14 @@ void settings () {
     mediumButtonY = buttonHeight + buttonHeight / 2;
     hardButtonX = menu_screenWidth - buttonWidth - buttonWidth / 2;
     hardButtonY = buttonHeight + buttonHeight / 2;
+    mountainFrameX = ;
+    mountainFrameY = ;
+    mountainsFrameX = ;
+    mountainsFrameY = ;
+    japanFrameX = ;
+    japanFrameY = ;
+    spaceFrameX = ;
+    spaceFrameY = ;
 
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:
