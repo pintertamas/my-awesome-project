@@ -108,6 +108,8 @@ void menuButtonClick () {
     }
     if(isOverButton(settingsButtonX, settingsButtonY, buttonHeight / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(settingsButton_clicked, settingsButtonX, settingsButtonY, WHITE);
+
+        startTime = 0;
         gameState = SETTINGS;
     }
     if(isOverButton(scoresButtonX, scoresButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
@@ -132,6 +134,8 @@ void renderButtons () {
         else if(timeDiff >= 3000 && timeDiff < 4000)
             DrawText("LET'S GO", menu_screenWidth / 2 - 150, menu_screenHeight / 3, 60, BLACK);
         else {
+            startTime = 0;
+            roundStartTime = clock();
             gameState = GAME;
         }
     }

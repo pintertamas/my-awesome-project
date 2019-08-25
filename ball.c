@@ -9,7 +9,7 @@ void setupBalls() {
     else
         difficultyBalance = (ballNumber + 1) / 2;
 
-    for(int i=0; i<ballNumber; i++) {
+    for(int i = 0; i < ballNumber; i++) {
         Balls[i].visible = true;
 
         int size = GetRandomValue(1, difficultyBalance);
