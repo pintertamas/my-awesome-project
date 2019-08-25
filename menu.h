@@ -6,6 +6,7 @@
 void menu ();
 void renderMenu ();
 void loadMenuImages ();
+Font font;
 clock_t startTime;
 clock_t roundStartTime;
 bool isOverButton ();

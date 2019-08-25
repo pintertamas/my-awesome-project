@@ -17,6 +17,7 @@ int main(void)
 
     loadImage();
     loadMenuImages();
+    font = LoadFont("Textures/font.ttf");
     setupBalls();
     setupShip();
     shoot = clock();
@@ -68,7 +69,6 @@ int main(void)
         EndDrawing();
         //-----------------------------------------------------
     }
-
     //---------------------------------------------------------
     //freeBalls();
 

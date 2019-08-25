@@ -73,6 +73,10 @@ void loadImage(){
     ImageFormat(&textures[2], UNCOMPRESSED_R8G8B8A8);
     background_mountain = LoadTextureFromImage(textures[2]);
 
+    textures[21] = LoadImage("Textures/backgrounds/background_mountain.png");
+    ImageFormat(&textures[2], UNCOMPRESSED_R8G8B8A8);
+    background_mountain = LoadTextureFromImage(textures[2]);
+
 }
 
 void renderBackground () {
@@ -81,6 +85,7 @@ void renderBackground () {
 
 void endOfGame () {
     DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
+
     if (isOverButton(backButtonX, backButtonY, buttonWidth / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(backButton_clicked, backButtonX, backButtonY, WHITE);
         startTime = 0;
