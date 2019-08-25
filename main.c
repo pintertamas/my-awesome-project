@@ -23,7 +23,7 @@ int main(void)
     shoot = clock();
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
-    background = MOUNTAINS;
+    background = BACKGROUND_UNSET;
     Color settingsBackground = {0,190,255};
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key

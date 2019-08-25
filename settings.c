@@ -33,7 +33,7 @@ void settingsButtonClick () {
     }
     if (isOverButton(mountainsThumbX, mountainsThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if (background == MOUNTAINS)
-            background = BACKGROUND_UNSET;
+            printf("mountains\n");//background = BACKGROUND_UNSET;
         else
             background= MOUNTAINS;
     }
@@ -56,25 +56,20 @@ void renderSettings () {
     DrawTexture(settingsLogo, menu_screenWidth / 2 - 440 / 2, 30, WHITE);
     DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
 
+    DrawTexture(easyMode, easyButtonX, easyButtonY, WHITE);
+    DrawTexture(mediumMode, mediumButtonX, mediumButtonY, WHITE);
+    DrawTexture(hardMode, hardButtonX, hardButtonY, WHITE);
+
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:
-            DrawTexture(easyMode, easyButtonX, easyButtonY, WHITE);
-            DrawTexture(mediumMode, mediumButtonX, mediumButtonY, WHITE);
-            DrawTexture(hardMode, hardButtonX, hardButtonY, WHITE);
             break;
         case EASY:
             DrawTexture(easyMode_selected, easyButtonX, easyButtonY, WHITE);
-            DrawTexture(mediumMode, mediumButtonX, mediumButtonY, WHITE);
-            DrawTexture(hardMode, hardButtonX, hardButtonY, WHITE);
             break;
         case MEDIUM:
-            DrawTexture(easyMode, easyButtonX, easyButtonY, WHITE);
             DrawTexture(mediumMode_selected, mediumButtonX, mediumButtonY, WHITE);
-            DrawTexture(hardMode, hardButtonX, hardButtonY, WHITE);
             break;
         case HARD:
-            DrawTexture(easyMode, easyButtonX, easyButtonY, WHITE);
-            DrawTexture(mediumMode, mediumButtonX, mediumButtonY, WHITE);
             DrawTexture(hardMode_selected, hardButtonX, hardButtonY, WHITE);
             break;
     }
