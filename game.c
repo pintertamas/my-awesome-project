@@ -59,17 +59,17 @@ void resumeGame () {
 }
 
 void loadImage(){
-    textures[0] = LoadImage("Textures/spaceShip.png");                                                              // Loaded in CPU memory (RAM)
-    ImageFormat(&textures[0], UNCOMPRESSED_R8G8B8A8);                                                         // Format image to RGBA 32bit (required for texture update)
+    textures[0] = LoadImage("Textures/spaceShip.png");                                                         // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[0], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     shipTexture = LoadTextureFromImage(textures[0]);                                                             // Image converted to texture, GPU memory (VRAM)
 
-    textures[4] = LoadImage("Textures/backgrounds/background_mountains.png");                                               // Loaded in CPU memory (RAM)
-    ImageFormat(&textures[4], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    background_mountain = LoadTextureFromImage(textures[4]);                                                     // Image converted to texture, GPU memory (VRAM)
+    textures[16] = LoadImage("Textures/backgrounds/background_mountains.png");
+    ImageFormat(&textures[16], UNCOMPRESSED_R8G8B8A8);
+    background_mountain = LoadTextureFromImage(textures[16]);
 
-    textures[9] = LoadImage("Textures/bullet.png");                                               // Loaded in CPU memory (RAM)
-    ImageFormat(&textures[9], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    bulletTexture = LoadTextureFromImage(textures[9]);                                                     // Image converted to texture, GPU memory (VRAM)
+    textures[17] = LoadImage("Textures/bullet.png");
+    ImageFormat(&textures[17], UNCOMPRESSED_R8G8B8A8);
+    bulletTexture = LoadTextureFromImage(textures[17]);
 
 }
 

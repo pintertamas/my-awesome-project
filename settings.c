@@ -7,21 +7,20 @@ void settingsButtonClick () {
             gameDifficulty = UNSET;
         else
         gameDifficulty = EASY;
-        printf("easy\n");
     }
     if (isOverButton(mediumButtonX, mediumButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if(gameDifficulty == MEDIUM)
             gameDifficulty = UNSET;
-        else
-        gameDifficulty = MEDIUM;
-        printf("medium\n");
+        else {
+            gameDifficulty = MEDIUM;
+        }
+
     }
     if (isOverButton(hardButtonX, hardButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if(gameDifficulty == HARD)
             gameDifficulty = UNSET;
         else
         gameDifficulty = HARD;
-        printf("hard\n");
     }
 }
 
@@ -60,6 +59,28 @@ void settings () {
     mediumButtonY = buttonHeight + buttonHeight / 2;
     hardButtonX = menu_screenWidth - buttonWidth - buttonWidth / 2;
     hardButtonY = buttonHeight + buttonHeight / 2;
+
+    switch (gameDifficulty) {
+        case UNSET:
+            break;
+        case EASY:
+            ballNumber = 3;
+            bulletCount = 1;
+            break;
+        case MEDIUM:
+            ballNumber = 5;
+            bulletCount = 3;
+            break;
+        case HARD:
+            ballNumber = 8;
+            bulletCount = 5;
+            break;
+    }
+
+    if(IsKeyDown(KEY_BACKSPACE))
+        gameState = MENU;
+
+
 
     //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
 
