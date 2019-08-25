@@ -110,7 +110,7 @@ void renderButtons () {
 
     int timeDiff = clock() - startTime;
     //printf("%ld\n", startTime);
-    if(startTime != 0) {
+    if(startTime != 0 && gameDifficulty != UNSET) {
         if(timeDiff >= 0 && timeDiff < 1000)
             DrawText("3", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
         else if(timeDiff >= 1000 && timeDiff < 2000)
@@ -123,9 +123,14 @@ void renderButtons () {
             gameState = GAME;
         }
     }
+    if(startTime != 0 && gameDifficulty == UNSET)
+        if(timeDiff <= 1000)
+            DrawText("SELECT DIFFICULTY FIRST!", menu_screenWidth / 2 - 75, scoresButtonY + buttonHeight + 20, 10, BLACK);
 }
 
 void menu () {
+
+    //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
 
     startButtonX = menu_screenWidth / 2 - buttonWidth / 2;
     startButtonY = buttonHeight / 4;

@@ -77,7 +77,7 @@ void settings () {
             break;
     }
 
-    if(IsKeyDown(KEY_BACKSPACE))
+    if(IsKeyDown(KEY_BACKSPACE) && gameState != UNSET)
         gameState = MENU;
 
 
