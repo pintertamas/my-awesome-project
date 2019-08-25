@@ -82,13 +82,14 @@ bool isOverButton (int x, int y, int w, int h) {
         return false;
 }
 
-void buttonClick () {
+void menuButtonClick () {
     if(isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(startButton_clicked, startButtonX, startButtonY, WHITE);
         startTime = clock();
     }
     if(isOverButton(settingsButtonX, settingsButtonY, buttonHeight / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(settingsButton_clicked, settingsButtonX, settingsButtonY, WHITE);
+        gameState = SETTINGS;
     }
     if(isOverButton(scoresButtonX, scoresButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(scoresButton_clicked, scoresButtonX, scoresButtonY, WHITE);
@@ -128,9 +129,7 @@ void menu () {
     settingsButtonX = menu_screenWidth - buttonHeight / 2 - buttonHeight / 4;
     settingsButtonY = buttonHeight / 4;
 
-    //DrawLine(menu_screenWidth / 2, 0, menu_screenWidth / 2, menu_screenHeight, PINK);
-
     renderMenu();
     renderButtons();
-    buttonClick();
+    menuButtonClick();
 }
