@@ -63,7 +63,7 @@ void buttonClick () {
         DrawTexture(startButton_clicked, startButtonX, startButtonY, WHITE);
         startTime = clock();
     }
-    if(isOverButton(settingsButtonX, settingsButtonY, buttonHeight, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    if(isOverButton(settingsButtonX, settingsButtonY, buttonHeight / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(settingsButton_clicked, settingsButtonX, settingsButtonY, WHITE);
     }
     if(isOverButton(scoresButtonX, scoresButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
@@ -102,8 +102,8 @@ void menu () {
     scoresButtonX = startButtonX;
     scoresButtonY = startButtonY + buttonHeight + buttonHeight / 6;
 
-    settingsButtonX = menu_screenWidth - 1.5 * buttonHeight;
-    settingsButtonY = .5 * buttonHeight;
+    settingsButtonX = menu_screenWidth - buttonHeight / 2 - buttonHeight / 4;
+    settingsButtonY = buttonHeight / 4;
 
     //DrawLine(menu_screenWidth / 2, 0, menu_screenWidth / 2, menu_screenHeight, PINK);
 

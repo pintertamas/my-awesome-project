@@ -67,6 +67,10 @@ void loadImage(){
     ImageFormat(&textures[4], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     background_mountain = LoadTextureFromImage(textures[4]);                                                     // Image converted to texture, GPU memory (VRAM)
 
+    textures[9] = LoadImage("Textures/bullet.png");                                               // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[9], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    bulletTexture = LoadTextureFromImage(textures[9]);                                                     // Image converted to texture, GPU memory (VRAM)
+
 }
 
 void renderBackground () {

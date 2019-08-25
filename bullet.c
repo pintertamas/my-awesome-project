@@ -52,7 +52,9 @@ void updateBullets () {
 void renderBullets () {
     Bullet *cursor;
     for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-        if(cursor->ypos >= bulletRadius)
-            DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
+        if(cursor->ypos >= bulletRadius) {
+            //DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
+            DrawTexture(bulletTexture, cursor->xpos, cursor->ypos, WHITE);
+        }
     }
 }

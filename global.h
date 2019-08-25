@@ -36,8 +36,8 @@ typedef struct Ship{
 
 Ship ship;
 
-Image textures[9];
-Texture2D   shipTexture, menuBackground, background_mountain,
+Image textures[10];
+Texture2D   shipTexture, bulletTexture, menuBackground, background_mountain,
             startButton_simple, startButton_clicked,
             settingsButton_simple, settingsButton_clicked,
             scoresButton_simple, scoresButton_clicked;
