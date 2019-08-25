@@ -26,15 +26,17 @@ typedef enum state {
 
 state gameState;
 
-typedef enum difficulty {
-    UNSET, EASY, MEDIUM, HARD
-}difficulty;
+typedef enum Difficulty {
+    DIFFICULTY_UNSET, EASY, MEDIUM, HARD
+}Difficulty;
 
-difficulty gameDifficulty;
+Difficulty gameDifficulty;
 
-typedef enum background {
-    MOUNTAINS, MOUNTAIN, SPACE, JAPAN
-}background;
+typedef enum Backgrounds {
+    BACKGROUND_UNSET, MOUNTAINS, MOUNTAIN, SPACE, JAPAN
+}Backgrounds;
+
+Backgrounds background;
 
 typedef struct Ship{
     double xpos;

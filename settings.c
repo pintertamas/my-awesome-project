@@ -4,13 +4,13 @@
 void settingsButtonClick () {
     if (isOverButton(easyButtonX, easyButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if(gameDifficulty == EASY)
-            gameDifficulty = UNSET;
+            gameDifficulty = DIFFICULTY_UNSET;
         else
         gameDifficulty = EASY;
     }
     if (isOverButton(mediumButtonX, mediumButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if(gameDifficulty == MEDIUM)
-            gameDifficulty = UNSET;
+            gameDifficulty = DIFFICULTY_UNSET;
         else {
             gameDifficulty = MEDIUM;
         }
@@ -18,7 +18,7 @@ void settingsButtonClick () {
     }
     if (isOverButton(hardButtonX, hardButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if(gameDifficulty == HARD)
-            gameDifficulty = UNSET;
+            gameDifficulty = DIFFICULTY_UNSET;
         else
         gameDifficulty = HARD;
     }
@@ -29,7 +29,7 @@ void renderSettings () {
     DrawText("SETTINGS", menu_screenWidth / 2 - 200, 10, buttonHeight, LIGHTGRAY);
 
     switch (gameDifficulty) {
-        case UNSET:
+        case DIFFICULTY_UNSET:
             DrawTexture(easyMode, easyButtonX, easyButtonY, WHITE);
             DrawTexture(mediumMode, mediumButtonX, mediumButtonY, WHITE);
             DrawTexture(hardMode, hardButtonX, hardButtonY, WHITE);
@@ -61,7 +61,7 @@ void settings () {
     hardButtonY = buttonHeight + buttonHeight / 2;
 
     switch (gameDifficulty) {
-        case UNSET:
+        case DIFFICULTY_UNSET:
             break;
         case EASY:
             ballNumber = 3;
@@ -77,7 +77,7 @@ void settings () {
             break;
     }
 
-    if(IsKeyDown(KEY_BACKSPACE) && gameState != UNSET)
+    if(IsKeyDown(KEY_BACKSPACE) && gameState != DIFFICULTY_UNSET)
         gameState = MENU;
 
 

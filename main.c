@@ -21,7 +21,7 @@ int main(void)
     setupShip();
     shoot = clock();
     gameState = MENU;
-    gameDifficulty = UNSET;
+    gameDifficulty = DIFFICULTY_UNSET;
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
