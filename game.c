@@ -63,7 +63,7 @@ void loadImage(){
     ImageFormat(&textures[0], UNCOMPRESSED_R8G8B8A8);                                                         // Format image to RGBA 32bit (required for texture update)
     shipTexture = LoadTextureFromImage(textures[0]);                                                             // Image converted to texture, GPU memory (VRAM)
 
-    textures[4] = LoadImage("Textures/background_mountains.png");                                               // Loaded in CPU memory (RAM)
+    textures[4] = LoadImage("Textures/backgrounds/background_mountains.png");                                               // Loaded in CPU memory (RAM)
     ImageFormat(&textures[4], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     background_mountain = LoadTextureFromImage(textures[4]);                                                     // Image converted to texture, GPU memory (VRAM)
 

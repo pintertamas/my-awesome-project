@@ -1,46 +1,57 @@
 #include "menu.h"
 
 void loadMenuImages () {
-    textures[1] = LoadImage("Textures/background_blank.png");                                                  // Loaded in CPU memory (RAM)
+    textures[1] = LoadImage("Textures/backgrounds/background_blank.png");                                                  // Loaded in CPU memory (RAM)
     ImageFormat(&textures[1], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     menuBackground = LoadTextureFromImage(textures[1]);                                                             // Image converted to texture, GPU memory (VRAM)
 
-    textures[2] = LoadImage("Textures/startButton_simple.png");                                                // Loaded in CPU memory (RAM)
+    textures[2] = LoadImage("Textures/buttons/startButton_simple.png");                                                // Loaded in CPU memory (RAM)
     ImageFormat(&textures[2], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     startButton_simple = LoadTextureFromImage(textures[2]);                                                      // Image converted to texture, GPU memory (VRAM)
 
-    textures[3] = LoadImage("Textures/startButton_clicked.png");                                               // Loaded in CPU memory (RAM)
+    textures[3] = LoadImage("Textures/buttons/startButton_clicked.png");                                               // Loaded in CPU memory (RAM)
     ImageFormat(&textures[3], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     startButton_clicked = LoadTextureFromImage(textures[3]);                                                     // Image converted to texture, GPU memory (VRAM)
 
-    textures[5] = LoadImage("Textures/settingsButton_simple.png");                                             // Loaded in CPU memory (RAM)
+    textures[5] = LoadImage("Textures/buttons/settingsButton_simple.png");                                             // Loaded in CPU memory (RAM)
     ImageFormat(&textures[5], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     settingsButton_simple = LoadTextureFromImage(textures[5]);                                                   // Image converted to texture, GPU memory (VRAM)
 
-    textures[6] = LoadImage("Textures/settingsButton_clicked.png");                                            // Loaded in CPU memory (RAM)
+    textures[6] = LoadImage("Textures/buttons/settingsButton_clicked.png");                                            // Loaded in CPU memory (RAM)
     ImageFormat(&textures[6], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     settingsButton_clicked = LoadTextureFromImage(textures[6]);                                                  // Image converted to texture, GPU memory (VRAM)
 
-    textures[7] = LoadImage("Textures/scoresButton_simple.png");                                               // Loaded in CPU memory (RAM)
+    textures[7] = LoadImage("Textures/buttons/scoresButton_simple.png");                                               // Loaded in CPU memory (RAM)
     ImageFormat(&textures[7], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     scoresButton_simple = LoadTextureFromImage(textures[7]);                                                     // Image converted to texture, GPU memory (VRAM)
 
-    textures[8] = LoadImage("Textures/scoresButton_clicked.png");                                              // Loaded in CPU memory (RAM)
+    textures[8] = LoadImage("Textures/buttons/scoresButton_clicked.png");                                              // Loaded in CPU memory (RAM)
     ImageFormat(&textures[8], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     scoresButton_clicked = LoadTextureFromImage(textures[8]);                                                    // Image converted to texture, GPU memory (VRAM)
 
-    textures[10] = LoadImage("Textures/easyMode.png");                                              // Loaded in CPU memory (RAM)
+    textures[10] = LoadImage("Textures/buttons/easyMode.png");                                              // Loaded in CPU memory (RAM)
     ImageFormat(&textures[10], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     easyMode = LoadTextureFromImage(textures[10]);                                                    // Image converted to texture, GPU memory (VRAM)
 
-    textures[11] = LoadImage("Textures/mediumMode.png");                                              // Loaded in CPU memory (RAM)
+    textures[11] = LoadImage("Textures/buttons/mediumMode.png");                                              // Loaded in CPU memory (RAM)
     ImageFormat(&textures[11], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     mediumMode = LoadTextureFromImage(textures[11]);                                                    // Image converted to texture, GPU memory (VRAM)
 
-    textures[12] = LoadImage("Textures/hardMode.png");                                              // Loaded in CPU memory (RAM)
+    textures[12] = LoadImage("Textures/buttons/hardMode.png");                                              // Loaded in CPU memory (RAM)
     ImageFormat(&textures[12], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     hardMode = LoadTextureFromImage(textures[12]);                                                    // Image converted to texture, GPU memory (VRAM)
 
+    textures[13] = LoadImage("Textures/buttons/easyMode_selected.png");                                              // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[13], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    easyMode_selected = LoadTextureFromImage(textures[13]);                                                    // Image converted to texture, GPU memory (VRAM)
+
+    textures[12] = LoadImage("Textures/buttons/mediumMode_selected.png");                                              // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[12], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    mediumMode_selected = LoadTextureFromImage(textures[12]);                                                    // Image converted to texture, GPU memory (VRAM)
+
+    textures[12] = LoadImage("Textures/buttons/hardMode_selected.png");                                              // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[12], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    hardMode_selected = LoadTextureFromImage(textures[12]);                                                    // Image converted to texture, GPU memory (VRAM)
 
 }
 
@@ -88,7 +99,6 @@ void renderButtons () {
     DrawTexture(startButton_simple, startButtonX, startButtonY, WHITE);
     DrawTexture(scoresButton_simple, scoresButtonX, scoresButtonY, WHITE);
     DrawTexture(settingsButton_simple, settingsButtonX, settingsButtonY, WHITE);
-
 
     int timeDiff = clock() - startTime;
     //printf("%ld\n", startTime);

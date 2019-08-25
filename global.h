@@ -26,6 +26,12 @@ typedef enum state {
 
 state gameState;
 
+typedef enum difficulty {
+    UNSET, EASY, MEDIUM, HARD
+}difficulty;
+
+difficulty gameDifficulty;
+
 typedef struct Ship{
     double xpos;
     double ypos;

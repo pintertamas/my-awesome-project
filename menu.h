@@ -7,6 +7,7 @@ void menu ();
 void renderMenu ();
 void loadMenuImages ();
 clock_t startTime;
+void isOverButton ();
 int startButtonX;
 int startButtonY;
 int settingsButtonX;

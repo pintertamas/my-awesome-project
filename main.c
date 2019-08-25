@@ -5,6 +5,7 @@
 #include "bullet.h"
 #include "coin.h"
 #include "menu.h"
+#include "settings.h"
 
 int main(void)
 {
@@ -20,6 +21,7 @@ int main(void)
     setupShip();
     shoot = clock();
     gameState = MENU;
+    gameDifficulty = UNSET;
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
@@ -40,7 +42,7 @@ int main(void)
                 EnableCursor();
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
-                //settings();
+                settings();
                 break;
             case SCORES:
                 EnableCursor();
