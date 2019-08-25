@@ -32,6 +32,10 @@ typedef enum difficulty {
 
 difficulty gameDifficulty;
 
+typedef enum background {
+    MOUNTAINS, MOUNTAIN, SPACE, JAPAN
+}background;
+
 typedef struct Ship{
     double xpos;
     double ypos;

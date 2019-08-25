@@ -31,12 +31,14 @@ int main(void)
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
                 menu();
+                ClearBackground(BACKGROUND_COLOR);
                 break;
             case GAME:
                 DisableCursor();
                 SetWindowSize(screenWidth, screenHeight);
                 SetWindowPosition(resolutionX / 2 - screenWidth / 2, (resolutionY - screenHeight) / 2);
                 game();
+                ClearBackground(BACKGROUND_COLOR);
                 break;
             case SETTINGS:
                 EnableCursor();
@@ -48,11 +50,11 @@ int main(void)
             case SCORES:
                 EnableCursor();
                 SetWindowSize(screenWidth, screenHeight);
-                
+                ClearBackground(BACKGROUND_COLOR);
+                //scores();
         }
         //-----------------------------------------------------
         BeginDrawing();
-        ClearBackground(BACKGROUND_COLOR);
         DrawFPS(10, 10);
         EndDrawing();
         //-----------------------------------------------------
