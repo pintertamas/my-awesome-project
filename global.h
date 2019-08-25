@@ -41,7 +41,10 @@ Texture2D   shipTexture, menuBackground, background_mountain,
             startButton_simple, startButton_clicked,
             settingsButton_simple, settingsButton_clicked,
             scoresButton_simple, scoresButton_clicked;
+
 extern int shipSpeed;                                                                                                   //the speed of the ship
+extern int buttonWidth;
+extern int buttonHeight;
 
 typedef struct Ball{
     double xpos;

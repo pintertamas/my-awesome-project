@@ -23,11 +23,11 @@ void loadMenuImages () {
 
     textures[7] = LoadImage("Textures/scoresButton_clicked.png");                                            // Loaded in CPU memory (RAM)
     ImageFormat(&textures[7], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    settingsButton_clicked = LoadTextureFromImage(textures[7]);                                                  // Image converted to texture, GPU memory (VRAM)
+    scoresButton_clicked = LoadTextureFromImage(textures[7]);                                                  // Image converted to texture, GPU memory (VRAM)
 
     textures[8] = LoadImage("Textures/scoresButton_clicked.png");                                            // Loaded in CPU memory (RAM)
     ImageFormat(&textures[8], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    settingsButton_clicked = LoadTextureFromImage(textures[8]);                                                  // Image converted to texture, GPU memory (VRAM)
+    scoresButton_clicked = LoadTextureFromImage(textures[8]);                                                  // Image converted to texture, GPU memory (VRAM)
 
 }
 
@@ -66,6 +66,9 @@ void buttonClick () {
     if(isOverButton(settingsButtonX, settingsButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(settingsButton_clicked, settingsButtonX, settingsButtonY, WHITE);
     }
+    if(isOverButton(settingsButtonX, settingsButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        DrawTexture(scoresButton_clicked, scoresButtonX, scoresButtonY, WHITE);
+    }
 }
 
 void renderButtons () {
@@ -99,8 +102,8 @@ void menu () {
     scoresButtonX = startButtonX;
     scoresButtonY = startButtonY + buttonHeight + buttonHeight / 6;
 
-    settingsButtonX =;
-    settingsButtonY =;
+    settingsButtonX = menu_screenWidth - 1.5 * buttonHeight;
+    settingsButtonY = .5 * buttonHeight;
 
     //DrawLine(menu_screenWidth / 2, 0, menu_screenWidth / 2, menu_screenHeight, PINK);
 

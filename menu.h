@@ -7,11 +7,11 @@ void menu ();
 void renderMenu ();
 void loadMenuImages ();
 clock_t startTime;
-int buttonWidth;
-int buttonHeight;
 int startButtonX;
 int startButtonY;
 int settingsButtonX;
 int settingsButtonY;
+int scoresButtonX;
+int scoresButtonY;
 
 #endif //MY_AWESOME_PROJECT_MENU_H
