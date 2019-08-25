@@ -8,38 +8,49 @@
 
 int main(void)
 {
-    menu();
     //----------------------------------------------------------                                                        // Initialization
-    InitWindow(screenWidth, screenHeight, "My Awesome Game");
-
+    InitWindow(menu_screenWidth, menu_screenHeight, "My Awesome Game");
+    Image icon = LoadImage("Textures/spaceShip.png");
+    SetWindowIcon(icon);
     SetTargetFPS(60);
 
     loadImage();
+    loadMenuImages();
     setupBalls();
     setupShip();
     shoot = clock();
+    gameState = MENU;
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
-        renderBackground();
+        switch(gameState) {
+            case MENU:
+                EnableCursor();
+                SetWindowSize(menu_screenWidth, menu_screenHeight);
+                SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
+                ClearBackground(BACKGROUND_COLOR);
+                menu();
+                break;
+            case GAME:
+                DisableCursor();
+                SetWindowSize(screenWidth, screenHeight);
+                SetWindowPosition(resolutionX / 2 - screenWidth / 2, (resolutionY - screenHeight) / 2);
+                ClearBackground(BACKGROUND_COLOR);
+                game();
+                break;
+            case SETTINGS:
+                EnableCursor();
+                SetWindowSize(menu_screenWidth, menu_screenHeight);
+                SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
+                ClearBackground(BACKGROUND_COLOR);
+                //settings();
+        }
 
-        renderShip();
-        moveShip();
-        ShipBallCollision();
-
-        applyPhysics_Balls(Balls);
-        updateBalls();
-
-        spawnBullets();
-        updateBullets();
-        BulletBallCollision();
-        renderBullets();
-
-        isBallAlive();
+        //game();
 
         //-----------------------------------------------------
         BeginDrawing();
-        ClearBackground(LIGHTGRAY);
+        ClearBackground(BACKGROUND_COLOR);
         DrawFPS(10, 10);
         EndDrawing();
         //-----------------------------------------------------

@@ -9,8 +9,20 @@
 #include <math.h>
 #include <time.h>
 
+extern int resolutionX;
+extern int resolutionY;
+
 extern int screenWidth;
 extern int screenHeight;
+
+extern int menu_screenWidth;
+extern int menu_screenHeight;
+
+typedef enum state {
+    MENU, GAME, SETTINGS
+}state;
+
+state gameState;
 
 typedef struct Ship{
     double xpos;

@@ -3,6 +3,7 @@
 
 #include "global.h"
 
+void game ();
 bool ShipBallCollision ();
 void BulletBallCollision ();
 void pauseGame ();

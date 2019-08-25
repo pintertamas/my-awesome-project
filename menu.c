@@ -1,6 +1,6 @@
 #include "menu.h"
 
-void loadMenu () {
+void loadMenuImages () {
     textures[1] = LoadImage("Textures/background_blank.png");                                                  // Loaded in CPU memory (RAM)
     ImageFormat(&textures[1], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     menuBackground = LoadTextureFromImage(textures[1]);                                                             // Image converted to texture, GPU memory (VRAM)
@@ -55,7 +55,7 @@ void renderButtons () {
     DrawTexture(startButton_simple, startButtonX, startButtonY, WHITE);
 
     int timeDiff = clock() - startTime;
-    printf("%ld\n", startTime);
+    //printf("%ld\n", startTime);
     if(startTime != 0) {
         if(timeDiff >= 0 && timeDiff < 1000)
             DrawText("3", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
@@ -65,13 +65,13 @@ void renderButtons () {
             DrawText("1", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
         else if(timeDiff >= 3000 && timeDiff < 5000)
             DrawText("LET'S GO", menu_screenWidth / 2 - 150, menu_screenHeight / 3, 60, BLACK);
-        else CloseWindow();
+        else {
+            gameState = GAME;
+        }
     }
 }
 
 void menu () {
-    menu_screenWidth = 900;
-    menu_screenHeight = 600;
     buttonWidth = 150;
     buttonHeight = 80;
     BACKGROUND_COLOR.r = 0;
@@ -81,28 +81,12 @@ void menu () {
     startButtonX = menu_screenWidth / 2 - buttonWidth / 2;
     startButtonY = buttonHeight;
 
-    InitWindow(menu_screenWidth, menu_screenHeight, "My Awesome Game's Menu");
+    //DrawLine(menu_screenWidth / 2, 0, menu_screenWidth / 2, menu_screenHeight, PINK);
 
-    SetTargetFPS(60);
-    loadMenu();
+    renderMenu();
+    renderButtons();
+    buttonClick();
 
-    while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
-    {
-        //DrawLine(menu_screenWidth / 2, 0, menu_screenWidth / 2, menu_screenHeight, PINK);
-
-        renderMenu();
-        renderButtons();
-        buttonClick();
-        //isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight);
-
-
-
-        //-----------------------------------------------------
-        BeginDrawing();
-        ClearBackground(BACKGROUND_COLOR);
-        DrawFPS(10, 10);
-        EndDrawing();
-        //-----------------------------------------------------
-    }
-    CloseWindow();                                                                                                      // Close window and OpenGL context
+    ClearBackground(BACKGROUND_COLOR);
+    //isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight);
 }

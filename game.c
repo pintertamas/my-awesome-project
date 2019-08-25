@@ -1,4 +1,7 @@
 #include "global.h"
+#include "ball.h"
+#include "bullet.h"
+#include "ship.h"
 
 bool ShipBallCollision (){
     for (int i = 0; i < ballNumber; i++) {
@@ -68,4 +71,22 @@ void loadImage(){
 
 void renderBackground () {
     DrawTexture(background_mountain, 0, 0, WHITE);
+}
+
+void game () {
+    renderBackground();
+
+    renderShip();
+    moveShip();
+    ShipBallCollision();
+
+    applyPhysics_Balls(Balls);
+    updateBalls();
+
+    spawnBullets();
+    updateBullets();
+    BulletBallCollision();
+    renderBullets();
+
+    isBallAlive();
 }

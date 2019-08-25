@@ -3,11 +3,11 @@
 
 #include "global.h"
 
-void menu();
+void menu ();
+void renderMenu ();
+void loadMenuImages ();
 Color BACKGROUND_COLOR;
 clock_t startTime;
-int menu_screenWidth;
-int menu_screenHeight;
 int buttonWidth;
 int buttonHeight;
 int startButtonX;
