@@ -20,8 +20,6 @@ void renderMenu () {
     timePassed /= 2;
     DrawCircle(menu_screenWidth / 2 + 350 * sin(timePassed), menu_screenHeight / 2 + 200 * cos(timePassed), 50, YELLOW);
 
-    //printf("%f\n", sin(timePassed));
-
     if(((sin(timePassed) < 0 && cos(timePassed) > 0) || (sin(timePassed) > 0 && cos(timePassed) > 0)) && BACKGROUND_COLOR.g > 0) {
         BACKGROUND_COLOR.g--;
         BACKGROUND_COLOR.b--;
@@ -38,7 +36,6 @@ bool isOverButton (int x, int y, int w, int h) {
     int mouseY = GetMouseY();
 
     if(mouseX >= x && mouseX <= x + w && mouseY >= y && mouseY <= y + h) {
-        //DrawText("seggfasz", 100, 100, 100, PINK);
         return true;
     } else
         return false;
@@ -72,11 +69,6 @@ void renderButtons () {
 }
 
 void menu () {
-    buttonWidth = 150;
-    buttonHeight = 80;
-    BACKGROUND_COLOR.r = 0;
-    BACKGROUND_COLOR.g = 210;
-    BACKGROUND_COLOR.b = 255;
 
     startButtonX = menu_screenWidth / 2 - buttonWidth / 2;
     startButtonY = buttonHeight;
@@ -86,7 +78,4 @@ void menu () {
     renderMenu();
     renderButtons();
     buttonClick();
-
-    ClearBackground(BACKGROUND_COLOR);
-    //isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight);
 }

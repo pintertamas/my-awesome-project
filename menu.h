@@ -6,7 +6,6 @@
 void menu ();
 void renderMenu ();
 void loadMenuImages ();
-Color BACKGROUND_COLOR;
 clock_t startTime;
 int buttonWidth;
 int buttonHeight;

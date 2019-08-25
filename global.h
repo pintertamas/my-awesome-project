@@ -18,6 +18,8 @@ extern int screenHeight;
 extern int menu_screenWidth;
 extern int menu_screenHeight;
 
+extern Color BACKGROUND_COLOR;
+
 typedef enum state {
     MENU, GAME, SETTINGS
 }state;

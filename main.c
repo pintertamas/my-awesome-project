@@ -28,26 +28,20 @@ int main(void)
                 EnableCursor();
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
-                ClearBackground(BACKGROUND_COLOR);
                 menu();
                 break;
             case GAME:
                 DisableCursor();
                 SetWindowSize(screenWidth, screenHeight);
                 SetWindowPosition(resolutionX / 2 - screenWidth / 2, (resolutionY - screenHeight) / 2);
-                ClearBackground(BACKGROUND_COLOR);
                 game();
                 break;
             case SETTINGS:
                 EnableCursor();
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
-                ClearBackground(BACKGROUND_COLOR);
                 //settings();
         }
-
-        //game();
-
         //-----------------------------------------------------
         BeginDrawing();
         ClearBackground(BACKGROUND_COLOR);
