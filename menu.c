@@ -21,7 +21,7 @@ void loadMenuImages () {
     ImageFormat(&textures[6], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     settingsButton_clicked = LoadTextureFromImage(textures[6]);                                                  // Image converted to texture, GPU memory (VRAM)
 
-    textures[7] = LoadImage("Textures/scoresButton_clicked.png");                                            // Loaded in CPU memory (RAM)
+    textures[7] = LoadImage("Textures/scoresButton_simple.png");                                            // Loaded in CPU memory (RAM)
     ImageFormat(&textures[7], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     scoresButton_clicked = LoadTextureFromImage(textures[7]);                                                  // Image converted to texture, GPU memory (VRAM)
 
@@ -63,10 +63,10 @@ void buttonClick () {
         DrawTexture(startButton_clicked, startButtonX, startButtonY, WHITE);
         startTime = clock();
     }
-    if(isOverButton(settingsButtonX, settingsButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    if(isOverButton(settingsButtonX, settingsButtonY, buttonHeight, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(settingsButton_clicked, settingsButtonX, settingsButtonY, WHITE);
     }
-    if(isOverButton(settingsButtonX, settingsButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    if(isOverButton(scoresButtonX, scoresButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(scoresButton_clicked, scoresButtonX, scoresButtonY, WHITE);
     }
 }
