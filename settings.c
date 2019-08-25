@@ -3,20 +3,20 @@
 
 void settingsButtonClick () {
     if (isOverButton(easyButtonX, easyButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        if(gameDifficulty == EASY)
+        if (gameDifficulty == EASY)
             gameDifficulty = DIFFICULTY_UNSET;
         else
         gameDifficulty = EASY;
     }
     if (isOverButton(mediumButtonX, mediumButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        if(gameDifficulty == MEDIUM)
+        if (gameDifficulty == MEDIUM)
             gameDifficulty = DIFFICULTY_UNSET;
         else {
             gameDifficulty = MEDIUM;
         }
     }
     if (isOverButton(hardButtonX, hardButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        if(gameDifficulty == HARD)
+        if (gameDifficulty == HARD)
             gameDifficulty = DIFFICULTY_UNSET;
         else
             gameDifficulty = HARD;
@@ -24,6 +24,30 @@ void settingsButtonClick () {
     if (isOverButton(backButtonX, backButtonY, buttonWidth / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(backButton_clicked, backButtonX, backButtonY, WHITE);
         gameState = MENU;
+    }
+    if (isOverButton(mountainThumbX, mountainThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if (background == MOUNTAIN)
+            background = BACKGROUND_UNSET;
+        else
+            background= MOUNTAIN;
+    }
+    if (isOverButton(mountainsThumbX, mountainsThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if (background == MOUNTAINS)
+            background = BACKGROUND_UNSET;
+        else
+            background= MOUNTAINS;
+    }
+    if (isOverButton(japanThumbX, japanThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if (background == JAPAN)
+            background = BACKGROUND_UNSET;
+        else
+            background= JAPAN;
+    }
+    if (isOverButton(spaceThumbX, spaceThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if (background == SPACE)
+            background = BACKGROUND_UNSET;
+        else
+            background= SPACE;
     }
 }
 
