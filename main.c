@@ -59,7 +59,7 @@ int main(void)
             case END:
                 EnableCursor();
                 SetWindowSize(screenWidth, screenHeight);
-                ClearBackground(BACKGROUND_COLOR);
+                ClearBackground(settingsBackground);
                 endOfGame();
                 break;
         }

@@ -3,6 +3,7 @@
 #include "bullet.h"
 #include "ship.h"
 #include "settings.h"
+#include "menu.h"
 
 bool ShipBallCollision (){
     for (int i = 0; i < ballNumber; i++) {
@@ -80,7 +81,10 @@ void renderBackground () {
 
 void endOfGame () {
     DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
-
+    if (isOverButton(backButtonX, backButtonY, buttonWidth / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        DrawTexture(backButton_clicked, backButtonX, backButtonY, WHITE);
+        gameState = SETTINGS;
+    }
 }
 
 void game () {
