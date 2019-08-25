@@ -4,15 +4,15 @@
 void settingsButtonClick () {
     if (isOverButton(easyButtonX, easyButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         gameDifficulty = EASY;
-        printf("seggfasz");
+        printf("easy\n");
     }
     if (isOverButton(mediumButtonX, mediumButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        gameDifficulty = EASY;
-        printf("seggfasz");
+        gameDifficulty = MEDIUM;
+        printf("medium\n");
     }
     if (isOverButton(hardButtonX, hardButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        gameDifficulty = EASY;
-        printf("seggfasz");
+        gameDifficulty = HARD;
+        printf("hard\n");
     }
 }
 
