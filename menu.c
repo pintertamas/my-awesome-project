@@ -12,6 +12,14 @@ void loadMenuImages () {
     textures[3] = LoadImage("Textures/startButton_clicked.png");                                               // Loaded in CPU memory (RAM)
     ImageFormat(&textures[3], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     startButton_clicked = LoadTextureFromImage(textures[3]);                                                     // Image converted to texture, GPU memory (VRAM)
+
+    textures[5] = LoadImage("Textures/settingsButton_simple.png");                                             // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[5], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    settingsButton_simple = LoadTextureFromImage(textures[5]);                                                   // Image converted to texture, GPU memory (VRAM)
+
+    textures[6] = LoadImage("Textures/settingsButton_clicked.png");                                            // Loaded in CPU memory (RAM)
+    ImageFormat(&textures[6], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
+    settingsButton_clicked = LoadTextureFromImage(textures[6]);                                                  // Image converted to texture, GPU memory (VRAM)
 }
 
 void renderMenu () {
@@ -46,10 +54,14 @@ void buttonClick () {
         DrawTexture(startButton_clicked, startButtonX, startButtonY, WHITE);
         startTime = clock();
     }
+    if(isOverButton(settingsButtonX, settingsButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        DrawTexture(settingsButton_clicked, settingsButtonX, settingsButtonY, WHITE);
+    }
 }
 
 void renderButtons () {
     DrawTexture(startButton_simple, startButtonX, startButtonY, WHITE);
+    DrawTexture(settingsButton_simple, settingsButtonX, settingsButtonY, WHITE);
 
     int timeDiff = clock() - startTime;
     //printf("%ld\n", startTime);
@@ -71,7 +83,10 @@ void renderButtons () {
 void menu () {
 
     startButtonX = menu_screenWidth / 2 - buttonWidth / 2;
-    startButtonY = buttonHeight;
+    startButtonY = buttonHeight / 4;
+
+    settingsButtonX = startButtonX;
+    settingsButtonY = startButtonY + buttonHeight + buttonHeight / 6;
 
     //DrawLine(menu_screenWidth / 2, 0, menu_screenWidth / 2, menu_screenHeight, PINK);
 

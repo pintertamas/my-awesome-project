@@ -11,5 +11,7 @@ int buttonWidth;
 int buttonHeight;
 int startButtonX;
 int startButtonY;
+int settingsButtonX;
+int settingsButtonY;
 
 #endif //MY_AWESOME_PROJECT_MENU_H

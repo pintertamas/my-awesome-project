@@ -36,8 +36,10 @@ typedef struct Ship{
 
 Ship ship;
 
-Image textures[5];
-Texture2D shipTexture, menuBackground, startButton_simple, startButton_clicked, background_mountain;
+Image textures[7];
+Texture2D   shipTexture, menuBackground, background_mountain,
+            startButton_simple, startButton_clicked,
+            settingsButton_simple, settingsButton_clicked;
 extern int shipSpeed;                                                                                                   //the speed of the ship
 
 typedef struct Ball{
