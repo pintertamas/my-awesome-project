@@ -21,13 +21,13 @@ void loadMenuImages () {
     ImageFormat(&textures[6], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     settingsButton_clicked = LoadTextureFromImage(textures[6]);                                                  // Image converted to texture, GPU memory (VRAM)
 
-    textures[7] = LoadImage("Textures/scoresButton_simple.png");                                            // Loaded in CPU memory (RAM)
+    textures[7] = LoadImage("Textures/scoresButton_simple.png");                                               // Loaded in CPU memory (RAM)
     ImageFormat(&textures[7], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    scoresButton_simple = LoadTextureFromImage(textures[7]);                                                  // Image converted to texture, GPU memory (VRAM)
+    scoresButton_simple = LoadTextureFromImage(textures[7]);                                                     // Image converted to texture, GPU memory (VRAM)
 
-    textures[8] = LoadImage("Textures/scoresButton_clicked.png");                                            // Loaded in CPU memory (RAM)
+    textures[8] = LoadImage("Textures/scoresButton_clicked.png");                                              // Loaded in CPU memory (RAM)
     ImageFormat(&textures[8], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    scoresButton_clicked = LoadTextureFromImage(textures[8]);                                                  // Image converted to texture, GPU memory (VRAM)
+    scoresButton_clicked = LoadTextureFromImage(textures[8]);                                                    // Image converted to texture, GPU memory (VRAM)
 
 }
 
