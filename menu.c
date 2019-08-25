@@ -12,11 +12,6 @@ void loadMenu () {
     textures[3] = LoadImage("Textures/startButton_clicked.png");                                               // Loaded in CPU memory (RAM)
     ImageFormat(&textures[3], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     startButton_clicked = LoadTextureFromImage(textures[3]);                                                     // Image converted to texture, GPU memory (VRAM)
-
-    textures[4] = LoadImage("Textures/background_mountain.png");                                               // Loaded in CPU memory (RAM)
-    ImageFormat(&textures[4], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    background_mountain = LoadTextureFromImage(textures[4]);                                                     // Image converted to texture, GPU memory (VRAM)
-
 }
 
 void renderMenu () {

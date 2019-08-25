@@ -21,6 +21,8 @@ int main(void)
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
+        renderBackground();
+
         renderShip();
         moveShip();
         ShipBallCollision();
@@ -37,7 +39,6 @@ int main(void)
 
         //-----------------------------------------------------
         BeginDrawing();
-        renderBackground();
         ClearBackground(LIGHTGRAY);
         DrawFPS(10, 10);
         EndDrawing();

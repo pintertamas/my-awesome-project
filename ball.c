@@ -43,7 +43,6 @@ void setupBalls() {
         while(Balls[i].vx == 0)
             Balls[i].vx = (double)GetRandomValue(-5, +5);
         Balls[i].vy = (double)GetRandomValue(-10, 0);
-        //Balls[i].xpos = GetRandomValue(Balls[i].radius, screenWidth - Balls[i].radius);
         Balls[i].ypos = (double)GetRandomValue(Balls[i].radius,screenHeight/2);
         Balls[i].gravity = (double)ballGravity;
         Balls[i].bounce = -1;
