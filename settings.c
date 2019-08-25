@@ -55,16 +55,21 @@ void renderSettings () {
             break;
     }
 
-    DrawTexture(frame_unselected, mountainFrameX, mountainFramey, WHITE);
+    DrawTexture(frame_unselected, mountainFrameX, mountainFrameY, WHITE);
     DrawTexture(frame_unselected, mountainsFrameX, mountainsFrameY, WHITE);
     DrawTexture(frame_unselected, japanFrameX, japanFrameY, WHITE);
     DrawTexture(frame_unselected, spaceFrameX, spaceFrameY, WHITE);
+
+    /*DrawTexture(frame_unselected, mountainFrameX, mountainFrameY, WHITE);
+    DrawTexture(frame_unselected, mountainsFrameX, mountainsFrameY, WHITE);
+    DrawTexture(frame_unselected, japanFrameX, japanFrameY, WHITE);
+    DrawTexture(frame_unselected, spaceFrameX, spaceFrameY, WHITE);*/
 
     switch (background) {
         case BACKGROUND_UNSET:
             break;
         case MOUNTAIN:
-            DrawTexture(frame_selected, mountainFrameX, mountainFramey, WHITE);
+            DrawTexture(frame_selected, mountainFrameX, mountainFrameY, WHITE);
             break;
         case MOUNTAINS:
             DrawTexture(frame_selected, mountainsFrameX, mountainsFrameY, WHITE);
@@ -82,20 +87,27 @@ void settings () {
 
     backButtonX = buttonHeight / 4;
     backButtonY = buttonHeight / 4;
+
     easyButtonX = buttonWidth / 2;
     easyButtonY = buttonHeight + buttonHeight / 2;
     mediumButtonX = menu_screenWidth / 2 - buttonWidth / 2;
     mediumButtonY = buttonHeight + buttonHeight / 2;
     hardButtonX = menu_screenWidth - buttonWidth - buttonWidth / 2;
     hardButtonY = buttonHeight + buttonHeight / 2;
-    mountainFrameX = ;
-    mountainFrameY = ;
-    mountainsFrameX = ;
-    mountainsFrameY = ;
-    japanFrameX = ;
-    japanFrameY = ;
-    spaceFrameX = ;
-    spaceFrameY = ;
+
+    frameWidth = 153;
+    frameHeight = 220;
+    mountainThumbX = ;
+    mountainThumbY = ;
+    mountainsThumbX = ;
+    mountainsThumbY = ;
+    japanThumbX = ;
+    japanThumbY = ;
+    spaceThumbX = ;
+    spaceThumbY = ;
+
+    thumbnailWidth = 200;
+    thumbnailHeight = 133;
 
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:
