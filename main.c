@@ -41,6 +41,11 @@ int main(void)
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
                 //settings();
+                break;
+            case SCORES:
+                EnableCursor();
+                SetWindowSize(screenWidth, screenHeight);
+                
         }
         //-----------------------------------------------------
         BeginDrawing();

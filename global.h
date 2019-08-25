@@ -21,7 +21,7 @@ extern int menu_screenHeight;
 extern Color BACKGROUND_COLOR;
 
 typedef enum state {
-    MENU, GAME, SETTINGS
+    MENU, GAME, SETTINGS, SCORES
 }state;
 
 state gameState;
@@ -36,10 +36,11 @@ typedef struct Ship{
 
 Ship ship;
 
-Image textures[7];
+Image textures[9];
 Texture2D   shipTexture, menuBackground, background_mountain,
             startButton_simple, startButton_clicked,
-            settingsButton_simple, settingsButton_clicked;
+            settingsButton_simple, settingsButton_clicked,
+            scoresButton_simple, scoresButton_clicked;
 extern int shipSpeed;                                                                                                   //the speed of the ship
 
 typedef struct Ball{
