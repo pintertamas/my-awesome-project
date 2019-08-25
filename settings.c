@@ -39,5 +39,6 @@ void renderSettings () {
 
 void settings () {
 
+
     renderSettings();
 }
