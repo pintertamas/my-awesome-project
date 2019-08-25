@@ -26,16 +26,13 @@ void settingsButtonClick () {
         gameState = MENU;
     }
     if (isOverButton(mountainThumbX, mountainThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        if (background == MOUNTAIN)
-            background = BACKGROUND_UNSET;
-        else
-            background= MOUNTAIN;
+        background= MOUNTAIN;
     }
     if (isOverButton(mountainsThumbX, mountainsThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if (background == MOUNTAINS)
-            printf("mountains\n");//background = BACKGROUND_UNSET;
+            background = BACKGROUND_UNSET;
         else
-            background= MOUNTAINS;
+            printf("mountains\n");//background= MOUNTAINS;
     }
     if (isOverButton(japanThumbX, japanThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if (background == JAPAN)
