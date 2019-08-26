@@ -16,7 +16,7 @@ int main(void)
     SetTargetFPS(60);
 
     loadImage();
-    loadMenuImages();
+    //loadMenuImages();
     font = LoadFont("Textures/font.ttf");
     setupBalls();
     setupShip();

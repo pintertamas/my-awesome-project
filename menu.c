@@ -1,9 +1,9 @@
 #include "menu.h"
-
+/*
 void loadMenuImages () {
-    textures[3] = LoadImage("Textures/backgrounds/background_blank.png");                                      // Loaded in CPU memory (RAM)
-    ImageFormat(&textures[3], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    menuBackground = LoadTextureFromImage(textures[3]);                                                          // Image converted to texture, GPU memory (VRAM)
+    textures[3] = LoadImage("Textures/backgrounds/background_blank.png");
+    ImageFormat(&textures[3], UNCOMPRESSED_R8G8B8A8);
+    menuBackground = LoadTextureFromImage(textures[3]);
 
     textures[4] = LoadImage("Textures/buttons/startButton_simple.png");
     ImageFormat(&textures[4], UNCOMPRESSED_R8G8B8A8);
@@ -81,7 +81,7 @@ void loadMenuImages () {
     ImageFormat(&textures[27], UNCOMPRESSED_R8G8B8A8);
     space_small = LoadTextureFromImage(textures[27]);
 }
-
+*/
 void renderMenu () {
 
     double timePassed = GetTime();

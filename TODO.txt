@@ -1,0 +1,10 @@
+endgame feliratok + teljesítés idejét kijelezni
+képek elrendezése egy külön textures.c fileban
+labdák sebződés közben "rezegnek"
+űrhajó alja
+scores opció
+valami játéklogo kirakása a menüben
+pausegame és resumegame kivétele mert felesleges
+halál berakása
+életek berakása
+esetleg megtanulni az adatbáziskezelést hogy az eredményeket menőbben jelezhessem ki
