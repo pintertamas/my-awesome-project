@@ -2,7 +2,6 @@
 #include "ball.h"
 #include "bullet.h"
 #include "ship.h"
-#include "settings.h"
 #include "menu.h"
 #include "textures.h"
 

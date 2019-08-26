@@ -113,37 +113,6 @@ void settings () {
     {
         ClearBackground(settingsBackground);
 
-        backButton.x = buttonHeight / 4;
-        backButton.y = buttonHeight / 4;
-
-        easyButton.x = buttonWidth / 2;
-        easyButton.y = buttonHeight + buttonHeight / 2;
-        mediumButton.x = menu_screenWidth / 2 - buttonWidth / 2;
-        mediumButton.y = buttonHeight + buttonHeight / 2;
-        hardButton.x = menu_screenWidth - buttonWidth - buttonWidth / 2;
-        hardButton.y = buttonHeight + buttonHeight / 2;
-
-        int thumbnailWidth = 133;
-        int thumbnailHeight = 200;
-        int gap = (menu_screenWidth - 4 * thumbnailWidth) / 5;
-
-        mountain.x = gap;
-        mountain.y = menu_screenHeight - thumbnailHeight - 80;
-        mountain.w = thumbnailWidth;
-        mountain.h = thumbnailHeight;
-        mountains.x = thumbnailWidth + 2 * gap;
-        mountains.y = menu_screenHeight - thumbnailHeight - 80;
-        mountains.w = thumbnailWidth;
-        mountains.h = thumbnailHeight;
-        japan.x = 2 * thumbnailWidth + 3 * gap;
-        japan.y = menu_screenHeight - thumbnailHeight - 80;
-        japan.w = thumbnailWidth;
-        japan.h = thumbnailHeight;
-        space.x = 3 * thumbnailWidth + 4 * gap;
-        space.y = menu_screenHeight - thumbnailHeight - 80;
-        space.w = thumbnailWidth;
-        space.h = thumbnailHeight;
-
         switch (gameDifficulty) {
             case DIFFICULTY_UNSET:
                 break;

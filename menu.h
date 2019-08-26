@@ -2,7 +2,7 @@
 #define MY_AWESOME_PROJECT_MENU_H
 
 #include "global.h"
-#include "settings.h"
+#include "buttons.h"
 
 typedef enum Difficulty {
     DIFFICULTY_UNSET, EASY, MEDIUM, HARD
@@ -21,10 +21,6 @@ typedef enum Backgrounds {
 }Backgrounds;
 
 Backgrounds background;
-
-Button startButton;
-Button settingsButton;
-Button scoresButton;
 
 void menu ();
 void renderMenu ();

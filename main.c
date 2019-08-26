@@ -7,6 +7,7 @@
 #include "menu.h"
 #include "settings.h"
 #include "textures.h"
+#include "buttons.h"
 
 int main(void)
 {
@@ -20,6 +21,7 @@ int main(void)
     font = LoadFont("Textures/font.ttf");
     setupBalls();
     setupShip();
+    setupButtons();
     shoot = clock();
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;

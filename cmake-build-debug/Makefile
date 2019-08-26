@@ -176,6 +176,33 @@ bullet.c.s:
 	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/bullet.c.s
 .PHONY : bullet.c.s
 
+buttons.obj: buttons.c.obj
+
+.PHONY : buttons.obj
+
+# target to build an object file
+buttons.c.obj:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/buttons.c.obj
+.PHONY : buttons.c.obj
+
+buttons.i: buttons.c.i
+
+.PHONY : buttons.i
+
+# target to preprocess a source file
+buttons.c.i:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/buttons.c.i
+.PHONY : buttons.c.i
+
+buttons.s: buttons.c.s
+
+.PHONY : buttons.s
+
+# target to generate assembly for a file
+buttons.c.s:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/buttons.c.s
+.PHONY : buttons.c.s
+
 coin.obj: coin.c.obj
 
 .PHONY : coin.obj
@@ -407,6 +434,9 @@ help:
 	@echo ... bullet.obj
 	@echo ... bullet.i
 	@echo ... bullet.s
+	@echo ... buttons.obj
+	@echo ... buttons.i
+	@echo ... buttons.s
 	@echo ... coin.obj
 	@echo ... coin.i
 	@echo ... coin.s

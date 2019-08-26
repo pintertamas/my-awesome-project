@@ -2,7 +2,7 @@
 #include "ball.h"
 #include "ship.h"
 #include "textures.h"
-#include "settings.h"
+#include "buttons.h"
 
 void renderMenu () {
 
@@ -95,21 +95,6 @@ void menu () {
         ClearBackground(BACKGROUND_COLOR);
 
         //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
-
-        startButton.x = menu_screenWidth / 2 - buttonWidth / 2;
-        startButton.y = buttonHeight / 4;
-        startButton.w = buttonWidth;
-        startButton.h = buttonHeight;
-
-        scoresButton.x = startButton.x;
-        scoresButton.y = startButton.y + buttonHeight + buttonHeight / 6;
-        scoresButton.w = buttonWidth;
-        scoresButton.h = buttonHeight;
-
-        settingsButton.x = menu_screenWidth - buttonHeight / 2 - buttonHeight / 4;
-        settingsButton.y = buttonHeight / 4;
-        settingsButton.w = buttonHeight / 2;
-        settingsButton.h = buttonHeight / 2;
 
         renderMenu();
         renderButtons();

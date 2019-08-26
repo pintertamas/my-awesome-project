@@ -88,6 +88,12 @@
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/bullet.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/buttons.c">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/buttons.h">
+			<Option target="my-awesome-project"/>
+		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/coin.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
