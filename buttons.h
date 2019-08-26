@@ -8,8 +8,8 @@ typedef struct Button{
     int h;
 }Button;
 
-extern int buttonWidth;
-extern int buttonHeight;
+int buttonWidth;
+int buttonHeight;
 
 Button startButton;
 Button settingsButton;

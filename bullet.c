@@ -15,7 +15,7 @@ void freeList (Bullet *fromHere) {
     Bullet *cursor = fromHere;
     while (cursor->next != NULL) {
         Bullet *next = cursor->next;
-        free(&cursor);
+        //free(&cursor);
         cursor = next;
     }
 }
