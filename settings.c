@@ -129,12 +129,20 @@ void settings () {
 
         mountain.x = gap;
         mountain.y = menu_screenHeight - thumbnailHeight - 80;
+        mountain.w = thumbnailWidth;
+        mountain.h = thumbnailHeight;
         mountains.x = thumbnailWidth + 2 * gap;
         mountains.y = menu_screenHeight - thumbnailHeight - 80;
+        mountains.w = thumbnailWidth;
+        mountains.h = thumbnailHeight;
         japan.x = 2 * thumbnailWidth + 3 * gap;
         japan.y = menu_screenHeight - thumbnailHeight - 80;
+        japan.w = thumbnailWidth;
+        japan.h = thumbnailHeight;
         space.x = 3 * thumbnailWidth + 4 * gap;
         space.y = menu_screenHeight - thumbnailHeight - 80;
+        space.w = thumbnailWidth;
+        space.h = thumbnailHeight;
 
         switch (gameDifficulty) {
             case DIFFICULTY_UNSET:
