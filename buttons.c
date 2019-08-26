@@ -3,6 +3,9 @@
 
 void setupButtons () {
 
+    buttonWidth = 150;
+    buttonHeight = 80;
+
     startButton.x = menu_screenWidth / 2 - buttonWidth / 2;
     startButton.y = buttonHeight / 4;
     startButton.w = buttonWidth;

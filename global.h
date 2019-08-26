@@ -20,7 +20,4 @@ extern int menu_screenHeight;
 
 extern Color BACKGROUND_COLOR;
 
-extern int buttonWidth;
-extern int buttonHeight;
-
 #endif //MY_AWESOME_PROJECT_GLOBAL_H
