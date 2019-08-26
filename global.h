@@ -20,7 +20,6 @@ extern int menu_screenHeight;
 
 extern Color BACKGROUND_COLOR;
 
-extern int shipSpeed;                                                                                                   //the speed of the ship
 extern int buttonWidth;
 extern int buttonHeight;
 

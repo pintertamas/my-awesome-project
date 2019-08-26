@@ -11,6 +11,8 @@ typedef struct Ship{
 
 Ship ship;
 
+extern int shipSpeed;                                                                                                   //the speed of the ship
+
 void setupShip();
 void moveShip();
 void renderShip();

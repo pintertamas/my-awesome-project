@@ -3,6 +3,13 @@
 
 void settings ();
 
+typedef struct Button {
+    int x;
+    int y;
+    int w;
+    int h;
+}Button;
+
 int easyButtonX;
 int easyButtonY;
 int mediumButtonX;
