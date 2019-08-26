@@ -29,11 +29,9 @@ Font font;
 clock_t startTime;
 clock_t roundStartTime;
 bool isOverButton (Button button);
-int startButtonX;
-int startButtonY;
-int settingsButtonX;
-int settingsButtonY;
-int scoresButtonX;
-int scoresButtonY;
+
+Button startButton;
+Button settingsButton;
+Button scoresButton;
 
 #endif //MY_AWESOME_PROJECT_MENU_H

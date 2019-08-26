@@ -2,6 +2,7 @@
 #include "ball.h"
 #include "ship.h"
 #include "textures.h"
+#include "settings.h"
 
 void renderMenu () {
 
@@ -35,28 +36,28 @@ bool isOverButton (Button button) {
 }
 
 void menuButtonClick () {
-    if((isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) || IsKeyPressed(KEY_ENTER)) {
-        DrawTexture(startButton_clicked, startButtonX, startButtonY, WHITE);
+    if((isOverButton(startButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) || IsKeyPressed(KEY_ENTER)) {
+        DrawTexture(startButton_clicked, startButton.x, startButton.y, WHITE);
         startTime = clock();
         setupBalls();
         setupShip();
 
     }
-    if(isOverButton(settingsButtonX, settingsButtonY, buttonHeight / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        DrawTexture(settingsButton_clicked, settingsButtonX, settingsButtonY, WHITE);
+    if(isOverButton(settingsButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        DrawTexture(settingsButton_clicked, settingsButton.x, settingsButton.y, WHITE);
 
         startTime = 0;
         gameState = SETTINGS;
     }
-    if(isOverButton(scoresButtonX, scoresButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        DrawTexture(scoresButton_clicked, scoresButtonX, scoresButtonY, WHITE);
+    if(isOverButton(scoresButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        DrawTexture(scoresButton_clicked, scoresButton.x, scoresButton.y, WHITE);
     }
 }
 
 void renderButtons () {
-    DrawTexture(startButton_simple, startButtonX, startButtonY, WHITE);
-    DrawTexture(scoresButton_simple, scoresButtonX, scoresButtonY, WHITE);
-    DrawTexture(settingsButton_simple, settingsButtonX, settingsButtonY, WHITE);
+    DrawTexture(startButton_simple, startButton.x, startButton.y, WHITE);
+    DrawTexture(scoresButton_simple, scoresButton.x, scoresButton.y, WHITE);
+    DrawTexture(settingsButton_simple, settingsButton.x, settingsButton.y, WHITE);
 
     int timeDiff = clock() - startTime;
     if(startTime != 0 && gameDifficulty != DIFFICULTY_UNSET && background != BACKGROUND_UNSET) {
@@ -77,11 +78,11 @@ void renderButtons () {
     if(startTime != 0) {
         if (gameDifficulty == DIFFICULTY_UNSET) {
             if (timeDiff <= 1000)
-                DrawText("SELECT DIFFICULTY FIRST!", menu_screenWidth / 2 - 75, scoresButtonY + buttonHeight + 20, 10, BLACK);
+                DrawText("SELECT DIFFICULTY FIRST!", menu_screenWidth / 2 - 75, scoresButton.y + buttonHeight + 20, 10, BLACK);
         }
         if (background == BACKGROUND_UNSET)
             if (timeDiff <= 1000)
-                DrawText("SELECT BACKGROUND FIRST!", menu_screenWidth / 2 - 75, scoresButtonY + buttonHeight + 60, 10, BLACK);
+                DrawText("SELECT BACKGROUND FIRST!", menu_screenWidth / 2 - 75, scoresButton.y + buttonHeight + 60, 10, BLACK);
 
     }
 
@@ -95,14 +96,14 @@ void menu () {
 
         //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
 
-        startButtonX = menu_screenWidth / 2 - buttonWidth / 2;
-        startButtonY = buttonHeight / 4;
+        startButton.x = menu_screenWidth / 2 - buttonWidth / 2;
+        startButton.y = buttonHeight / 4;
 
-        scoresButtonX = startButtonX;
-        scoresButtonY = startButtonY + buttonHeight + buttonHeight / 6;
+        scoresButton.x = startButton.x;
+        scoresButton.y = startButton.y + buttonHeight + buttonHeight / 6;
 
-        settingsButtonX = menu_screenWidth - buttonHeight / 2 - buttonHeight / 4;
-        settingsButtonY = buttonHeight / 4;
+        settingsButton.x = menu_screenWidth - buttonHeight / 2 - buttonHeight / 4;
+        settingsButton.y = buttonHeight / 4;
 
         renderMenu();
         renderButtons();

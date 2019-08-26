@@ -84,11 +84,11 @@ void renderBackground () {
 void endOfGame () {
     Color settingsBackground = {0,190,255};
     while (!WindowShouldClose()) {
-        DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
+        DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
 
-        if (isOverButton(backButtonX, backButtonY, buttonWidth / 2, buttonHeight / 2) &&
+        if (isOverButton(backButton) &&
             IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            DrawTexture(backButton_clicked, backButtonX, backButtonY, WHITE);
+            DrawTexture(backButton_clicked, backButton.x, backButton.y, WHITE);
             startTime = 0;
             gameState = MENU;
         }
