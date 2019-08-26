@@ -127,6 +127,12 @@
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/ship.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/textures.c">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/textures.h">
+			<Option target="my-awesome-project"/>
+		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -9,7 +9,6 @@ void BulletBallCollision ();
 void endOfGame ();
 void pauseGame ();
 void resumeGame ();
-void loadImage ();
 void renderBackground();
 
 #endif //HEADBALL_GAME_H

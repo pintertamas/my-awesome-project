@@ -365,6 +365,33 @@ ship.c.s:
 	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ship.c.s
 .PHONY : ship.c.s
 
+textures.obj: textures.c.obj
+
+.PHONY : textures.obj
+
+# target to build an object file
+textures.c.obj:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/textures.c.obj
+.PHONY : textures.c.obj
+
+textures.i: textures.c.i
+
+.PHONY : textures.i
+
+# target to preprocess a source file
+textures.c.i:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/textures.c.i
+.PHONY : textures.c.i
+
+textures.s: textures.c.s
+
+.PHONY : textures.s
+
+# target to generate assembly for a file
+textures.c.s:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/textures.c.s
+.PHONY : textures.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -401,6 +428,9 @@ help:
 	@echo ... ship.obj
 	@echo ... ship.i
 	@echo ... ship.s
+	@echo ... textures.obj
+	@echo ... textures.i
+	@echo ... textures.s
 .PHONY : help
 
 

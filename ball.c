@@ -56,6 +56,11 @@ void setupBalls() {
     }
 }
 
+void ballSetupAtStart () {
+    for(int i = 0; i < ballNumber; i++)
+        Balls[i].visible = true;
+}
+
 void ballbounce(Ball *ball, bool gravity) {
     ball->vy += ball->gravity;
     ball->ypos += ball->vy/10;

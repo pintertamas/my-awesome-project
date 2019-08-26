@@ -6,6 +6,7 @@
 #include "coin.h"
 #include "menu.h"
 #include "settings.h"
+#include "textures.h"
 
 int main(void)
 {
@@ -16,7 +17,6 @@ int main(void)
     SetTargetFPS(60);
 
     loadImage();
-    //loadMenuImages();
     font = LoadFont("Textures/font.ttf");
     setupBalls();
     setupShip();
