@@ -9,3 +9,4 @@ halál berakása
 életek berakása
 esetleg megtanulni az adatbáziskezelést hogy az eredményeket menőbben jelezhessem ki
 pénzek
+whileokat csinálni minden függvényben

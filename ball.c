@@ -135,11 +135,6 @@ void updateBalls() {
     }
 }
 
-void freeBalls() {
-    for(int i=0;i<ballNumber;i++)
-        free(&Balls[i]);
-}
-
 void isBallAlive() {
     for(int i = 0; i < ballNumber; i++) {
         if(Balls[i].HP == 0)

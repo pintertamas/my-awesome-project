@@ -105,51 +105,66 @@ void renderSettings () {
 
 void settings () {
 
-    backButtonX = buttonHeight / 4;
-    backButtonY = buttonHeight / 4;
+    Color settingsBackground = {0,190,255};
+    while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
+    {
+        ClearBackground(settingsBackground);
 
-    easyButtonX = buttonWidth / 2;
-    easyButtonY = buttonHeight + buttonHeight / 2;
-    mediumButtonX = menu_screenWidth / 2 - buttonWidth / 2;
-    mediumButtonY = buttonHeight + buttonHeight / 2;
-    hardButtonX = menu_screenWidth - buttonWidth - buttonWidth / 2;
-    hardButtonY = buttonHeight + buttonHeight / 2;
+        backButtonX = buttonHeight / 4;
+        backButtonY = buttonHeight / 4;
 
-    thumbnailWidth = 133;
-    thumbnailHeight = 200;
-    gap = (menu_screenWidth - 4 * thumbnailWidth) / 5;
+        easyButtonX = buttonWidth / 2;
+        easyButtonY = buttonHeight + buttonHeight / 2;
+        mediumButtonX = menu_screenWidth / 2 - buttonWidth / 2;
+        mediumButtonY = buttonHeight + buttonHeight / 2;
+        hardButtonX = menu_screenWidth - buttonWidth - buttonWidth / 2;
+        hardButtonY = buttonHeight + buttonHeight / 2;
 
-    mountainThumbX = gap;
-    mountainThumbY = menu_screenHeight - thumbnailHeight - 80;
-    mountainsThumbX = thumbnailWidth + 2 * gap;
-    mountainsThumbY = menu_screenHeight - thumbnailHeight - 80;
-    japanThumbX = 2 * thumbnailWidth + 3 * gap;
-    japanThumbY = menu_screenHeight - thumbnailHeight - 80;
-    spaceThumbX = 3 * thumbnailWidth + 4 * gap;
-    spaceThumbY = menu_screenHeight - thumbnailHeight - 80;
+        thumbnailWidth = 133;
+        thumbnailHeight = 200;
+        gap = (menu_screenWidth - 4 * thumbnailWidth) / 5;
 
-    switch (gameDifficulty) {
-        case DIFFICULTY_UNSET:
+        mountainThumbX = gap;
+        mountainThumbY = menu_screenHeight - thumbnailHeight - 80;
+        mountainsThumbX = thumbnailWidth + 2 * gap;
+        mountainsThumbY = menu_screenHeight - thumbnailHeight - 80;
+        japanThumbX = 2 * thumbnailWidth + 3 * gap;
+        japanThumbY = menu_screenHeight - thumbnailHeight - 80;
+        spaceThumbX = 3 * thumbnailWidth + 4 * gap;
+        spaceThumbY = menu_screenHeight - thumbnailHeight - 80;
+
+        switch (gameDifficulty) {
+            case DIFFICULTY_UNSET:
+                break;
+            case EASY:
+                ballNumber = 3;
+                bulletCount = 1;
+                break;
+            case MEDIUM:
+                ballNumber = 5;
+                bulletCount = 3;
+                break;
+            case HARD:
+                ballNumber = 8;
+                bulletCount = 5;
+                break;
+        }
+
+        if (IsKeyDown(KEY_BACKSPACE) && gameState != DIFFICULTY_UNSET)
+        {
+            gameState = MENU;
+        }
+
+        //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
+
+        settingsButtonClick();
+        renderSettings();
+
+        if(gameState != SETTINGS)
             break;
-        case EASY:
-            ballNumber = 3;
-            bulletCount = 1;
-            break;
-        case MEDIUM:
-            ballNumber = 5;
-            bulletCount = 3;
-            break;
-        case HARD:
-            ballNumber = 8;
-            bulletCount = 5;
-            break;
+        //-----------------------------------------------------
+        BeginDrawing();
+        EndDrawing();
+        //-----------------------------------------------------
     }
-
-    if(IsKeyDown(KEY_BACKSPACE) && gameState != DIFFICULTY_UNSET)
-        gameState = MENU;
-
-    //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
-
-    settingsButtonClick();
-    renderSettings();
 }

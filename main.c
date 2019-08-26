@@ -24,7 +24,6 @@ int main(void)
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
     background = BACKGROUND_UNSET;
-    Color settingsBackground = {0,190,255};
     //----------------------------------------------------------                                                        // Main game loop
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
@@ -34,21 +33,17 @@ int main(void)
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
                 menu();
-                ClearBackground(BACKGROUND_COLOR);
                 break;
             case GAME:
                 DisableCursor();
                 SetWindowSize(screenWidth, screenHeight);
                 SetWindowPosition(resolutionX / 2 - screenWidth / 2, (resolutionY - screenHeight) / 2);
                 game();
-                ClearBackground(BACKGROUND_COLOR);
-                DrawFPS(10, 10);
                 break;
             case SETTINGS:
                 EnableCursor();
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 SetWindowPosition(resolutionX / 2 - menu_screenWidth / 2, (resolutionY - menu_screenHeight) / 2);
-                ClearBackground(settingsBackground);
                 settings();
                 break;
             case SCORES:
@@ -60,19 +55,11 @@ int main(void)
             case END:
                 EnableCursor();
                 SetWindowSize(screenWidth, screenHeight);
-                ClearBackground(settingsBackground);
                 endOfGame();
                 break;
         }
-        //-----------------------------------------------------
-        BeginDrawing();
-        EndDrawing();
-        //-----------------------------------------------------
     }
     //---------------------------------------------------------
-    //freeBalls();
-
-    //freeList(bullets);
     CloseWindow();                                                                                                      // Close window and OpenGL context
     //---------------------------------------------------------
     return 0;

@@ -37,10 +37,9 @@ void menuButtonClick () {
     if((isOverButton(startButtonX, startButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) || IsKeyPressed(KEY_ENTER)) {
         DrawTexture(startButton_clicked, startButtonX, startButtonY, WHITE);
         startTime = clock();
-        freeBalls();
         setupBalls();
         setupShip();
-        freeBullets();
+
     }
     if(isOverButton(settingsButtonX, settingsButtonY, buttonHeight / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(settingsButton_clicked, settingsButtonX, settingsButtonY, WHITE);
@@ -59,7 +58,6 @@ void renderButtons () {
     DrawTexture(settingsButton_simple, settingsButtonX, settingsButtonY, WHITE);
 
     int timeDiff = clock() - startTime;
-    //printf("%ld\n", startTime);
     if(startTime != 0 && gameDifficulty != DIFFICULTY_UNSET && background != BACKGROUND_UNSET) {
         if(timeDiff >= 0 && timeDiff < 1000)
             DrawText("3", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
@@ -90,18 +88,30 @@ void renderButtons () {
 
 void menu () {
 
-    //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
+    while (!WindowShouldClose()) {
 
-    startButtonX = menu_screenWidth / 2 - buttonWidth / 2;
-    startButtonY = buttonHeight / 4;
+        ClearBackground(BACKGROUND_COLOR);
 
-    scoresButtonX = startButtonX;
-    scoresButtonY = startButtonY + buttonHeight + buttonHeight / 6;
+        //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
 
-    settingsButtonX = menu_screenWidth - buttonHeight / 2 - buttonHeight / 4;
-    settingsButtonY = buttonHeight / 4;
+        startButtonX = menu_screenWidth / 2 - buttonWidth / 2;
+        startButtonY = buttonHeight / 4;
 
-    renderMenu();
-    renderButtons();
-    menuButtonClick();
+        scoresButtonX = startButtonX;
+        scoresButtonY = startButtonY + buttonHeight + buttonHeight / 6;
+
+        settingsButtonX = menu_screenWidth - buttonHeight / 2 - buttonHeight / 4;
+        settingsButtonY = buttonHeight / 4;
+
+        renderMenu();
+        renderButtons();
+        menuButtonClick();
+
+        if(gameState != MENU)
+            break;
+        //-----------------------------------------------------
+        BeginDrawing();
+        EndDrawing();
+        //-----------------------------------------------------
+    }
 }

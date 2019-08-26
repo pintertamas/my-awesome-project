@@ -81,32 +81,46 @@ void renderBackground () {
 }
 
 void endOfGame () {
-    DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
+    Color settingsBackground = {0,190,255};
+    while (!WindowShouldClose()) {
+        DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
 
-    if (isOverButton(backButtonX, backButtonY, buttonWidth / 2, buttonHeight / 2) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        DrawTexture(backButton_clicked, backButtonX, backButtonY, WHITE);
-        startTime = 0;
-        gameState = MENU;
+        if (isOverButton(backButtonX, backButtonY, buttonWidth / 2, buttonHeight / 2) &&
+            IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            DrawTexture(backButton_clicked, backButtonX, backButtonY, WHITE);
+            startTime = 0;
+            gameState = MENU;
+        }
+        ClearBackground(settingsBackground);
     }
 }
 
 void game () {
-    renderBackground();
+    while (!WindowShouldClose()) {
 
-    renderShip();
-    moveShip();
-    ShipBallCollision();
+        ClearBackground(BACKGROUND_COLOR);
+        DrawFPS(10, 10);
+        renderBackground();
 
-    applyPhysics_Balls(Balls);
-    updateBalls();
+        renderShip();
+        moveShip();
+        ShipBallCollision();
 
-    spawnBullets();
-    updateBullets();
-    BulletBallCollision();
-    renderBullets();
+        applyPhysics_Balls(Balls);
+        updateBalls();
 
-    isBallAlive();
+        spawnBullets();
+        updateBullets();
+        BulletBallCollision();
+        renderBullets();
 
-    if(!IsThereAnyBall())
-        gameState = END;
+        isBallAlive();
+
+        if (!IsThereAnyBall())
+            gameState = END;
+        //-----------------------------------------------------
+        BeginDrawing();
+        EndDrawing();
+        //-----------------------------------------------------
+    }
 }
