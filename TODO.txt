@@ -8,3 +8,4 @@ pausegame és resumegame kivétele mert felesleges
 halál berakása
 életek berakása
 esetleg megtanulni az adatbáziskezelést hogy az eredményeket menőbben jelezhessem ki
+pénzek
