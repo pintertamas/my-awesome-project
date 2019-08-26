@@ -22,6 +22,10 @@ typedef enum Backgrounds {
 
 Backgrounds background;
 
+Button startButton;
+Button settingsButton;
+Button scoresButton;
+
 void menu ();
 void renderMenu ();
 //void loadMenuImages ();
@@ -30,8 +34,5 @@ clock_t startTime;
 clock_t roundStartTime;
 bool isOverButton (Button button);
 
-Button startButton;
-Button settingsButton;
-Button scoresButton;
 
 #endif //MY_AWESOME_PROJECT_MENU_H
