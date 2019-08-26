@@ -10,24 +10,13 @@ typedef struct Button {
     int h;
 }Button;
 
-int easyButtonX;
-int easyButtonY;
-int mediumButtonX;
-int mediumButtonY;
-int hardButtonX;
-int hardButtonY;
-int backButtonX;
-int backButtonY;
-int gap;
-int thumbnailWidth;
-int thumbnailHeight;
-int mountainThumbX;
-int mountainThumbY;
-int mountainsThumbX;
-int mountainsThumbY;
-int japanThumbX;
-int japanThumbY;
-int spaceThumbX;
-int spaceThumbY;
+Button easyButton;
+Button mediumButton;
+Button hardButton;
+Button backButton;
+Button mountain;
+Button mountains;
+Button japan;
+Button space;
 
 #endif //MY_AWESOME_PROJECT_SETTINGS_H

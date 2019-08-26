@@ -85,23 +85,23 @@ void renderSettings () {
 
     DrawTexture(mountain_small, mountainThumbX, mountainThumbY, WHITE);
     DrawTexture(mountains_small, mountainsThumbX, mountainsThumbY, WHITE);
-    DrawTexture(japan_small, japanThumbX, japanThumbY, WHITE);
-    DrawTexture(space_small, spaceThumbX, spaceThumbY, WHITE);
+    DrawTexture(japan_small, japan.x, japan.y, WHITE);
+    DrawTexture(space_small, space.x, space.y, WHITE);
 
     switch (background) {
         case BACKGROUND_UNSET:
             break;
         case MOUNTAIN:
-            DrawTexture(frame_selected, mountainThumbX - 10, mountainThumbY - 10, WHITE);
+            DrawTexture(frame_selected, mountain.x - 10, mountain.y - 10, WHITE);
             break;
         case MOUNTAINS:
-            DrawTexture(frame_selected, mountainsThumbX -10, mountainsThumbY - 10, WHITE);
+            DrawTexture(frame_selected, mountains.x -10, mountains.y - 10, WHITE);
             break;
         case JAPAN:
-            DrawTexture(frame_selected, japanThumbX -10, japanThumbY -10, WHITE);
+            DrawTexture(frame_selected, japan.x -10, japan.y -10, WHITE);
             break;
         case SPACE:
-            DrawTexture(frame_selected, spaceThumbX -10, spaceThumbY - 10, WHITE);
+            DrawTexture(frame_selected, space.x -10, space.y - 10, WHITE);
             break;
     }
 }
@@ -113,28 +113,28 @@ void settings () {
     {
         ClearBackground(settingsBackground);
 
-        backButtonX = buttonHeight / 4;
-        backButtonY = buttonHeight / 4;
+        backButton.x = buttonHeight / 4;
+        backButton.y = buttonHeight / 4;
 
-        easyButtonX = buttonWidth / 2;
-        easyButtonY = buttonHeight + buttonHeight / 2;
-        mediumButtonX = menu_screenWidth / 2 - buttonWidth / 2;
-        mediumButtonY = buttonHeight + buttonHeight / 2;
-        hardButtonX = menu_screenWidth - buttonWidth - buttonWidth / 2;
-        hardButtonY = buttonHeight + buttonHeight / 2;
+        easyButton.x = buttonWidth / 2;
+        easyButton.y = buttonHeight + buttonHeight / 2;
+        mediumButton.x = menu_screenWidth / 2 - buttonWidth / 2;
+        mediumButton.y = buttonHeight + buttonHeight / 2;
+        hardButton.x = menu_screenWidth - buttonWidth - buttonWidth / 2;
+        hardButton.y = buttonHeight + buttonHeight / 2;
 
-        thumbnailWidth = 133;
-        thumbnailHeight = 200;
-        gap = (menu_screenWidth - 4 * thumbnailWidth) / 5;
+        int thumbnailWidth = 133;
+        int thumbnailHeight = 200;
+        int gap = (menu_screenWidth - 4 * thumbnailWidth) / 5;
 
-        mountainThumbX = gap;
-        mountainThumbY = menu_screenHeight - thumbnailHeight - 80;
-        mountainsThumbX = thumbnailWidth + 2 * gap;
-        mountainsThumbY = menu_screenHeight - thumbnailHeight - 80;
-        japanThumbX = 2 * thumbnailWidth + 3 * gap;
-        japanThumbY = menu_screenHeight - thumbnailHeight - 80;
-        spaceThumbX = 3 * thumbnailWidth + 4 * gap;
-        spaceThumbY = menu_screenHeight - thumbnailHeight - 80;
+        mountain.x = gap;
+        mountain.y = menu_screenHeight - thumbnailHeight - 80;
+        mountains.x = thumbnailWidth + 2 * gap;
+        mountains.y = menu_screenHeight - thumbnailHeight - 80;
+        japan.x = 2 * thumbnailWidth + 3 * gap;
+        japan.y = menu_screenHeight - thumbnailHeight - 80;
+        space.x = 3 * thumbnailWidth + 4 * gap;
+        space.y = menu_screenHeight - thumbnailHeight - 80;
 
         switch (gameDifficulty) {
             case DIFFICULTY_UNSET:
