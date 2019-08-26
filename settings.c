@@ -25,14 +25,18 @@ void settingsButtonClick () {
         DrawTexture(backButton_clicked, backButtonX, backButtonY, WHITE);
         gameState = MENU;
     }
+
     if (isOverButton(mountainThumbX, mountainThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        background= MOUNTAIN;
+        if (background == MOUNTAIN)
+            background = BACKGROUND_UNSET;
+        else
+            background = MOUNTAIN;
     }
     if (isOverButton(mountainsThumbX, mountainsThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if (background == MOUNTAINS)
             background = BACKGROUND_UNSET;
         else
-            printf("mountains\n");//background= MOUNTAINS;
+            background= MOUNTAINS;
     }
     if (isOverButton(japanThumbX, japanThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if (background == JAPAN)
@@ -113,7 +117,7 @@ void settings () {
 
     thumbnailWidth = 133;
     thumbnailHeight = 200;
-    double gap = (menu_screenWidth - 4 * thumbnailWidth) / 5;
+    gap = (menu_screenWidth - 4 * thumbnailWidth) / 5;
 
     mountainThumbX = gap;
     mountainThumbY = menu_screenHeight - thumbnailHeight - 80;

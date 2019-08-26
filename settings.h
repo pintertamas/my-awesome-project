@@ -11,15 +11,16 @@ int hardButtonX;
 int hardButtonY;
 int backButtonX;
 int backButtonY;
+int gap;
 int thumbnailWidth;
 int thumbnailHeight;
-double mountainThumbX;
-double mountainThumbY;
-double mountainsThumbX;
-double mountainsThumbY;
-double japanThumbX;
-double japanThumbY;
-double spaceThumbX;
-double spaceThumbY;
+int mountainThumbX;
+int mountainThumbY;
+int mountainsThumbX;
+int mountainsThumbY;
+int japanThumbX;
+int japanThumbY;
+int spaceThumbX;
+int spaceThumbY;
 
 #endif //MY_AWESOME_PROJECT_SETTINGS_H
