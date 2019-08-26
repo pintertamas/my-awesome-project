@@ -24,11 +24,11 @@ void renderMenu () {
     DrawTextEx(font, "Pinter Tamas 2019", fontVector, 15, 2, DARKGRAY);
 }
 
-bool isOverButton (int x, int y, int w, int h) {
+bool isOverButton (Button button) {
     int mouseX = GetMouseX();
     int mouseY = GetMouseY();
 
-    if(mouseX >= x && mouseX <= x + w && mouseY >= y && mouseY <= y + h) {
+    if(mouseX >= button.x && mouseX <= button.x + button.w && mouseY >= button.y && mouseY <= button.y + button.h) {
         return true;
     } else
         return false;

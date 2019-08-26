@@ -2,6 +2,7 @@
 #define MY_AWESOME_PROJECT_MENU_H
 
 #include "global.h"
+#include "settings.h"
 
 typedef enum Difficulty {
     DIFFICULTY_UNSET, EASY, MEDIUM, HARD
@@ -27,7 +28,7 @@ void renderMenu ();
 Font font;
 clock_t startTime;
 clock_t roundStartTime;
-bool isOverButton ();
+bool isOverButton (Button button);
 int startButtonX;
 int startButtonY;
 int settingsButtonX;

@@ -47,7 +47,7 @@ void settingsButtonClick () {
         else
             background= JAPAN;
     }
-    if (isOverButton(spaceThumbX, spaceThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    if (isOverButton(, spaceThumbY, thumbnailWidth, thumbnailHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if (background == SPACE)
             background = BACKGROUND_UNSET;
         else
@@ -58,33 +58,33 @@ void settingsButtonClick () {
 void renderSettings () {
 
     DrawTexture(settingsLogo, menu_screenWidth / 2 - 440 / 2, 30, WHITE);
-    DrawTexture(backButton_simple, backButtonX, backButtonY, WHITE);
+    DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
 
-    DrawTexture(easyMode, easyButtonX, easyButtonY, WHITE);
-    DrawTexture(mediumMode, mediumButtonX, mediumButtonY, WHITE);
-    DrawTexture(hardMode, hardButtonX, hardButtonY, WHITE);
+    DrawTexture(easyMode, easyButton.x, easyButton.y, WHITE);
+    DrawTexture(mediumMode, mediumButton.x, mediumButton.y, WHITE);
+    DrawTexture(hardMode, hardButton.x, hardButton.y, WHITE);
 
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:
             break;
         case EASY:
-            DrawTexture(easyMode_selected, easyButtonX, easyButtonY, WHITE);
+            DrawTexture(easyMode_selected, easyButton.x, easyButton.y, WHITE);
             break;
         case MEDIUM:
-            DrawTexture(mediumMode_selected, mediumButtonX, mediumButtonY, WHITE);
+            DrawTexture(mediumMode_selected, mediumButton.x, mediumButton.y, WHITE);
             break;
         case HARD:
-            DrawTexture(hardMode_selected, hardButtonX, hardButtonY, WHITE);
+            DrawTexture(hardMode_selected, hardButton.x, hardButton.y, WHITE);
             break;
     }
 
-    DrawTexture(frame_unselected, mountainThumbX - 10, mountainThumbY - 10, WHITE);
-    DrawTexture(frame_unselected, mountainsThumbX - 10, mountainsThumbY - 10, WHITE);
-    DrawTexture(frame_unselected, japanThumbX - 10, japanThumbY - 10, WHITE);
-    DrawTexture(frame_unselected, spaceThumbX - 10, spaceThumbY - 10, WHITE);
+    DrawTexture(frame_unselected, mountain.x - 10, mountain.y - 10, WHITE);
+    DrawTexture(frame_unselected, mountains.x - 10, mountains.y - 10, WHITE);
+    DrawTexture(frame_unselected, japan.x - 10, japan.y - 10, WHITE);
+    DrawTexture(frame_unselected, space.x - 10, space.y - 10, WHITE);
 
-    DrawTexture(mountain_small, mountainThumbX, mountainThumbY, WHITE);
-    DrawTexture(mountains_small, mountainsThumbX, mountainsThumbY, WHITE);
+    DrawTexture(mountain_small, mountain.x, mountain.y, WHITE);
+    DrawTexture(mountains_small, mountains.x, mountains.y, WHITE);
     DrawTexture(japan_small, japan.x, japan.y, WHITE);
     DrawTexture(space_small, space.x, space.y, WHITE);
 
