@@ -8,7 +8,7 @@ typedef struct Button{
     int h;
 }Button;
 
-extern Button startButton;
+Button startButton;
 Button settingsButton;
 Button scoresButton;
 Button easyButton;
