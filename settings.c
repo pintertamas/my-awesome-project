@@ -1,5 +1,8 @@
 #include "settings.h"
 #include "menu.h"
+#include "textures.h"
+#include "ball.h"
+#include "bullet.h"
 
 void settingsButtonClick () {
     if (isOverButton(easyButtonX, easyButtonY, buttonWidth, buttonHeight) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {

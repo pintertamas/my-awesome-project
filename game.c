@@ -4,6 +4,7 @@
 #include "ship.h"
 #include "settings.h"
 #include "menu.h"
+#include "textures.h"
 
 bool ShipBallCollision (){
     for (int i = 0; i < ballNumber; i++) {
@@ -92,6 +93,13 @@ void endOfGame () {
             gameState = MENU;
         }
         ClearBackground(settingsBackground);
+
+        if(gameState != END)
+            break;
+        //-----------------------------------------------------
+        BeginDrawing();
+        EndDrawing();
+        //-----------------------------------------------------
     }
 }
 

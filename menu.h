@@ -3,6 +3,24 @@
 
 #include "global.h"
 
+typedef enum Difficulty {
+    DIFFICULTY_UNSET, EASY, MEDIUM, HARD
+}Difficulty;
+
+Difficulty gameDifficulty;
+
+typedef enum state {
+    MENU, GAME, SETTINGS, SCORES, END
+}state;
+
+state gameState;
+
+typedef enum Backgrounds {
+    BACKGROUND_UNSET, MOUNTAINS, MOUNTAIN, SPACE, JAPAN
+}Backgrounds;
+
+Backgrounds background;
+
 void menu ();
 void renderMenu ();
 //void loadMenuImages ();

@@ -1,5 +1,5 @@
-#ifndef HEADBALL_GAME_H
-#define HEADBALL_GAME_H
+#ifndef MY_AWESOME_PROJECT_GAME_H
+#define MY_AWESOME_PROJECT_GAME_H
 
 #include "global.h"
 
@@ -11,4 +11,4 @@ void pauseGame ();
 void resumeGame ();
 void renderBackground();
 
-#endif //HEADBALL_GAME_H
+#endif //MY_AWESOME_PROJECT_GAME_H

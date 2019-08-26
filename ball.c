@@ -1,4 +1,8 @@
 #include "global.h"
+#include "ball.h"
+
+int ballNumber = 10;
+int ballGravity = 1;
 
 void setupBalls() {
     Balls = (Ball *) malloc(ballNumber * sizeof(Ball));

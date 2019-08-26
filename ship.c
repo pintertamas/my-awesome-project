@@ -1,4 +1,6 @@
 #include "global.h"
+#include "ship.h"
+#include "textures.h"
 
 void setupShip(){                                                                                                       //the ship is a 50x70 image
     ship.xsize = 50;

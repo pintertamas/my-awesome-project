@@ -1,4 +1,15 @@
 #include "global.h"
+#include "ship.h"
+#include "textures.h"
+#include "bullet.h"
+
+Bullet *bullets = NULL;
+clock_t shoot;
+int shootDelay = 69;
+int shipSpeed = 10;                                                                                                     //the speed of the bullets
+int bulletCount = 5;
+int bulletRadius = 5;
+int bulletSpeed = 15;
 
 void freeList (Bullet *fromHere) {
     Bullet *cursor = fromHere;

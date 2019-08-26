@@ -1,12 +1,13 @@
 #include "menu.h"
 #include "ball.h"
 #include "ship.h"
+#include "textures.h"
 
 void renderMenu () {
 
     double timePassed = GetTime();
     timePassed /= 2;
-    DrawCircle(menu_screenWidth / 2 + 350 * sin(timePassed), menu_screenHeight / 2 + 200 * cos(timePassed), 50, YELLOW);
+    DrawCircle(menu_screenWidth / 2 - 350 * sin(timePassed), menu_screenHeight / 2 + 200 * cos(timePassed), 50, YELLOW);
 
     if(((sin(timePassed) < 0 && cos(timePassed) > 0) || (sin(timePassed) > 0 && cos(timePassed) > 0)) && BACKGROUND_COLOR.g > 0) {
         BACKGROUND_COLOR.g--;
