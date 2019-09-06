@@ -2,9 +2,11 @@
 #define MY_AWESOME_PROJECT_TEXTURES_H
 
 void loadImage ();
-Image textures[28];
-Texture2D   shipTexture, bulletTexture,
-        menuBackground, background_mountain, background_mountains, background_japan, background_space,
+Image textures[30];
+Texture2D
+        shipTexture, bulletTexture,
+        menuBackground, background_unknown, background_gameover,
+        background_mountain, background_mountains, background_japan, background_space,
         mountain_small, mountains_small, japan_small, space_small,
         frame_selected, frame_unselected,
         startButton_simple, startButton_clicked,

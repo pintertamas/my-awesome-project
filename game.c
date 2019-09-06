@@ -63,7 +63,7 @@ void resumeGame () {
 void renderBackground () {
     switch (background) {
         case BACKGROUND_UNSET:
-            DrawTexture(background_mountains, 0, 0, WHITE);
+            DrawTexture(background_unknown, 0, 0, WHITE);
             break;
         case MOUNTAIN:
             DrawTexture(background_mountain, 0, 0, WHITE);
@@ -83,6 +83,7 @@ void renderBackground () {
 void endOfGame () {
     Color settingsBackground = {0,190,255};
     while (!WindowShouldClose()) {
+        DrawTexture(background_gameover, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
 
         if (isOverButton(backButton) &&
@@ -104,11 +105,9 @@ void endOfGame () {
 
 void game () {
     while (!WindowShouldClose()) {
-
-        ClearBackground(BACKGROUND_COLOR);
         DrawFPS(10, 10);
-        renderBackground();
 
+        renderBackground();
         renderShip();
         moveShip();
         ShipBallCollision();
@@ -125,6 +124,10 @@ void game () {
 
         if (!IsThereAnyBall())
             gameState = END;
+
+        if(gameState != GAME)
+            break;
+        ClearBackground(BACKGROUND_COLOR);
         //-----------------------------------------------------
         BeginDrawing();
         EndDrawing();

@@ -114,4 +114,12 @@ void loadImage(){
     textures[27] = LoadImage("Textures/thumbnails/space_small.png");
     ImageFormat(&textures[27], UNCOMPRESSED_R8G8B8A8);
     space_small = LoadTextureFromImage(textures[27]);
+
+    textures[28] = LoadImage("Textures/backgrounds/background_unknown.png");
+    ImageFormat(&textures[28], UNCOMPRESSED_R8G8B8A8);
+    background_unknown = LoadTextureFromImage(textures[28]);
+
+    textures[29] = LoadImage("Textures/backgrounds/background_gameover.png");
+    ImageFormat(&textures[29], UNCOMPRESSED_R8G8B8A8);
+    background_gameover = LoadTextureFromImage(textures[29]);
 }
