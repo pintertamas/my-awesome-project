@@ -95,7 +95,7 @@ void loadImage(){
     ImageFormat(&textures[22], UNCOMPRESSED_R8G8B8A8);
     background_japan = LoadTextureFromImage(textures[22]);
 
-    textures[23] = LoadImage("Textures/backgrounds/background_spacen.png");
+    textures[23] = LoadImage("Textures/backgrounds/background_space.png");
     ImageFormat(&textures[23], UNCOMPRESSED_R8G8B8A8);
     background_space = LoadTextureFromImage(textures[23]);
 
