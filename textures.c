@@ -126,4 +126,16 @@ void loadImage(){
     textures[30] = LoadImage("Textures/heart.png");
     ImageFormat(&textures[30], UNCOMPRESSED_R8G8B8A8);
     heart = LoadTextureFromImage(textures[30]);
+
+    textures[31] = LoadImage("Textures/bullets/brownBullet.png");
+    ImageFormat(&textures[31], UNCOMPRESSED_R8G8B8A8);
+    brownBullet = LoadTextureFromImage(textures[31]);
+
+    textures[32] = LoadImage("Textures/bullets/greenBullet.png");
+    ImageFormat(&textures[32], UNCOMPRESSED_R8G8B8A8);
+    greenBullet = LoadTextureFromImage(textures[32]);
+
+    textures[33] = LoadImage("Textures/bullets/starBullet.png");
+    ImageFormat(&textures[33], UNCOMPRESSED_R8G8B8A8);
+    startBullet = LoadTextureFromImage(textures[33]);
 }

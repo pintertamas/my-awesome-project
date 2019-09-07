@@ -3,6 +3,7 @@
 #include "textures.h"
 #include "bullet.h"
 #include "game.h"
+#include "menu.h"
 
 Bullet *bullets = NULL;
 clock_t shoot;
@@ -66,8 +67,23 @@ void renderBullets () {
     Bullet *cursor;
         for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
             if(cursor->ypos >= bulletRadius) {
-                //DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
-                DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
+
+                switch(background) {
+                    case FOREST:
+                        DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
+                        break;
+                    case MOUNTAINS:
+                        DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
+                        break;
+                    case JAPAN:
+                        DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
+                        break;
+                    case SPACE:
+                        DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 }
