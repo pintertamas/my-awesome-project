@@ -2,6 +2,7 @@
 #include "ship.h"
 #include "textures.h"
 #include "bullet.h"
+#include "game.h"
 
 Bullet *bullets = NULL;
 clock_t shoot;
@@ -10,6 +11,7 @@ int shipSpeed = 10;                                                             
 int bulletCount = 5;
 int bulletRadius = 5;
 int bulletSpeed = 15;
+int bulletDamage = 1;
 
 void freeList (Bullet *fromHere) {
     Bullet *cursor = fromHere;
@@ -36,7 +38,7 @@ void spawnBullets () {
     double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
 
 
-    if(IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay) {
+    if(IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay && lifePoints != 0) {
         //printf("%f\n", (double)(clock() - shoot));
         shoot = clock();
 
@@ -55,17 +57,17 @@ void spawnBullets () {
 
 void updateBullets () {
     Bullet *cursor;
-    for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-        cursor->ypos -= bulletSpeed;
-    }
+        for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
+            cursor->ypos -= bulletSpeed;
+        }
 }
 
 void renderBullets () {
     Bullet *cursor;
-    for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-        if(cursor->ypos >= bulletRadius) {
-            //DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
-            DrawTexture(bulletTexture, cursor->xpos, cursor->ypos, WHITE);
+        for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
+            if(cursor->ypos >= bulletRadius) {
+                //DrawCircle(cursor->xpos, cursor->ypos, bulletRadius, BLACK);
+                DrawTexture(bulletTexture, cursor->xpos, cursor->ypos, WHITE);
+            }
         }
-    }
 }

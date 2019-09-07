@@ -16,6 +16,7 @@ extern int shootDelay;
 extern int bulletCount;                                                                                                 //number of bullets in one row
 extern int bulletRadius;                                                                                                //size of the bullets
 extern int bulletSpeed;                                                                                                 //the speed of the bullets
+extern int bulletDamage;
 
 void freeList (Bullet *first);
 void spawnBullets ();

@@ -3,7 +3,6 @@
 #include "ship.h"
 #include "ball.h"
 #include "bullet.h"
-#include "coin.h"
 #include "menu.h"
 #include "settings.h"
 #include "textures.h"
@@ -23,6 +22,7 @@ int main(void)
     setupShip();
     setupButtons();
     shoot = clock();
+    lifePoints = 3;
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
     background = BACKGROUND_UNSET;

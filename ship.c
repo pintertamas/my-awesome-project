@@ -22,5 +22,5 @@ void moveShip() {
 }
 
 void renderShip(){
-    DrawTexture(shipTexture, (int)ship.xpos, (int)ship.ypos, WHITE);
+    DrawTexture(spaceShip, (int)ship.xpos, (int)ship.ypos, WHITE);
 }

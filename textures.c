@@ -3,9 +3,9 @@
 
 void loadImage(){
 
-    textures[0] = LoadImage("Textures/spaceShip.png");                                                         // Loaded in CPU memory (RAM)
+    textures[0] = LoadImage("Textures/ships/spaceShip.png");                                                         // Loaded in CPU memory (RAM)
     ImageFormat(&textures[0], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
-    shipTexture = LoadTextureFromImage(textures[0]);                                                             // Image converted to texture, GPU memory (VRAM)
+    spaceShip = LoadTextureFromImage(textures[0]);                                                             // Image converted to texture, GPU memory (VRAM)
 
     textures[1] = LoadImage("Textures/bullet.png");
     ImageFormat(&textures[1], UNCOMPRESSED_R8G8B8A8);
@@ -122,4 +122,8 @@ void loadImage(){
     textures[29] = LoadImage("Textures/backgrounds/background_gameover.png");
     ImageFormat(&textures[29], UNCOMPRESSED_R8G8B8A8);
     background_gameover = LoadTextureFromImage(textures[29]);
+
+    textures[30] = LoadImage("Textures/hearth.png");
+    ImageFormat(&textures[30], UNCOMPRESSED_R8G8B8A8);
+    hearth = LoadTextureFromImage(textures[30]);
 }
