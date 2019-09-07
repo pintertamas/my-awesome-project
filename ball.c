@@ -1,5 +1,6 @@
 #include "global.h"
 #include "ball.h"
+#include "textures.h"
 
 int ballNumber = 10;
 int ballGravity = 1;
@@ -8,7 +9,7 @@ void setupBalls() {
     Balls = (Ball *) malloc(ballNumber * sizeof(Ball));
     int difficultyBalance;
 
-    if(ballNumber % 2 == 0)
+    if (ballNumber % 2 == 0)
         difficultyBalance = ballNumber / 2;
     else
         difficultyBalance = (ballNumber + 1) / 2;
@@ -46,7 +47,7 @@ void setupBalls() {
             default: ;
         }
         int d = GetRandomValue(0,1);
-        if(d == 0)
+        if (d == 0)
             Balls[i].xpos = (double)Balls[i].radius;
         else
             Balls[i].xpos = (double)(screenWidth - Balls[i].radius);
@@ -68,10 +69,10 @@ void ballSetupAtStart () {
 void ballbounce(Ball *ball, bool gravity) {
     ball->vy += ball->gravity;
     ball->ypos += ball->vy/10;
-    if(ball->ypos > (double)screenHeight - (double)ball->radius)
+    if (ball->ypos > (double)screenHeight - (double)ball->radius)
     {
         ball->ypos = (double)(screenHeight - ball->radius);
-        if(gravity == true)
+        if (gravity == true)
             ball->vy *= ball->bounce/5;
         else
             ball->vy *= ball->bounce;
@@ -80,61 +81,84 @@ void ballbounce(Ball *ball, bool gravity) {
     ball->xpos += ball->vx;
     //---------------------
     //ball->vy *= .99;                                                                                                  //slowing down the ball int the y axis
-    if(gravity == true) {
+    if (gravity == true) {
         ball->vx *= (double).996;                                                                                       //slowing the ball down in the x axis
     }
     //---------------------
+}
+
+void renderBalls(Ball *ball) {
     for(int i = 0; i < ballNumber; i++) {
-        if(Balls[i].visible == true) {
+        if (Balls[i].visible == true) {
             Vector2 textPosition = {
                     ball->xpos - ball->radius / 2,
                     ball->ypos - ball->radius/4};
-            DrawCircle(ball->xpos,ball->ypos, ball->radius, ball->color);
+            switch(ball->radius) {
+                case 20:
+                    DrawTexture(greenBall, ball->xpos - ball->radius, ball->ypos - ball->radius, WHITE);
+                    break;
+                case 25:
+                    DrawTexture(blueBall, ball->xpos - ball->radius, ball->ypos - ball->radius, WHITE);
+                    break;
+                case 30:
+                    DrawTexture(orangeBall, ball->xpos - ball->radius, ball->ypos - ball->radius, WHITE);
+                    break;
+                case 35:
+                    DrawTexture(redBall, ball->xpos - ball->radius, ball->ypos - ball->radius, WHITE);
+                    break;
+                case 40:
+                    DrawTexture(purpleBall, ball->xpos - ball->radius, ball->ypos - ball->radius, WHITE);
+                    break;
+                default:
+                    DrawCircle(ball->xpos,ball->ypos, ball->radius, ball->color);
+                    break;
+            }
             DrawTextEx(font, FormatText ("%d", ball->HP), textPosition, 2 * ball->radius / 3, 2, BLACK);
         }
     }
 }
 
 void collisionWall(Ball *ball) {
-    if(ball->xpos >= (double)(screenWidth - ball->radius)) {
+    if (ball->xpos >= (double)(screenWidth - ball->radius)) {
         ball->xpos = (double)(screenWidth -ball->radius); ball->vx = -ball->vx;
     }
-    if(ball->xpos <= (double)ball->radius) {
+    if (ball->xpos <= (double)ball->radius) {
         ball->xpos = (double)ball->radius; ball->vx = -ball->vx;
     }
-    if(ball->ypos < (double)ball->radius) {
+    if (ball->ypos < (double)ball->radius) {
         ball->ypos = (double)ball->radius; ball->vy = -ball->vy;
     }
 }
 
 void applyPhysics_Balls(Ball *ball) {
     for(int i=0; i<ballNumber; i++) {
-        if(Balls[i].visible == true) {
+        if (Balls[i].visible == true) {
             ballbounce(&ball[i], false);
             collisionWall(&ball[i]);
+            renderBalls(&ball[i]);
         }
     }
 }
 
 void updateBalls() {
     for(int i = 0; i < ballNumber; i++) {
-        if(Balls[i].HP <= 64) {
+        if (Balls[i].HP <= 64) {
             Balls[i].color = DARKGREEN;
             Balls[i].radius = 20;
         }
-        if(Balls[i].HP > 64 && Balls[i].HP <= 128) {
+        if (Balls[i].HP > 64 && Balls[i].HP <= 128) {
             Balls[i].color = DARKBLUE;
             Balls[i].radius = 25;
         }
-        if(Balls[i].HP > 128 && Balls[i].HP <= 256) {
+        if (Balls[i].HP > 128 && Balls[i].HP <= 256) {
             Balls[i].color = ORANGE;
             Balls[i].radius = 30;
         }
-        if(Balls[i].HP > 256 && Balls[i].HP <= 512) {
+        if (Balls[i].HP > 256 && Balls[i].HP <= 512) {
             Balls[i].color = RED;
             Balls[i].radius = 35;
         }
-        if(Balls[i].HP > 512 && Balls[i].HP <= 1024) {
+        if (Balls[i].HP > 512 && Balls[i].HP <= 1024) {
             Balls[i].color = DARKPURPLE;
             Balls[i].radius = 40;
         }
@@ -143,14 +167,14 @@ void updateBalls() {
 
 void isBallAlive() {
     for(int i = 0; i < ballNumber; i++) {
-        if(Balls[i].HP == 0)
+        if (Balls[i].HP == 0)
             Balls[i].visible = false;
     }
 }
 
 bool IsThereAnyBall () {
     for(int i = 0; i < ballNumber; i++) {
-        if(Balls[i].visible)
+        if (Balls[i].visible)
             return true;
     }
     return false;

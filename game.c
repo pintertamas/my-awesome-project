@@ -6,17 +6,23 @@
 #include "menu.h"
 #include "textures.h"
 
+void setupBackupArray () {
+    endGame = (double **) malloc(ballNumber * sizeof(double *));
+    for(int i = 0; i < ballNumber; i++) {
+        endGame[i] = (double *) malloc(6 * sizeof(double));
+    }
+}
+
 void stopGame (StopGame stopTheGame) {
-    int endGame[ballNumber][6];
     switch (stopTheGame) {
         case PAUSE:
             for(int i = 0; i < ballNumber; i++) {
                 endGame[i][0] = Balls[i].vx;
                 endGame[i][1] = Balls[i].vy;
                 endGame[i][2] = Balls[i].gravity;
-                endGame[i][3] = ship.speed;
-                endGame[i][4] = bulletSpeed;
-                endGame[i][5] = bulletDamage;
+                endGame[i][3] = (double)ship.speed;
+                endGame[i][4] = (double)bulletSpeed;
+                endGame[i][5] = (double)bulletDamage;
             }
 
             for(int i = 0; i < ballNumber; i++) {
@@ -27,15 +33,15 @@ void stopGame (StopGame stopTheGame) {
                 bulletSpeed = 0;
                 bulletDamage = 0;
             }
-            break;
+                break;
         case RESUME:
             for(int i = 0; i < ballNumber; i++) {
                 Balls[i].vx = endGame[i][0];
                 Balls[i].vy = endGame[i][1];
                 Balls[i].gravity = endGame[i][2];
-                ship.speed = endGame[i][3];
-                bulletSpeed = endGame[i][4];
-                bulletDamage = endGame[i][5];
+                ship.speed = (int)endGame[i][3];
+                bulletSpeed = (int)endGame[i][4];
+                bulletDamage = (int)endGame[i][5];
             }
             break;
         default:
@@ -58,16 +64,15 @@ bool ShipBallCollision () {
 }
 
 void shipLife () {
-    if(ShipBallCollision() && !inCollision) {
+    if (ShipBallCollision() && !inCollision) {
         lifePoints--;
         inCollision = true;
     }
-    if(!ShipBallCollision() && inCollision) {
+    if (!ShipBallCollision() && inCollision) {
         inCollision = false;
     }
-    if(lifePoints == 0)
+    if (lifePoints == 0)
         stopGame(PAUSE);
-    //stopGame(RESUME);
 }
 
 void BulletBallCollision () {
@@ -79,7 +84,7 @@ void BulletBallCollision () {
             if (sqrt(a_square + b_square) < bulletRadius + Balls[i].radius) {
                 Balls[i].HP -= bulletDamage;
             }
-            if(Balls[i].HP == 0)
+            if (Balls[i].HP == 0)
                 Balls[i].visible = 0;
         }
     }
@@ -105,11 +110,15 @@ void renderBackground () {
     }
 
     DrawTexture(heart, 10, 30, WHITE);
+    Vector2 pausePosition = {150, 30};
 
-    if(background == SPACE)
+    if (background == SPACE) {
         DrawText(FormatText("%d", lifePoints), 50, 30, 30, WHITE);
-    else
+        DrawTextEx(font, "press Y to pause and X to resume", pausePosition, 20, 2, WHITE);
+    } else {
         DrawText(FormatText("%d", lifePoints), 50, 30, 30, BLACK);
+        DrawTextEx(font, "press Y to pause and X to resume", pausePosition, 20, 2, BLACK);
+    }
 }
 
 void endOfGame () {
@@ -128,7 +137,7 @@ void endOfGame () {
         }
         ClearBackground(settingsBackground);
 
-        if(gameState != END)
+        if (gameState != END)
             break;
         //-----------------------------------------------------
         BeginDrawing();
@@ -138,6 +147,7 @@ void endOfGame () {
 }
 
 void game () {
+    setupBackupArray();
     while (!WindowShouldClose()) {
         DrawFPS(10, 10);
 
@@ -157,10 +167,27 @@ void game () {
 
         isBallAlive();
 
+        if (IsKeyPressed(KEY_Z)) {
+            stopGame(PAUSE);
+            isPaused = true;
+        }
+
+        if (IsKeyPressed(KEY_X) && isPaused) {
+            stopGame(RESUME);
+            isPaused = false;
+        }
+
+        if (isPaused) {
+            if (background == SPACE || background == MOUNTAINS)
+                DrawText("PAUSED!", 170, 400, 60, WHITE);
+            else
+                DrawText("PAUSED!", 170, 400, 60, BLACK);
+        }
+
         if (!IsThereAnyBall())
             gameState = END;
 
-        if(gameState != GAME)
+        if (gameState != GAME)
             break;
         ClearBackground(BACKGROUND_COLOR);
         //-----------------------------------------------------

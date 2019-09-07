@@ -140,7 +140,7 @@ void settings () {
         settingsButtonClick();
         renderSettings();
 
-        if(gameState != SETTINGS)
+        if (gameState != SETTINGS)
             break;
         //-----------------------------------------------------
         BeginDrawing();

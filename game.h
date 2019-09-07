@@ -4,9 +4,10 @@
 #include "global.h"
 #include "ball.h"
 
+double **endGame;
+bool isPaused;
 void game ();
 typedef enum STOPGAME { PAUSE, RESUME}StopGame;
-StopGame stopTheGame;
 int lifePoints;
 bool inCollision;
 bool ShipBallCollision ();

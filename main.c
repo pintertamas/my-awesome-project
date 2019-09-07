@@ -12,7 +12,7 @@ int main(void)
 {
     //----------------------------------------------------------                                                        // Initialization
     InitWindow(menu_screenWidth, menu_screenHeight, "My Awesome Game");
-    Image icon = LoadImage("Textures/spaceShip.png");
+    Image icon = LoadImage("Textures/heart.png");
     SetWindowIcon(icon);
     SetTargetFPS(60);
 

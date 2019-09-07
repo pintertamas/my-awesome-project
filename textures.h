@@ -2,9 +2,10 @@
 #define MY_AWESOME_PROJECT_TEXTURES_H
 
 void loadImage ();
-Image textures[34];
+Image textures[40];
 Texture2D
-        spaceShip, heart,
+        window_icon, heart, spaceShip,
+        greenBall, blueBall, orangeBall, redBall, purpleBall,
         redBullet, brownBullet, greenBullet, starBullet,
         menuBackground, background_unknown, background_gameOver,
         background_forest, background_mountains, background_japan, background_space,

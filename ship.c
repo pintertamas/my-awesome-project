@@ -11,13 +11,13 @@ void setupShip(){                                                               
 }
 
 void moveShip() {
-    if(IsKeyDown(KEY_LEFT))
+    if (IsKeyDown(KEY_LEFT))
         ship.xpos -= (float)ship.speed;
-    if(ship.xpos < 0)
+    if (ship.xpos < 0)
         ship.xpos = 0;
-    if(IsKeyDown(KEY_RIGHT))
+    if (IsKeyDown(KEY_RIGHT))
         ship.xpos += (float)ship.speed;
-    if(ship.xpos > (float)(screenWidth - ship.xsize))
+    if (ship.xpos > (float)(screenWidth - ship.xsize))
         ship.xpos = (float)(screenWidth - ship.xsize);
 }
 

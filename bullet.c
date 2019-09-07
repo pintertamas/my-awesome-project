@@ -39,7 +39,7 @@ void spawnBullets () {
     double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
 
 
-    if(IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay && lifePoints != 0) {
+    if (IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay && lifePoints != 0) {
         //printf("%f\n", (double)(clock() - shoot));
         shoot = clock();
 
@@ -66,7 +66,7 @@ void updateBullets () {
 void renderBullets () {
     Bullet *cursor;
         for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-            if(cursor->ypos >= bulletRadius) {
+            if (cursor->ypos >= bulletRadius) {
 
                 switch(background) {
                     case FOREST:

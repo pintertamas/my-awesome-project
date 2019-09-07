@@ -138,4 +138,28 @@ void loadImage(){
     textures[33] = LoadImage("Textures/bullets/starBullet.png");
     ImageFormat(&textures[33], UNCOMPRESSED_R8G8B8A8);
     starBullet = LoadTextureFromImage(textures[33]);
+
+    textures[34] = LoadImage("Textures/balls/greenBall.png");
+    ImageFormat(&textures[34], UNCOMPRESSED_R8G8B8A8);
+    greenBall = LoadTextureFromImage(textures[34]);
+
+    textures[35] = LoadImage("Textures/balls/blueBall.png");
+    ImageFormat(&textures[35], UNCOMPRESSED_R8G8B8A8);
+    blueBall = LoadTextureFromImage(textures[35]);
+
+    textures[36] = LoadImage("Textures/balls/orangeBall.png");
+    ImageFormat(&textures[36], UNCOMPRESSED_R8G8B8A8);
+    orangeBall = LoadTextureFromImage(textures[36]);
+
+    textures[37] = LoadImage("Textures/balls/redBall.png");
+    ImageFormat(&textures[37], UNCOMPRESSED_R8G8B8A8);
+    redBall = LoadTextureFromImage(textures[37]);
+
+    textures[38] = LoadImage("Textures/balls/purpleBall.png");
+    ImageFormat(&textures[38], UNCOMPRESSED_R8G8B8A8);
+    purpleBall = LoadTextureFromImage(textures[38]);
+
+    textures[39] = LoadImage("Textures/icon.png");
+    ImageFormat(&textures[39], UNCOMPRESSED_R8G8B8A8);
+    window_icon = LoadTextureFromImage(textures[39]);
 }
