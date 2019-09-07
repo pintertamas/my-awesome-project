@@ -22,7 +22,6 @@ int main(void)
     setupShip();
     setupButtons();
     shoot = clock();
-    lifePoints = 3;
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
     background = BACKGROUND_UNSET;

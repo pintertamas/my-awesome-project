@@ -6,9 +6,9 @@
 #include "menu.h"
 #include "textures.h"
 
-void stopGame (stopGame) {
+void stopGame (STOPGAME stopTheGame) {
     int endGame[ballNumber][6];
-    switch (stopGame) {
+    switch (stopTheGame) {
         case PAUSE:
             for(int i = 0; i < ballNumber; i++) {
                 endGame[i][0] = Balls[i].vx;
@@ -58,9 +58,13 @@ bool ShipBallCollision () {
 }
 
 void shipLife () {
-    printf("%d", lifePoints);
+    bool inCollision = false;
     if(ShipBallCollision()) {
-        printf("%d", lifePoints);
+        inCollision = true;
+    }
+    if(!ShipBallCollision() && inCollision) {
+        lifePoints--;
+        inCollision = false;
     }
     if(lifePoints == 0)
         stopGame(PAUSE);
@@ -100,6 +104,9 @@ void renderBackground () {
             DrawTexture(background_space, 0, 0, WHITE);
             break;
     }
+
+    DrawTexture(heart, 10, 30, WHITE);
+    DrawText(FormatText("%d", lifePoints), 50, 30, 30, WHITE);
 }
 
 void renderLifePoints () {

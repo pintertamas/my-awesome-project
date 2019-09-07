@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "game.h"
 #include "ball.h"
 #include "ship.h"
 #include "textures.h"
@@ -71,6 +72,7 @@ void renderButtons () {
         else {
             startTime = 0;
             roundStartTime = clock();
+            lifePoints = 3;
             gameState = GAME;
         }
     }
