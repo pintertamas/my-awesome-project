@@ -5,7 +5,7 @@ void loadImage ();
 Image textures[34];
 Texture2D
         spaceShip, heart,
-        redBullet, brownBullet, greenBullet, startBullet,
+        redBullet, brownBullet, greenBullet, starBullet,
         menuBackground, background_unknown, background_gameOver,
         background_forest, background_mountains, background_japan, background_space,
         forest_small, mountains_small, japan_small, space_small,

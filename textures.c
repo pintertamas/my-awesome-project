@@ -137,5 +137,5 @@ void loadImage(){
 
     textures[33] = LoadImage("Textures/bullets/starBullet.png");
     ImageFormat(&textures[33], UNCOMPRESSED_R8G8B8A8);
-    startBullet = LoadTextureFromImage(textures[33]);
+    starBullet = LoadTextureFromImage(textures[33]);
 }

@@ -70,16 +70,16 @@ void renderBullets () {
 
                 switch(background) {
                     case FOREST:
-                        DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
+                        DrawTexture(brownBullet, cursor->xpos, cursor->ypos, WHITE);
                         break;
                     case MOUNTAINS:
                         DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
                         break;
                     case JAPAN:
-                        DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
+                        DrawTexture(starBullet, cursor->xpos, cursor->ypos, WHITE);
                         break;
                     case SPACE:
-                        DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
+                        DrawTexture(greenBullet, cursor->xpos, cursor->ypos, WHITE);
                         break;
                     default:
                         break;
