@@ -22,6 +22,7 @@ int main(void)
     setupShip();
     setupButtons();
     shoot = clock();
+    inCollision = false;
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
     background = BACKGROUND_UNSET;

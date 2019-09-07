@@ -6,7 +6,7 @@
 #include "menu.h"
 #include "textures.h"
 
-void stopGame (STOPGAME stopTheGame) {
+void stopGame (StopGame stopTheGame) {
     int endGame[ballNumber][6];
     switch (stopTheGame) {
         case PAUSE:
@@ -49,7 +49,7 @@ bool ShipBallCollision () {
         if (screenHeight - ship.ysize < d) {
             if (Balls[i].xpos + Balls[i].radius > ship.xpos &&
                 Balls[i].xpos - Balls[i].radius < ship.xpos + ship.xsize) {
-                Balls[i].color = BLACK;
+                //Balls[i].color = BLACK;
                 return true;
             }
         }
@@ -58,12 +58,11 @@ bool ShipBallCollision () {
 }
 
 void shipLife () {
-    bool inCollision = false;
-    if(ShipBallCollision()) {
+    if(ShipBallCollision() && !inCollision) {
+        lifePoints--;
         inCollision = true;
     }
     if(!ShipBallCollision() && inCollision) {
-        lifePoints--;
         inCollision = false;
     }
     if(lifePoints == 0)
@@ -107,10 +106,6 @@ void renderBackground () {
 
     DrawTexture(heart, 10, 30, WHITE);
     DrawText(FormatText("%d", lifePoints), 50, 30, 30, WHITE);
-}
-
-void renderLifePoints () {
-
 }
 
 void endOfGame () {
