@@ -86,9 +86,11 @@ void ballbounce(Ball *ball, bool gravity) {
     //---------------------
     for(int i = 0; i < ballNumber; i++) {
         if(Balls[i].visible == true) {
-            DrawCircle((int)ball->xpos,(int)ball->ypos, (double)ball->radius, ball->color);
-            DrawText(FormatText ("%d", ball->HP), (int)ball->xpos - ball->radius / 2,
-                     (int)ball->ypos - ball->radius/4, 2 * ball->radius / 3, BLACK);
+            Vector2 textPosition = {
+                    ball->xpos - ball->radius / 2,
+                    ball->ypos - ball->radius/4};
+            DrawCircle(ball->xpos,ball->ypos, ball->radius, ball->color);
+            DrawTextEx(font, FormatText ("%d", ball->HP), textPosition, 2 * ball->radius / 3, 2, BLACK);
         }
     }
 }

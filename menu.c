@@ -19,9 +19,8 @@ void renderMenu () {
     }
 
     DrawTexture(menuBackground, 0, 0, WHITE);
-    Vector2 fontVector;
-    fontVector.x = menu_screenWidth - 150;
-    fontVector.y = menu_screenHeight - 20;
+    Vector2 fontVector = {menu_screenWidth - 150,
+                          menu_screenHeight - 20};
     DrawTextEx(font, "Pinter Tamas 2019", fontVector, 15, 2, DARKGRAY);
 }
 

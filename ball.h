@@ -1,6 +1,8 @@
 #ifndef MY_AWESOME_PROJECT_BALL_H
 #define MY_AWESOME_PROJECT_BALL_H
 
+Font font;
+
 typedef struct Ball{
     double xpos;
     double ypos;

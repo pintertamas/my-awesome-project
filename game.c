@@ -48,16 +48,21 @@ bool ShipBallCollision () {
             if (Balls[i].xpos + Balls[i].radius > ship.xpos &&
                 Balls[i].xpos - Balls[i].radius < ship.xpos + ship.xsize) {
                 Balls[i].color = BLACK;
-                lifePoints--;
-                if(lifePoints == 0)
-                    stopGame(PAUSE);
-                //stopGame(RESUME);
-
                 return true;
             }
         }
     }
     return false;
+}
+
+void shipLife () {
+    printf("%d", lifePoints);
+    if(ShipBallCollision()) {
+        printf("%d", lifePoints);
+    }
+    if(lifePoints == 0)
+        stopGame(PAUSE);
+    //stopGame(RESUME);
 }
 
 void BulletBallCollision () {
@@ -104,6 +109,8 @@ void endOfGame () {
     while (!WindowShouldClose()) {
         DrawTexture(background_gameover, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
+        Vector2 scorePosition = {140,330};
+        DrawTextEx(font, "We don't keep score, so everyone wins.", scorePosition, 20, 2, BLACK);
 
         if (isOverButton(backButton) &&
             IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
@@ -130,6 +137,7 @@ void game () {
         renderShip();
         moveShip();
         ShipBallCollision();
+        shipLife();
 
         applyPhysics_Balls(Balls);
         updateBalls();
