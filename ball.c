@@ -92,7 +92,7 @@ void renderBalls(Ball *ball) {
         if (Balls[i].visible == true) {
             Vector2 textPosition = {
                     ball->xpos - ball->radius / 2,
-                    ball->ypos - ball->radius/4};
+                    ball->ypos - ball->radius / 3};
             switch(ball->radius) {
                 case 20:
                     DrawTexture(greenBall, ball->xpos - ball->radius, ball->ypos - ball->radius, WHITE);

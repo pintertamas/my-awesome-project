@@ -1,6 +1,7 @@
 #include "global.h"
 #include "ship.h"
 #include "textures.h"
+#include "menu.h"
 
 void setupShip(){                                                                                                       //the ship is a 50x70 image
     ship.xsize = 50;
@@ -22,5 +23,21 @@ void moveShip() {
 }
 
 void renderShip(){
-    DrawTexture(spaceShip, (int)ship.xpos, (int)ship.ypos, WHITE);
+
+    switch (background) {
+        case FOREST:
+            DrawTexture(car, (int)ship.xpos, (int)ship.ypos, WHITE);
+            break;
+        case MOUNTAINS:
+            DrawTexture(car, (int)ship.xpos, (int)ship.ypos, WHITE);
+            break;
+        case JAPAN:
+            DrawTexture(car, (int)ship.xpos, (int)ship.ypos, WHITE);
+            break;
+        case SPACE:
+            DrawTexture(spaceShip, (int)ship.xpos, (int)ship.ypos, WHITE);
+            break;
+        default:
+            break;
+    }
 }

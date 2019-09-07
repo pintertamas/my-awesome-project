@@ -162,4 +162,8 @@ void loadImage(){
     textures[39] = LoadImage("Textures/icon.png");
     ImageFormat(&textures[39], UNCOMPRESSED_R8G8B8A8);
     window_icon = LoadTextureFromImage(textures[39]);
+
+    textures[40] = LoadImage("Textures/ships/car.png");
+    ImageFormat(&textures[40], UNCOMPRESSED_R8G8B8A8);
+    car = LoadTextureFromImage(textures[40]);
 }

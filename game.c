@@ -6,7 +6,7 @@
 #include "menu.h"
 #include "textures.h"
 
-void setupBackupArray () {
+void setupBackupArray () {                                                                                              //stores the necessary data for the game resume
     endGame = (double **) malloc(ballNumber * sizeof(double *));
     for(int i = 0; i < ballNumber; i++) {
         endGame[i] = (double *) malloc(6 * sizeof(double));
