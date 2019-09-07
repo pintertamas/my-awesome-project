@@ -32,7 +32,7 @@ void renderShip(){
             DrawTexture(car, (int)ship.xpos, (int)ship.ypos, WHITE);
             break;
         case JAPAN:
-            DrawTexture(car, (int)ship.xpos, (int)ship.ypos, WHITE);
+            DrawTexture(ninja, (int)ship.xpos, (int)ship.ypos, WHITE);
             break;
         case SPACE:
             DrawTexture(spaceShip, (int)ship.xpos, (int)ship.ypos, WHITE);
