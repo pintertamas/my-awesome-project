@@ -62,12 +62,9 @@ void wait (int timeDiff) {
             DrawText("2", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
         else if (timeDiff >= 2000 && timeDiff < 3000)
             DrawText("1", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
-        else if (timeDiff >= 3000 && timeDiff < 4000)
-            DrawText("LET'S GO", menu_screenWidth / 2 - 150, menu_screenHeight / 3, 60, BLACK);
         else {
             startTime = 0;
             roundStartTime = clock();
-            lifePoints = 5;
             gameState = GAME;
         }
     }

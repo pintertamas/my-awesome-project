@@ -3,6 +3,7 @@
 #include "textures.h"
 #include "ball.h"
 #include "bullet.h"
+#include "game.h"
 
 void settingsButtonClick () {
     if (isOverButton(easyButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
@@ -115,18 +116,24 @@ void settings () {
 
         switch (gameDifficulty) {
             case DIFFICULTY_UNSET:
+                ballNumber = 0;
+                bulletCount = 0;
+                lifePoints  = 0;
                 break;
             case EASY:
-                ballNumber = 3;
-                bulletCount = 1;
+                ballNumber = 5;
+                bulletCount = 5;
+                lifePoints  = 5;
                 break;
             case MEDIUM:
                 ballNumber = 5;
                 bulletCount = 3;
+                lifePoints  = 3;
                 break;
             case HARD:
                 ballNumber = 8;
-                bulletCount = 5;
+                bulletCount = 3;
+                lifePoints  = 1;
                 break;
         }
 
