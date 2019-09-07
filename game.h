@@ -5,7 +5,7 @@
 #include "ball.h"
 
 void game ();
-enum stopgame { PAUSE, RESUME};
+enum stopGame { PAUSE, RESUME};
 int lifePoints;
 bool ShipBallCollision ();
 void BulletBallCollision ();

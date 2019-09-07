@@ -6,9 +6,9 @@
 #include "menu.h"
 #include "textures.h"
 
-void stopGame (stopgame) {
+void stopGame (stopGame) {
     int endGame[ballNumber][6];
-    switch (stopgame) {
+    switch (stopGame) {
         case PAUSE:
             for(int i = 0; i < ballNumber; i++) {
                 endGame[i][0] = Balls[i].vx;
@@ -37,6 +37,8 @@ void stopGame (stopgame) {
                 bulletSpeed = endGame[i][4];
                 bulletDamage = endGame[i][5];
             }
+            break;
+        default:
             break;
     }
 }
