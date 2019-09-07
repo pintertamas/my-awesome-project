@@ -43,10 +43,10 @@ void setupButtons () {
     int thumbnailHeight = 200;
     int gap = (menu_screenWidth - 4 * thumbnailWidth) / 5;
 
-    mountain.x = gap;
-    mountain.y = menu_screenHeight - thumbnailHeight - 80;
-    mountain.w = thumbnailWidth;
-    mountain.h = thumbnailHeight;
+    forest.x = gap;
+    forest.y = menu_screenHeight - thumbnailHeight - 80;
+    forest.w = thumbnailWidth;
+    forest.h = thumbnailHeight;
     mountains.x = thumbnailWidth + 2 * gap;
     mountains.y = menu_screenHeight - thumbnailHeight - 80;
     mountains.w = thumbnailWidth;

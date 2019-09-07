@@ -13,7 +13,7 @@ void loadImage(){
 
     textures[2] = LoadImage("Textures/backgrounds/background_mountains.png");
     ImageFormat(&textures[2], UNCOMPRESSED_R8G8B8A8);
-    background_mountain = LoadTextureFromImage(textures[2]);
+    background_mountains = LoadTextureFromImage(textures[2]);
 
     textures[3] = LoadImage("Textures/backgrounds/background_blank.png");
     ImageFormat(&textures[3], UNCOMPRESSED_R8G8B8A8);
@@ -71,9 +71,9 @@ void loadImage(){
     ImageFormat(&textures[16], UNCOMPRESSED_R8G8B8A8);
     mountains_small = LoadTextureFromImage(textures[16]);
 
-    textures[17] = LoadImage("Textures/thumbnails/mountain_small.png");
+    textures[17] = LoadImage("Textures/thumbnails/forest_small.png");
     ImageFormat(&textures[17], UNCOMPRESSED_R8G8B8A8);
-    mountain_small = LoadTextureFromImage(textures[17]);
+    forest_small = LoadTextureFromImage(textures[17]);
 
     textures[18] = LoadImage("Textures/buttons/backButton_simple.png");
     ImageFormat(&textures[18], UNCOMPRESSED_R8G8B8A8);
@@ -87,9 +87,9 @@ void loadImage(){
     ImageFormat(&textures[20], UNCOMPRESSED_R8G8B8A8);
     settingsLogo = LoadTextureFromImage(textures[20]);
 
-    textures[21] = LoadImage("Textures/backgrounds/background_mountain.png");
-    ImageFormat(&textures[2], UNCOMPRESSED_R8G8B8A8);
-    background_mountain = LoadTextureFromImage(textures[2]);
+    textures[21] = LoadImage("Textures/backgrounds/background_forest.png");
+    ImageFormat(&textures[21], UNCOMPRESSED_R8G8B8A8);
+    background_forest = LoadTextureFromImage(textures[21]);
 
     textures[22] = LoadImage("Textures/backgrounds/background_japan.png");
     ImageFormat(&textures[22], UNCOMPRESSED_R8G8B8A8);
@@ -119,9 +119,9 @@ void loadImage(){
     ImageFormat(&textures[28], UNCOMPRESSED_R8G8B8A8);
     background_unknown = LoadTextureFromImage(textures[28]);
 
-    textures[29] = LoadImage("Textures/backgrounds/background_gameover.png");
+    textures[29] = LoadImage("Textures/backgrounds/background_gameOver.png");
     ImageFormat(&textures[29], UNCOMPRESSED_R8G8B8A8);
-    background_gameover = LoadTextureFromImage(textures[29]);
+    background_gameOver = LoadTextureFromImage(textures[29]);
 
     textures[30] = LoadImage("Textures/heart.png");
     ImageFormat(&textures[30], UNCOMPRESSED_R8G8B8A8);

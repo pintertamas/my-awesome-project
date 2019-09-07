@@ -18,7 +18,7 @@ Button easyButton;
 Button mediumButton;
 Button hardButton;
 Button backButton;
-Button mountain;
+Button forest;
 Button mountains;
 Button japan;
 Button space;

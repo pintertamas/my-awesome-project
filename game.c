@@ -90,8 +90,8 @@ void renderBackground () {
         case BACKGROUND_UNSET:
             DrawTexture(background_unknown, 0, 0, WHITE);
             break;
-        case MOUNTAIN:
-            DrawTexture(background_mountain, 0, 0, WHITE);
+        case FOREST:
+            DrawTexture(background_forest, 0, 0, WHITE);
             break;
         case MOUNTAINS:
             DrawTexture(background_mountains, 0, 0, WHITE);
@@ -105,13 +105,17 @@ void renderBackground () {
     }
 
     DrawTexture(heart, 10, 30, WHITE);
-    DrawText(FormatText("%d", lifePoints), 50, 30, 30, WHITE);
+
+    if(background == SPACE)
+        DrawText(FormatText("%d", lifePoints), 50, 30, 30, WHITE);
+    else
+        DrawText(FormatText("%d", lifePoints), 50, 30, 30, BLACK);
 }
 
 void endOfGame () {
     Color settingsBackground = {0,190,255};
     while (!WindowShouldClose()) {
-        DrawTexture(background_gameover, 0, 0, WHITE);
+        DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
         Vector2 scorePosition = {140,330};
         DrawTextEx(font, "We don't keep score, so everyone wins.", scorePosition, 20, 2, BLACK);

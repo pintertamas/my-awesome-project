@@ -6,9 +6,9 @@ Image textures[31];
 Texture2D
         spaceShip, heart,
         redBullet,
-        menuBackground, background_unknown, background_gameover,
-        background_mountain, background_mountains, background_japan, background_space,
-        mountain_small, mountains_small, japan_small, space_small,
+        menuBackground, background_unknown, background_gameOver,
+        background_forest, background_mountains, background_japan, background_space,
+        forest_small, mountains_small, japan_small, space_small,
         frame_selected, frame_unselected,
         startButton_simple, startButton_clicked,
         settingsButton_simple, settingsButton_clicked, settingsLogo,

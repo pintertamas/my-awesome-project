@@ -29,11 +29,11 @@ void settingsButtonClick () {
         gameState = MENU;
     }
 
-    if (isOverButton(mountain) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        if (background == MOUNTAIN)
+    if (isOverButton(forest) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if (background == FOREST)
             background = BACKGROUND_UNSET;
         else
-            background = MOUNTAIN;
+            background = FOREST;
     }
     if (isOverButton(mountains) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if (background == MOUNTAINS)
@@ -78,12 +78,12 @@ void renderSettings () {
             break;
     }
 
-    DrawTexture(frame_unselected, mountain.x - 10, mountain.y - 10, WHITE);
+    DrawTexture(frame_unselected, forest.x - 10, forest.y - 10, WHITE);
     DrawTexture(frame_unselected, mountains.x - 10, mountains.y - 10, WHITE);
     DrawTexture(frame_unselected, japan.x - 10, japan.y - 10, WHITE);
     DrawTexture(frame_unselected, space.x - 10, space.y - 10, WHITE);
 
-    DrawTexture(mountain_small, mountain.x, mountain.y, WHITE);
+    DrawTexture(forest_small, forest.x, forest.y, WHITE);
     DrawTexture(mountains_small, mountains.x, mountains.y, WHITE);
     DrawTexture(japan_small, japan.x, japan.y, WHITE);
     DrawTexture(space_small, space.x, space.y, WHITE);
@@ -91,8 +91,8 @@ void renderSettings () {
     switch (background) {
         case BACKGROUND_UNSET:
             break;
-        case MOUNTAIN:
-            DrawTexture(frame_selected, mountain.x - 10, mountain.y - 10, WHITE);
+        case FOREST:
+            DrawTexture(frame_selected, forest.x - 10, forest.y - 10, WHITE);
             break;
         case MOUNTAINS:
             DrawTexture(frame_selected, mountains.x -10, mountains.y - 10, WHITE);

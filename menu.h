@@ -17,7 +17,7 @@ typedef enum state {
 state gameState;
 
 typedef enum Backgrounds {
-    BACKGROUND_UNSET, MOUNTAINS, MOUNTAIN, SPACE, JAPAN
+    BACKGROUND_UNSET, FOREST, MOUNTAINS, SPACE, JAPAN
 }Backgrounds;
 
 Backgrounds background;
