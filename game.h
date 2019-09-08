@@ -13,8 +13,6 @@ bool inCollision;
 bool ShipBallCollision ();
 void BulletBallCollision ();
 void endOfGame ();
-void pauseGame ();
-void resumeGame ();
 void renderBackground();
 
 #endif //MY_AWESOME_PROJECT_GAME_H

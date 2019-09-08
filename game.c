@@ -55,7 +55,6 @@ bool ShipBallCollision () {
         if (screenHeight - ship.ysize < d) {
             if (Balls[i].xpos + Balls[i].radius > ship.xpos &&
                 Balls[i].xpos - Balls[i].radius < ship.xpos + ship.xsize) {
-                //Balls[i].color = BLACK;
                 return true;
             }
         }
@@ -73,6 +72,25 @@ void shipLife () {
     }
     if (lifePoints == 0)
         stopGame(PAUSE);
+}
+
+void pause_resume () {
+    if (IsKeyPressed(KEY_Z) && !isPaused) {
+        stopGame(PAUSE);
+        isPaused = true;
+    }
+
+    if (IsKeyPressed(KEY_X) && isPaused) {
+        stopGame(RESUME);
+        isPaused = false;
+    }
+
+    if (isPaused) {
+        if (background == SPACE || background == MOUNTAINS)
+            DrawText("PAUSED!", 170, 400, 60, WHITE);
+        else
+            DrawText("PAUSED!", 170, 400, 60, BLACK);
+    }
 }
 
 void BulletBallCollision () {
@@ -166,23 +184,7 @@ void game () {
         renderBullets();
 
         isBallAlive();
-
-        if (IsKeyPressed(KEY_Z)) {
-            stopGame(PAUSE);
-            isPaused = true;
-        }
-
-        if (IsKeyPressed(KEY_X) && isPaused) {
-            stopGame(RESUME);
-            isPaused = false;
-        }
-
-        if (isPaused) {
-            if (background == SPACE || background == MOUNTAINS)
-                DrawText("PAUSED!", 170, 400, 60, WHITE);
-            else
-                DrawText("PAUSED!", 170, 400, 60, BLACK);
-        }
+        pause_resume();
 
         if (!IsThereAnyBall())
             gameState = END;
