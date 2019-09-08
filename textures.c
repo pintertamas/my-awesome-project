@@ -170,4 +170,8 @@ void loadImage(){
     textures[41] = LoadImage("Textures/ships/ninja.png");
     ImageFormat(&textures[41], UNCOMPRESSED_R8G8B8A8);
     ninja = LoadTextureFromImage(textures[41]);
+
+    textures[42] = LoadImage("Textures/backgrounds/logo.png");
+    ImageFormat(&textures[42], UNCOMPRESSED_R8G8B8A8);
+    logo = LoadTextureFromImage(textures[42]);
 }

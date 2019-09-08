@@ -2,12 +2,12 @@
 #define MY_AWESOME_PROJECT_TEXTURES_H
 
 void loadImage ();
-Image textures[42];
+Image textures[43];
 Texture2D
         window_icon, heart, spaceShip, car, ninja,
         greenBall, blueBall, orangeBall, redBall, purpleBall,
         redBullet, brownBullet, greenBullet, starBullet,
-        menuBackground, background_unknown, background_gameOver,
+        menuBackground, logo, background_unknown, background_gameOver,
         background_forest, background_mountains, background_japan, background_space,
         forest_small, mountains_small, japan_small, space_small,
         frame_selected, frame_unselected,
