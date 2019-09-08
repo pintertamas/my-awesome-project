@@ -5,3 +5,4 @@ labdák sebződés közben "rezegnek"
 scores opció
 valami játéklogo kirakása a menüben
 pénzek
+ha meghalsz, akkor is lehessen új játékot kezdeni
