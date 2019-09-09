@@ -78,7 +78,7 @@ void shipLife () {
             DrawTextEx(font, "press X to continue", gameOverPosition, 20, 2, WHITE);
         }
         else {
-            DrawText("GAME OVER!", 150, 400, 50, WHITE);
+            DrawText("GAME OVER!", 150, 400, 50, BLACK);
             DrawTextEx(font, "press X to continue", gameOverPosition, 20, 2, BLACK);
         }
 

@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "game.h"
 #include "ball.h"
+#include "bullet.h"
 #include "ship.h"
 #include "textures.h"
 #include "buttons.h"
@@ -70,8 +71,7 @@ void wait (int timeDiff) {
             gameState = GAME;
             setupBalls();
             initGameData();
-            if(lifePoints == 0)
-                stopGame(RESUME);
+            bulletSpeed = 15;
         }
     }
 }
