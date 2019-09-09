@@ -4,6 +4,7 @@
 #include "ship.h"
 #include "textures.h"
 #include "buttons.h"
+#include "settings.h"
 
 void renderMenu () {
 
@@ -67,6 +68,10 @@ void wait (int timeDiff) {
             startTime = 0;
             roundStartTime = clock();
             gameState = GAME;
+            setupBalls();
+            initGameData();
+            if(lifePoints == 0)
+                stopGame(RESUME);
         }
     }
 }

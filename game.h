@@ -7,7 +7,8 @@
 double **endGame;
 bool isPaused;
 void game ();
-typedef enum STOPGAME { PAUSE, RESUME}StopGame;
+typedef enum StopGame { PAUSE, RESUME}StopGame;
+void stopGame(StopGame stopTheGame);
 int lifePoints;
 bool inCollision;
 bool ShipBallCollision ();

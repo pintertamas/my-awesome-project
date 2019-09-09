@@ -107,6 +107,31 @@ void renderSettings () {
     }
 }
 
+void initGameData () {
+    switch (gameDifficulty) {
+        case DIFFICULTY_UNSET:
+            ballNumber = 0;
+            bulletCount = 0;
+            lifePoints  = 0;
+            break;
+        case EASY:
+            ballNumber = 5;
+            bulletCount = 5;
+            lifePoints  = 5;
+            break;
+        case MEDIUM:
+            ballNumber = 5;
+            bulletCount = 3;
+            lifePoints  = 3;
+            break;
+        case HARD:
+            ballNumber = 8;
+            bulletCount = 3;
+            lifePoints  = 1;
+            break;
+    }
+}
+
 void settings () {
 
     Color settingsBackground = {0,190,255};
@@ -114,28 +139,7 @@ void settings () {
     {
         ClearBackground(settingsBackground);
 
-        switch (gameDifficulty) {
-            case DIFFICULTY_UNSET:
-                ballNumber = 0;
-                bulletCount = 0;
-                lifePoints  = 0;
-                break;
-            case EASY:
-                ballNumber = 5;
-                bulletCount = 5;
-                lifePoints  = 5;
-                break;
-            case MEDIUM:
-                ballNumber = 5;
-                bulletCount = 3;
-                lifePoints  = 3;
-                break;
-            case HARD:
-                ballNumber = 8;
-                bulletCount = 3;
-                lifePoints  = 1;
-                break;
-        }
+        initGameData();
 
         if (IsKeyDown(KEY_BACKSPACE) && gameState != DIFFICULTY_UNSET)
         {

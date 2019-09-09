@@ -70,12 +70,25 @@ void shipLife () {
     if (!ShipBallCollision() && inCollision) {
         inCollision = false;
     }
-    if (lifePoints == 0)
+    if (lifePoints == 0) {
         stopGame(PAUSE);
+        Vector2 gameOverPosition = {210, 470};
+        if (background == SPACE || background == MOUNTAINS) {
+            DrawText("GAME OVER!", 150, 400, 50, WHITE);
+            DrawTextEx(font, "press X to continue", gameOverPosition, 20, 2, WHITE);
+        }
+        else {
+            DrawText("GAME OVER!", 150, 400, 50, WHITE);
+            DrawTextEx(font, "press X to continue", gameOverPosition, 20, 2, BLACK);
+        }
+
+        if(IsKeyDown(KEY_X))
+            gameState = END;
+    }
 }
 
 void pause_resume () {
-    if (IsKeyPressed(KEY_Z) && !isPaused) {
+    if (IsKeyPressed(KEY_Z) && !isPaused && lifePoints > 0) {
         stopGame(PAUSE);
         isPaused = true;
     }
