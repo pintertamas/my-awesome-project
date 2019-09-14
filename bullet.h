@@ -10,7 +10,6 @@ typedef struct Bullet{
 }Bullet;
 
 extern Bullet *bullets;
-
 extern clock_t shoot;
 extern int shootDelay;
 extern int bulletCount;                                                                                                 //number of bullets in one row
@@ -18,7 +17,8 @@ extern int bulletRadius;                                                        
 extern int bulletSpeed;                                                                                                 //the speed of the bullets
 extern int bulletDamage;
 
-void freeList (Bullet *first);
+void freeList ();
+Bullet* freeBullets ();
 void spawnBullets ();
 void  updateBullets ();
 void renderBullets ();

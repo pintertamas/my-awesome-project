@@ -14,13 +14,30 @@ int bulletRadius = 5;
 int bulletSpeed = 15;
 int bulletDamage = 1;
 
-void freeList (Bullet *fromHere) {
-    Bullet *cursor = fromHere;
-    while (cursor->next != NULL) {
-        Bullet *next = cursor->next;
-        //free(&cursor);
-        cursor = next;
+
+void freeList () {
+    Bullet *tmp;
+
+    while (bullets != NULL) {
+        tmp = bullets;
+        bullets = bullets->next;
+        free(tmp);
     }
+}
+
+Bullet* freeBullets () {
+    while (bullets != NULL) {
+        if (bullets->ypos < bulletRadius) {
+            Bullet *tmp = bullets;
+            bullets = bullets->next;
+            free(tmp);
+            printf("%f\n", bullets->ypos);
+        } else {
+            //printf("%f\n", bullets->ypos);
+            return bullets;
+        }
+    }
+    return bullets;
 }
 
 Bullet *list_prepend (Bullet *first, double xpos, double ypos, Color color) {

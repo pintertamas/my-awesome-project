@@ -1,5 +1,4 @@
 #include "menu.h"
-#include "game.h"
 #include "ball.h"
 #include "bullet.h"
 #include "ship.h"
@@ -72,6 +71,7 @@ void wait (int timeDiff) {
             setupBalls();
             initGameData();
             bulletSpeed = 15;
+            bulletDamage = 1;
         }
     }
 }

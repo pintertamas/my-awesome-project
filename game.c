@@ -39,9 +39,9 @@ void stopGame (StopGame stopTheGame) {
                 Balls[i].vx = endGame[i][0];
                 Balls[i].vy = endGame[i][1];
                 Balls[i].gravity = endGame[i][2];
-                ship.speed = (int)endGame[i][3];
-                bulletSpeed = (int)endGame[i][4];
-                bulletDamage = (int)endGame[i][5];
+                ship.speed = endGame[i][3];
+                bulletSpeed = endGame[i][4];
+                bulletDamage = endGame[i][5];
             }
             break;
         default:
@@ -154,6 +154,7 @@ void renderBackground () {
 
 void endOfGame () {
     Color settingsBackground = {0,190,255};
+    freeList();
     while (!WindowShouldClose()) {
         DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
@@ -186,7 +187,6 @@ void game () {
         renderShip();
         moveShip();
         ShipBallCollision();
-        shipLife();
 
         applyPhysics_Balls(Balls);
         updateBalls();
@@ -198,6 +198,8 @@ void game () {
 
         isBallAlive();
         pause_resume();
+        shipLife();
+        bullets = freeBullets();
 
         if (!IsThereAnyBall())
             gameState = END;
