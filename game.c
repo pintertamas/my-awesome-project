@@ -114,9 +114,10 @@ void BulletBallCollision () {
             int b_square = pow(abs((int)cursor->ypos - (int)Balls[i].ypos), 2);
             if (sqrt(a_square + b_square) < bulletRadius + Balls[i].radius) {
                 Balls[i].HP -= bulletDamage;
+                cursor->visible = false;
             }
             if (Balls[i].HP == 0)
-                Balls[i].visible = 0;
+                Balls[i].visible = false;
         }
     }
 }
@@ -154,7 +155,7 @@ void renderBackground () {
 
 void endOfGame () {
     Color settingsBackground = {0,190,255};
-    freeList();
+    freeList_bullet();
     while (!WindowShouldClose()) {
         DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
@@ -184,8 +185,8 @@ void game () {
         DrawFPS(10, 10);
 
         renderBackground();
-        renderShip();
         moveShip();
+        renderShip();
         ShipBallCollision();
 
         applyPhysics_Balls(Balls);
@@ -199,7 +200,7 @@ void game () {
         isBallAlive();
         pause_resume();
         shipLife();
-        bullets = freeBullets();
+        bullets = freeBullets_outside(bullets);
 
         if (!IsThereAnyBall())
             gameState = END;

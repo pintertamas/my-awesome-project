@@ -17,8 +17,8 @@ extern int bulletRadius;                                                        
 extern int bulletSpeed;                                                                                                 //the speed of the bullets
 extern int bulletDamage;
 
-void freeList ();
-Bullet* freeBullets ();
+void freeList_bullet ();
+Bullet* freeBullets_outside (Bullet *head);
 void spawnBullets ();
 void  updateBullets ();
 void renderBullets ();

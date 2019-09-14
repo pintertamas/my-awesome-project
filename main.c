@@ -62,7 +62,7 @@ int main(void)
         }
     }
     //---------------------------------------------------------
-    freeList();
+    freeList_bullet();
     CloseWindow();                                                                                                      // Close window and OpenGL context
     //---------------------------------------------------------
     return 0;

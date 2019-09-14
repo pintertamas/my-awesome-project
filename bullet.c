@@ -15,9 +15,8 @@ int bulletSpeed = 15;
 int bulletDamage = 1;
 
 
-void freeList () {
+void freeList_bullet () {
     Bullet *tmp;
-
     while (bullets != NULL) {
         tmp = bullets;
         bullets = bullets->next;
@@ -25,30 +24,39 @@ void freeList () {
     }
 }
 
-Bullet* freeBullets () {
-    while (bullets != NULL) {
-        if (bullets->ypos < bulletRadius) {
-            Bullet *tmp = bullets;
-            bullets = bullets->next;
+Bullet* freeBullets_outside (Bullet *head) {
+    while (head != NULL) {
+        if (head->ypos < 0) {
+            printf("ifben\n");
+            Bullet* tmp = head;
+            head = head->next;
             free(tmp);
-            printf("%f\n", bullets->ypos);
         } else {
-            //printf("%f\n", bullets->ypos);
-            return bullets;
+            break;
         }
     }
-    return bullets;
+    return head;
 }
 
-Bullet *list_prepend (Bullet *first, double xpos, double ypos, Color color) {
+Bullet *list_append (Bullet *first, double xpos, double ypos, Color color) {
     Bullet *new;
     new = (Bullet*) malloc(sizeof(Bullet));
     new->xpos = xpos;
     new->ypos = ypos;
     new->color = color;
     new->visible = true;
-    new->next = first;
-    return new;
+    new->next = NULL;
+
+    if(first == NULL) {
+        return new;
+    }
+
+    Bullet *current = first;
+    while (current->next != NULL) {
+        current = current->next;
+    }
+    current->next = new;
+    return first;
 }
 
 void spawnBullets () {
@@ -61,7 +69,7 @@ void spawnBullets () {
         shoot = clock();
 
         for(int i = 0; i < bulletCount; i++) {
-            bullets = list_prepend(
+            bullets = list_append(
                     bullets,
                     shipCenter - leftPoint + i * 4 * bulletRadius + bulletRadius,
                     screenHeight - ship.ysize - bulletRadius * 3,
@@ -83,7 +91,7 @@ void updateBullets () {
 void renderBullets () {
     Bullet *cursor;
         for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-            if (cursor->ypos >= bulletRadius) {
+            if (cursor->ypos >= bulletRadius && cursor->visible == true) {
 
                 switch(background) {
                     case FOREST:
