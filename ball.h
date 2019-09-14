@@ -14,6 +14,7 @@ typedef struct Ball{
     int HP;
     Color color;
     bool visible;
+    struct Ball *next;
 }Ball;
 
 Ball *Balls;

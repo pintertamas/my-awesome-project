@@ -14,7 +14,6 @@ int bulletRadius = 5;
 int bulletSpeed = 15;
 int bulletDamage = 1;
 
-
 void freeList_bullet () {
     Bullet *tmp;
     while (bullets != NULL) {
@@ -27,7 +26,6 @@ void freeList_bullet () {
 Bullet* freeBullets_outside (Bullet *head) {
     while (head != NULL) {
         if (head->ypos < 0) {
-            printf("ifben\n");
             Bullet* tmp = head;
             head = head->next;
             free(tmp);
