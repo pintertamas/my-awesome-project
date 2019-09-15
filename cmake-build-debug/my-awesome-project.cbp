@@ -94,12 +94,6 @@
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/buttons.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/scores.c">
-			<Option target="my-awesome-project"/>
-		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/scores.h">
-			<Option target="my-awesome-project"/>
-		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/coin.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
@@ -131,6 +125,12 @@
 			<Option target="my-awesome-project"/>
 		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/player.h">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/scores.c">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/scores.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/settings.c">

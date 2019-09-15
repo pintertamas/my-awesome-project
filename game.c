@@ -166,39 +166,10 @@ void renderBackground () {
     }
 }
 
-void endOfGame () {
-    Color settingsBackground = {0,190,255};
-    freeList_bullet();
-    freeList_ball();
-    while (!WindowShouldClose()) {
-        DrawTexture(background_gameOver, 0, 0, WHITE);
-        DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
-        Vector2 scorePosition = {140,330};
-        DrawTextEx(font, "We don't keep score, so everyone wins.", scorePosition, 20, 2, BLACK);
-
-        if (isOverButton(backButton) &&
-            IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            DrawTexture(backButton_clicked, backButton.x, backButton.y, WHITE);
-            startTime = 0;
-            gameState = MENU;
-        }
-        ClearBackground(settingsBackground);
-
-        if (gameState != END)
-            break;
-        //-----------------------------------------------------
-        BeginDrawing();
-        EndDrawing();
-        //-----------------------------------------------------
-    }
-}
-
 void game () {
     setupBackupArray();
     ballNumber_current = 0;
     while (!WindowShouldClose()) {
-        DrawFPS(10, 10);
-
         renderBackground();
         renderBalls();
         movePlayer();

@@ -7,6 +7,7 @@
 #include "settings.h"
 #include "textures.h"
 #include "buttons.h"
+#include "scores.h"
 
 int main(void)
 {
@@ -49,9 +50,9 @@ int main(void)
                 break;
             case SCORES:
                 EnableCursor();
-                SetWindowSize(screenWidth, screenHeight);
+                SetWindowSize(menu_screenWidth, menu_screenHeight);
                 ClearBackground(BACKGROUND_COLOR);
-                //scores();
+                scores();
                 break;
             case END:
                 EnableCursor();

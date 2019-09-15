@@ -10,7 +10,7 @@ clock_t shoot;
 int shootDelay = 69;
 int bulletCount = 5;
 int bulletRadius = 5;
-int bulletSpeed = 15;
+int bulletSpeed = 10;
 int bulletDamage = 1;
 
 void freeList_bullet () {

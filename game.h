@@ -13,7 +13,6 @@ int lifePoints;
 bool inCollision;
 bool playerBallCollision (Ball *head);
 void BulletBallCollision (Ball *ball_head, Bullet *bullet_head);
-void endOfGame ();
 void renderBackground();
 
 #endif //MY_AWESOME_PROJECT_GAME_H
