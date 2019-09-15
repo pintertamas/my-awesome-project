@@ -19,15 +19,15 @@ typedef struct Ball{
 
 extern Ball *balls;
 extern int ballNumber;                                                                                                  //number of balls on the playfield at a time
+extern int ballNumber_current;
 
 void spawnBall ();
-//void setupBalls ();
+void setupBalls ();
 void freeList_ball ();
 void ballBounce (Ball *ball, bool gravity);
 void collisionWall (Ball *head);
 void updateBalls (Ball *head);
 void isBallAlive (Ball *head);
-bool IsThereAnyBall (Ball *head);
 void applyPhysics_Balls (Ball *head);
 void renderBalls ();
 

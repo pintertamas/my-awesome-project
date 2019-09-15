@@ -82,13 +82,16 @@ Ball *list_append_ball (Ball *head) {
 }
 
 void spawnBall () {
+    if(ballNumber_current < ballNumber) {
+        balls = list_append_ball(balls);
+        ballNumber_current ++;
+    }
+}
+
+void setupBalls () {
     for(int i = 0; i < ballNumber; i++)
         balls = list_append_ball(balls);
 }
-
-/*void setupBalls () {
-
-}*/
 
 void ballBounce(Ball *head, bool gravity) {
     head->vy += head->gravity;
@@ -183,16 +186,16 @@ void updateBalls(Ball *head) {
 }
 
 void isBallAlive(Ball *head) {
-    for(Ball *cursor = head; cursor != NULL; cursor = cursor->next) {
-        if (cursor->HP == 0)
+    Ball *cursor = head;
+    for(Ball *cursor2 = cursor->next; cursor2 != NULL; ) {
+        if (cursor2->visible == false) {
+            Ball *tmp = cursor2;
+            cursor2 = cursor2->next;
+            free(tmp);
             cursor->visible = false;
+        } else {
+            cursor2 = cursor2->next;
+            cursor = cursor->next;
+        }
     }
-}
-
-bool IsThereAnyBall (Ball *head) {
-    for(Ball *cursor = head; cursor != NULL; cursor = cursor->next) {
-        if (cursor->HP > 0)
-            return true;
-    }
-    return false;
 }

@@ -18,8 +18,6 @@ int main(void)
 
     loadImage();
     font = LoadFont("Textures/font.ttf");
-    //setupBalls();
-    spawnBall();
     setupShip();
     setupButtons();
     shoot = clock();
@@ -64,7 +62,7 @@ int main(void)
     }
     //---------------------------------------------------------
     freeList_bullet();
-    freeList_ball();
+    //freeList_ball();
     CloseWindow();                                                                                                      // Close window and OpenGL context
     //---------------------------------------------------------
     return 0;

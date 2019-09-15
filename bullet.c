@@ -36,12 +36,11 @@ Bullet* freeBullets_outside (Bullet *head) {
     return head;
 }
 
-Bullet *list_append_bullet (Bullet *head, double xpos, double ypos, Color color) {
+Bullet *list_append_bullet (Bullet *head, double xpos, double ypos) {
     Bullet *new;
     new = (Bullet*) malloc(sizeof(Bullet));
     new->xpos = xpos;
     new->ypos = ypos;
-    new->color = color;
     new->visible = true;
     new->next = NULL;
 
@@ -70,11 +69,9 @@ void spawnBullets () {
             bullets = list_append_bullet(
                     bullets,
                     shipCenter - leftPoint + i * 4 * bulletRadius + bulletRadius,
-                    screenHeight - ship.ysize - bulletRadius * 3,
-                    BLACK
+                    screenHeight - ship.ysize - bulletRadius * 3
                     );
             //printf("%d ", (int)bullets->xpos);
-            //DrawCircle(bullets->xpos, bullets->ypos, bulletRadius, bullets->color);
         }
     }
 }

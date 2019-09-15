@@ -115,9 +115,9 @@ void initGameData () {
             lifePoints  = 0;
             break;
         case EASY:
-            ballNumber = 5;
+            ballNumber = 3; //5
             bulletCount = 5;
-            lifePoints  = 5;
+            lifePoints  = 999; //5
             break;
         case MEDIUM:
             ballNumber = 5;

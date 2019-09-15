@@ -4,7 +4,6 @@
 typedef struct Bullet{
     double xpos;
     double ypos;
-    Color color;
     bool visible;
     struct Bullet *next;
 }Bullet;

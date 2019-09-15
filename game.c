@@ -121,11 +121,16 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
             int a_square = pow(abs((int)bullet_cursor->xpos - (int)ball_cursor->xpos), 2);
             int b_square = pow(abs((int)bullet_cursor->ypos - (int)ball_cursor->ypos), 2);
             if (sqrt(a_square + b_square) < bulletRadius + ball_cursor->radius) {
-                ball_cursor->HP -= bulletDamage;
-                bullet_cursor->visible = false;
+                 if(bullet_cursor->visible == true){
+                     ball_cursor->HP -= bulletDamage;
+                     bullet_cursor->visible = false;
+                 }
             }
-            if (ball_cursor->HP == 0)
+            if (ball_cursor->HP == 0) {
+                if(ball_cursor->visible == true)
+                    ballNumber_current --;
                 ball_cursor->visible = false;
+            }
         }
     }
 }
@@ -164,6 +169,7 @@ void renderBackground () {
 void endOfGame () {
     Color settingsBackground = {0,190,255};
     freeList_bullet();
+    freeList_ball();
     while (!WindowShouldClose()) {
         DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
@@ -189,7 +195,7 @@ void endOfGame () {
 
 void game () {
     setupBackupArray();
-    spawnBall();
+    ballNumber_current = 0;
     while (!WindowShouldClose()) {
         DrawFPS(10, 10);
 
@@ -201,19 +207,18 @@ void game () {
 
         applyPhysics_Balls(balls);
         updateBalls(balls);
+        spawnBall();
 
         spawnBullets();
         updateBullets();
-        BulletBallCollision(balls, bullets);
         renderBullets();
-
-        isBallAlive(balls);
-        pause_resume();
-        shipLife();
         bullets = freeBullets_outside(bullets);
 
-        if (!IsThereAnyBall(balls))
-            gameState = END;
+        BulletBallCollision(balls, bullets);
+
+        //isBallAlive(balls);
+        pause_resume();
+        shipLife();
 
         if (gameState != GAME)
             break;
