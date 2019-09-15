@@ -1,6 +1,6 @@
 #include "global.h"
 #include "game.h"
-#include "ship.h"
+#include "player.h"
 #include "menu.h"
 #include "textures.h"
 
@@ -21,7 +21,7 @@ void stopGame (StopGame stopTheGame) {
                 endGame[i][0] = cursor->vx;
                 endGame[i][1] = cursor->vy;
                 endGame[i][2] = cursor->gravity;
-                endGame[i][3] = (double)ship.speed;
+                endGame[i][3] = (double)player.speed;
                 endGame[i][4] = (double)bulletSpeed;
                 endGame[i][5] = (double)bulletDamage;
                 i++;
@@ -32,7 +32,7 @@ void stopGame (StopGame stopTheGame) {
                 cursor->vx = 0;
                 cursor->vy = 0;
                 cursor->gravity = 0;
-                ship.speed = 0;
+                player.speed = 0;
                 bulletSpeed = 0;
                 bulletDamage = 0;
                 i++;
@@ -44,7 +44,7 @@ void stopGame (StopGame stopTheGame) {
                 cursor->vx = endGame[i][0];
                 cursor->vy = endGame[i][1];
                 cursor->gravity = endGame[i][2];
-                ship.speed = endGame[i][3];
+                player.speed = endGame[i][3];
                 bulletSpeed = endGame[i][4];
                 bulletDamage = endGame[i][5];
                 i++;
@@ -55,13 +55,13 @@ void stopGame (StopGame stopTheGame) {
     }
 }
 
-bool ShipBallCollision (Ball *head) {
+bool playerBallCollision (Ball *head) {
     Ball *cursor;
     for (cursor = head; cursor != NULL; cursor = cursor->next) {
         double d = cursor->ypos + cursor->radius;
-        if (screenHeight - ship.ysize < d) {
-            if (cursor->xpos + cursor->radius > ship.xpos &&
-                    cursor->xpos - cursor->radius < ship.xpos + ship.xsize) {
+        if (screenHeight - player.ysize < d) {
+            if (cursor->xpos + cursor->radius > player.xpos &&
+                    cursor->xpos - cursor->radius < player.xpos + player.xsize) {
                 return true;
             }
         }
@@ -69,12 +69,12 @@ bool ShipBallCollision (Ball *head) {
     return false;
 }
 
-void shipLife () {
-    if (ShipBallCollision(balls) && !inCollision) {
+void playerLife () {
+    if (playerBallCollision(balls) && !inCollision) {
         lifePoints--;
         inCollision = true;
     }
-    if (!ShipBallCollision(balls) && inCollision) {
+    if (!playerBallCollision(balls) && inCollision) {
         inCollision = false;
     }
     if (lifePoints == 0) {
@@ -201,9 +201,9 @@ void game () {
 
         renderBackground();
         renderBalls();
-        moveShip();
-        renderShip();
-        ShipBallCollision(balls);
+        moveplayer();
+        renderplayer();
+        playerBallCollision(balls);
 
         applyPhysics_Balls(balls);
         updateBalls(balls);
@@ -213,12 +213,14 @@ void game () {
         updateBullets();
         renderBullets();
         bullets = freeBullets_outside(bullets);
+        balls = freeBalls(balls);
 
         BulletBallCollision(balls, bullets);
 
-        //isBallAlive(balls);
         pause_resume();
-        shipLife();
+        playerLife();
+
+        //isThereAnyInvisibleBall(balls);
 
         if (gameState != GAME)
             break;

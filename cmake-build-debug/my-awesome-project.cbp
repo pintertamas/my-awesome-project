@@ -121,16 +121,16 @@
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/menu.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/player.c">
+			<Option target="my-awesome-project"/>
+		</Unit>
+		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/player.h">
+			<Option target="my-awesome-project"/>
+		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/settings.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/settings.h">
-			<Option target="my-awesome-project"/>
-		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/ship.c">
-			<Option target="my-awesome-project"/>
-		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/ship.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/textures.c">

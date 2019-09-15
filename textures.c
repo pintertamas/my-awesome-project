@@ -3,7 +3,7 @@
 
 void loadImage(){
 
-    textures[0] = LoadImage("Textures/ships/spaceShip.png");                                                         // Loaded in CPU memory (RAM)
+    textures[0] = LoadImage("Textures/players/spaceShip.png");                                                         // Loaded in CPU memory (RAM)
     ImageFormat(&textures[0], UNCOMPRESSED_R8G8B8A8);                                                        // Format image to RGBA 32bit (required for texture update)
     spaceShip = LoadTextureFromImage(textures[0]);                                                             // Image converted to texture, GPU memory (VRAM)
 
@@ -163,11 +163,11 @@ void loadImage(){
     ImageFormat(&textures[39], UNCOMPRESSED_R8G8B8A8);
     window_icon = LoadTextureFromImage(textures[39]);
 
-    textures[40] = LoadImage("Textures/ships/car.png");
+    textures[40] = LoadImage("Textures/players/car.png");
     ImageFormat(&textures[40], UNCOMPRESSED_R8G8B8A8);
     car = LoadTextureFromImage(textures[40]);
 
-    textures[41] = LoadImage("Textures/ships/ninja.png");
+    textures[41] = LoadImage("Textures/players/ninja.png");
     ImageFormat(&textures[41], UNCOMPRESSED_R8G8B8A8);
     ninja = LoadTextureFromImage(textures[41]);
 

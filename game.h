@@ -11,7 +11,7 @@ typedef enum StopGame { PAUSE, RESUME}StopGame;
 void stopGame(StopGame stopTheGame);
 int lifePoints;
 bool inCollision;
-bool ShipBallCollision (Ball *head);
+bool playerBallCollision (Ball *head);
 void BulletBallCollision (Ball *ball_head, Bullet *bullet_head);
 void endOfGame ();
 void renderBackground();

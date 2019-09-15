@@ -338,6 +338,33 @@ menu.c.s:
 	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/menu.c.s
 .PHONY : menu.c.s
 
+player.obj: player.c.obj
+
+.PHONY : player.obj
+
+# target to build an object file
+player.c.obj:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/player.c.obj
+.PHONY : player.c.obj
+
+player.i: player.c.i
+
+.PHONY : player.i
+
+# target to preprocess a source file
+player.c.i:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/player.c.i
+.PHONY : player.c.i
+
+player.s: player.c.s
+
+.PHONY : player.s
+
+# target to generate assembly for a file
+player.c.s:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/player.c.s
+.PHONY : player.c.s
+
 settings.obj: settings.c.obj
 
 .PHONY : settings.obj
@@ -364,33 +391,6 @@ settings.s: settings.c.s
 settings.c.s:
 	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/settings.c.s
 .PHONY : settings.c.s
-
-ship.obj: ship.c.obj
-
-.PHONY : ship.obj
-
-# target to build an object file
-ship.c.obj:
-	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ship.c.obj
-.PHONY : ship.c.obj
-
-ship.i: ship.c.i
-
-.PHONY : ship.i
-
-# target to preprocess a source file
-ship.c.i:
-	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ship.c.i
-.PHONY : ship.c.i
-
-ship.s: ship.c.s
-
-.PHONY : ship.s
-
-# target to generate assembly for a file
-ship.c.s:
-	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/ship.c.s
-.PHONY : ship.c.s
 
 textures.obj: textures.c.obj
 
@@ -452,12 +452,12 @@ help:
 	@echo ... menu.obj
 	@echo ... menu.i
 	@echo ... menu.s
+	@echo ... player.obj
+	@echo ... player.i
+	@echo ... player.s
 	@echo ... settings.obj
 	@echo ... settings.i
 	@echo ... settings.s
-	@echo ... ship.obj
-	@echo ... ship.i
-	@echo ... ship.s
 	@echo ... textures.obj
 	@echo ... textures.i
 	@echo ... textures.s

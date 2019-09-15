@@ -1,5 +1,5 @@
 #include "global.h"
-#include "ship.h"
+#include "player.h"
 #include "textures.h"
 #include "bullet.h"
 #include "game.h"
@@ -8,7 +8,6 @@
 Bullet *bullets = NULL;
 clock_t shoot;
 int shootDelay = 69;
-int shipSpeed = 10;                                                                                                     //the speed of the bullets
 int bulletCount = 5;
 int bulletRadius = 5;
 int bulletSpeed = 15;
@@ -57,7 +56,7 @@ Bullet *list_append_bullet (Bullet *head, double xpos, double ypos) {
 }
 
 void spawnBullets () {
-    double shipCenter = ship.xpos + (double)ship.xsize / 2;
+    double playerCenter = player.xpos + (double)player.xsize / 2;
     double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
 
 
@@ -68,8 +67,8 @@ void spawnBullets () {
         for(int i = 0; i < bulletCount; i++) {
             bullets = list_append_bullet(
                     bullets,
-                    shipCenter - leftPoint + i * 4 * bulletRadius + bulletRadius,
-                    screenHeight - ship.ysize - bulletRadius * 3
+                    playerCenter - leftPoint + i * 4 * bulletRadius + bulletRadius,
+                    screenHeight - player.ysize - bulletRadius * 3
                     );
             //printf("%d ", (int)bullets->xpos);
         }

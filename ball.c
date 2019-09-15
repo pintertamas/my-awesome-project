@@ -16,6 +16,33 @@ void freeList_ball () {
     }
 }
 
+Ball *freeBalls (Ball *head) {
+    if(head->HP == 0) {
+        Ball *tmp = head;
+        head = head->next;
+        free(tmp);
+    }
+    for(Ball *cursor = head; cursor->next != NULL; cursor = cursor->next) {
+        Ball *cursor2 = cursor->next;
+        if(cursor2->visible == false) {
+           Ball *tmp = cursor2;
+           cursor->next = cursor2->next;
+           free(tmp);
+        }
+    }
+    return head;
+}
+
+void isThereAnyInvisibleBall (Ball *head) {
+    for(Ball *cursor = head; cursor->next != NULL; cursor = cursor->next) {
+        if(cursor->visible == false) {
+            printf("VAN\n");
+            return;
+        }
+    }
+    printf("NINCS\n");
+}
+
 Ball *list_append_ball (Ball *head) {
     Ball *new;
     new = (Ball *) malloc(sizeof(Ball));
@@ -86,11 +113,6 @@ void spawnBall () {
         balls = list_append_ball(balls);
         ballNumber_current ++;
     }
-}
-
-void setupBalls () {
-    for(int i = 0; i < ballNumber; i++)
-        balls = list_append_ball(balls);
 }
 
 void ballBounce(Ball *head, bool gravity) {
@@ -181,21 +203,6 @@ void updateBalls(Ball *head) {
         }
         if (cursor->HP > 512 && cursor->HP <= 1024) {
             cursor->radius = 40;
-        }
-    }
-}
-
-void isBallAlive(Ball *head) {
-    Ball *cursor = head;
-    for(Ball *cursor2 = cursor->next; cursor2 != NULL; ) {
-        if (cursor2->visible == false) {
-            Ball *tmp = cursor2;
-            cursor2 = cursor2->next;
-            free(tmp);
-            cursor->visible = false;
-        } else {
-            cursor2 = cursor2->next;
-            cursor = cursor->next;
         }
     }
 }

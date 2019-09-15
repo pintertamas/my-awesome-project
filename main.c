@@ -1,6 +1,6 @@
 #include "global.h"
 #include "game.h"
-#include "ship.h"
+#include "player.h"
 #include "ball.h"
 #include "bullet.h"
 #include "menu.h"
@@ -18,7 +18,7 @@ int main(void)
 
     loadImage();
     font = LoadFont("Textures/font.ttf");
-    setupShip();
+    setupplayer();
     setupButtons();
     shoot = clock();
     inCollision = false;

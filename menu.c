@@ -1,7 +1,7 @@
 #include "menu.h"
 #include "ball.h"
 #include "bullet.h"
-#include "ship.h"
+#include "player.h"
 #include "textures.h"
 #include "buttons.h"
 #include "settings.h"
@@ -42,7 +42,7 @@ void menuButtonClick () {
         DrawTexture(startButton_clicked, startButton.x, startButton.y, WHITE);
         startTime = clock();
         //setupBalls();
-        setupShip();
+        setupplayer();
 
     }
     if (isOverButton(settingsButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
