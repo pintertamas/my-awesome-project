@@ -18,7 +18,7 @@ int main(void)
 
     loadImage();
     font = LoadFont("Textures/font.ttf");
-    setupplayer();
+    setupPlayer();
     setupButtons();
     shoot = clock();
     inCollision = false;

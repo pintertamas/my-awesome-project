@@ -201,8 +201,8 @@ void game () {
 
         renderBackground();
         renderBalls();
-        moveplayer();
-        renderplayer();
+        movePlayer();
+        renderPlayer();
         playerBallCollision(balls);
 
         applyPhysics_Balls(balls);

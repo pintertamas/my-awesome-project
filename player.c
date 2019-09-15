@@ -5,7 +5,7 @@
 
 int playerSpeed = 10;                                                                                                     //the speed of the bullets
 
-void setupplayer(){                                                                                                       //the player is a 50x70 image
+void setupPlayer(){                                                                                                       //the player is a 50x70 image
     player.xsize = 50;
     player.ysize = 70;
     player.xpos = (float)screenWidth/2 - (float)player.xsize/2;
@@ -13,7 +13,7 @@ void setupplayer(){                                                             
     player.speed = playerSpeed;
 }
 
-void moveplayer() {
+void movePlayer() {
     if (IsKeyDown(KEY_LEFT))
         player.xpos -= (float)player.speed;
     if (player.xpos < 0)
@@ -24,7 +24,7 @@ void moveplayer() {
         player.xpos = (float)(screenWidth - player.xsize);
 }
 
-void renderplayer(){
+void renderPlayer(){
 
     switch (background) {
         case FOREST:

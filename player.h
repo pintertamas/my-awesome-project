@@ -13,8 +13,8 @@ Player player;
 
 extern int playerSpeed;                                                                                                   //the speed of the player
 
-void setupplayer();
-void moveplayer();
-void renderplayer();
+void setupPlayer();
+void movePlayer();
+void renderPlayer();
 
 #endif //HEADBALL_TEXTURES_H

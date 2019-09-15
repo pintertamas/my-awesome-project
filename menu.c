@@ -42,7 +42,7 @@ void menuButtonClick () {
         DrawTexture(startButton_clicked, startButton.x, startButton.y, WHITE);
         startTime = clock();
         //setupBalls();
-        setupplayer();
+        setupPlayer();
 
     }
     if (isOverButton(settingsButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
