@@ -17,17 +17,18 @@ typedef struct Ball{
     struct Ball *next;
 }Ball;
 
-Ball *Balls;
-
-extern int ballGravity;                                                                                                 //the strengty of the gravity
+extern Ball *balls;
 extern int ballNumber;                                                                                                  //number of balls on the playfield at a time
 
-void setupBalls ();
-void ballbounce (Ball *ball, bool gravity);
-void collisionWall (Ball *ball);
-void updateBalls ();
-void isBallAlive ();
-bool IsThereAnyBall ();
-void applyPhysics_Balls(Ball *ball);
+void spawnBall ();
+//void setupBalls ();
+void freeList_ball ();
+void ballBounce (Ball *ball, bool gravity);
+void collisionWall (Ball *head);
+void updateBalls (Ball *head);
+void isBallAlive (Ball *head);
+bool IsThereAnyBall (Ball *head);
+void applyPhysics_Balls (Ball *head);
+void renderBalls ();
 
 #endif //MY_AWESOME_PROJECT_BALL_H

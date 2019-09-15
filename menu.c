@@ -41,7 +41,7 @@ void menuButtonClick () {
     if ((isOverButton(startButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) || IsKeyPressed(KEY_ENTER)) {
         DrawTexture(startButton_clicked, startButton.x, startButton.y, WHITE);
         startTime = clock();
-        setupBalls();
+        //setupBalls();
         setupShip();
 
     }
@@ -68,7 +68,7 @@ void wait (int timeDiff) {
             startTime = 0;
             roundStartTime = clock();
             gameState = GAME;
-            setupBalls();
+            //setupBalls();
             initGameData();
             bulletSpeed = 15;
             bulletDamage = 1;

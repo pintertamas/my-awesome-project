@@ -1,7 +1,5 @@
 #include "global.h"
 #include "game.h"
-#include "ball.h"
-#include "bullet.h"
 #include "ship.h"
 #include "menu.h"
 #include "textures.h"
@@ -14,34 +12,42 @@ void setupBackupArray () {                                                      
 }
 
 void stopGame (StopGame stopTheGame) {
+    Ball *cursor;
+    int i;
     switch (stopTheGame) {
         case PAUSE:
-            for(int i = 0; i < ballNumber; i++) {
-                endGame[i][0] = Balls[i].vx;
-                endGame[i][1] = Balls[i].vy;
-                endGame[i][2] = Balls[i].gravity;
+            i = 0;
+            for(cursor = balls; cursor != NULL; cursor = cursor->next) {
+                endGame[i][0] = cursor->vx;
+                endGame[i][1] = cursor->vy;
+                endGame[i][2] = cursor->gravity;
                 endGame[i][3] = (double)ship.speed;
                 endGame[i][4] = (double)bulletSpeed;
                 endGame[i][5] = (double)bulletDamage;
+                i++;
             }
 
-            for(int i = 0; i < ballNumber; i++) {
-                Balls[i].vx = 0;
-                Balls[i].vy = 0;
-                Balls[i].gravity = 0;
+            i = 0;
+            for(cursor = balls; cursor != NULL; cursor = cursor->next) {
+                cursor->vx = 0;
+                cursor->vy = 0;
+                cursor->gravity = 0;
                 ship.speed = 0;
                 bulletSpeed = 0;
                 bulletDamage = 0;
+                i++;
             }
-                break;
+            break;
         case RESUME:
-            for(int i = 0; i < ballNumber; i++) {
-                Balls[i].vx = endGame[i][0];
-                Balls[i].vy = endGame[i][1];
-                Balls[i].gravity = endGame[i][2];
+            i = 0;
+            for(cursor = balls; cursor != NULL; cursor = cursor->next) {
+                cursor->vx = endGame[i][0];
+                cursor->vy = endGame[i][1];
+                cursor->gravity = endGame[i][2];
                 ship.speed = endGame[i][3];
                 bulletSpeed = endGame[i][4];
                 bulletDamage = endGame[i][5];
+                i++;
             }
             break;
         default:
@@ -49,12 +55,13 @@ void stopGame (StopGame stopTheGame) {
     }
 }
 
-bool ShipBallCollision () {
-    for (int i = 0; i < ballNumber; i++) {
-        double d = Balls[i].ypos + Balls[i].radius;
+bool ShipBallCollision (Ball *head) {
+    Ball *cursor;
+    for (cursor = head; cursor != NULL; cursor = cursor->next) {
+        double d = cursor->ypos + cursor->radius;
         if (screenHeight - ship.ysize < d) {
-            if (Balls[i].xpos + Balls[i].radius > ship.xpos &&
-                Balls[i].xpos - Balls[i].radius < ship.xpos + ship.xsize) {
+            if (cursor->xpos + cursor->radius > ship.xpos &&
+                    cursor->xpos - cursor->radius < ship.xpos + ship.xsize) {
                 return true;
             }
         }
@@ -63,11 +70,11 @@ bool ShipBallCollision () {
 }
 
 void shipLife () {
-    if (ShipBallCollision() && !inCollision) {
+    if (ShipBallCollision(balls) && !inCollision) {
         lifePoints--;
         inCollision = true;
     }
-    if (!ShipBallCollision() && inCollision) {
+    if (!ShipBallCollision(balls) && inCollision) {
         inCollision = false;
     }
     if (lifePoints == 0) {
@@ -106,18 +113,19 @@ void pause_resume () {
     }
 }
 
-void BulletBallCollision () {
-    Bullet *cursor;
-    for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-        for(int i = 0; i < ballNumber; i++) {
-            int a_square = pow(abs((int)cursor->xpos - (int)Balls[i].xpos), 2);
-            int b_square = pow(abs((int)cursor->ypos - (int)Balls[i].ypos), 2);
-            if (sqrt(a_square + b_square) < bulletRadius + Balls[i].radius) {
-                Balls[i].HP -= bulletDamage;
-                cursor->visible = false;
+void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
+    Bullet *bullet_cursor;
+    Ball *ball_cursor;
+    for(bullet_cursor = bullet_head; bullet_cursor != NULL; bullet_cursor = bullet_cursor->next) {
+        for(ball_cursor = ball_head; ball_cursor != NULL; ball_cursor = ball_cursor->next) {
+            int a_square = pow(abs((int)bullet_cursor->xpos - (int)ball_cursor->xpos), 2);
+            int b_square = pow(abs((int)bullet_cursor->ypos - (int)ball_cursor->ypos), 2);
+            if (sqrt(a_square + b_square) < bulletRadius + ball_cursor->radius) {
+                ball_cursor->HP -= bulletDamage;
+                bullet_cursor->visible = false;
             }
-            if (Balls[i].HP == 0)
-                Balls[i].visible = false;
+            if (ball_cursor->HP == 0)
+                ball_cursor->visible = false;
         }
     }
 }
@@ -181,28 +189,30 @@ void endOfGame () {
 
 void game () {
     setupBackupArray();
+    spawnBall();
     while (!WindowShouldClose()) {
         DrawFPS(10, 10);
 
         renderBackground();
+        renderBalls();
         moveShip();
         renderShip();
-        ShipBallCollision();
+        ShipBallCollision(balls);
 
-        applyPhysics_Balls(Balls);
-        updateBalls();
+        applyPhysics_Balls(balls);
+        updateBalls(balls);
 
         spawnBullets();
         updateBullets();
-        BulletBallCollision();
+        BulletBallCollision(balls, bullets);
         renderBullets();
 
-        isBallAlive();
+        isBallAlive(balls);
         pause_resume();
         shipLife();
         bullets = freeBullets_outside(bullets);
 
-        if (!IsThereAnyBall())
+        if (!IsThereAnyBall(balls))
             gameState = END;
 
         if (gameState != GAME)

@@ -36,7 +36,7 @@ Bullet* freeBullets_outside (Bullet *head) {
     return head;
 }
 
-Bullet *list_append (Bullet *first, double xpos, double ypos, Color color) {
+Bullet *list_append_bullet (Bullet *head, double xpos, double ypos, Color color) {
     Bullet *new;
     new = (Bullet*) malloc(sizeof(Bullet));
     new->xpos = xpos;
@@ -45,16 +45,16 @@ Bullet *list_append (Bullet *first, double xpos, double ypos, Color color) {
     new->visible = true;
     new->next = NULL;
 
-    if(first == NULL) {
+    if(head == NULL) {
         return new;
     }
 
-    Bullet *current = first;
+    Bullet *current = head;
     while (current->next != NULL) {
         current = current->next;
     }
     current->next = new;
-    return first;
+    return head;
 }
 
 void spawnBullets () {
@@ -67,7 +67,7 @@ void spawnBullets () {
         shoot = clock();
 
         for(int i = 0; i < bulletCount; i++) {
-            bullets = list_append(
+            bullets = list_append_bullet(
                     bullets,
                     shipCenter - leftPoint + i * 4 * bulletRadius + bulletRadius,
                     screenHeight - ship.ysize - bulletRadius * 3,
@@ -80,32 +80,29 @@ void spawnBullets () {
 }
 
 void updateBullets () {
-    Bullet *cursor;
-        for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-            cursor->ypos -= bulletSpeed;
-        }
+    for(Bullet *cursor = bullets; cursor != NULL; cursor = cursor->next) {
+        cursor->ypos -= bulletSpeed;
+    }
 }
 
 void renderBullets () {
-    Bullet *cursor;
-        for(cursor = bullets; cursor != NULL; cursor = cursor->next) {
-            if (cursor->ypos >= bulletRadius && cursor->visible == true) {
-
-                switch(background) {
-                    case FOREST:
-                        DrawTexture(brownBullet, cursor->xpos, cursor->ypos, WHITE);
-                        break;
-                    case MOUNTAINS:
-                        DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
-                        break;
-                    case JAPAN:
-                        DrawTexture(starBullet, cursor->xpos, cursor->ypos, WHITE);
-                        break;
-                    case SPACE:
-                        DrawTexture(greenBullet, cursor->xpos, cursor->ypos, WHITE);
-                        break;
-                    default:
-                        break;
+    for(Bullet *cursor = bullets; cursor != NULL; cursor = cursor->next) {
+        if (cursor->ypos >= bulletRadius && cursor->visible == true) {
+            switch(background) {
+                case FOREST:
+                    DrawTexture(brownBullet, cursor->xpos, cursor->ypos, WHITE);
+                    break;
+                case MOUNTAINS:
+                    DrawTexture(redBullet, cursor->xpos, cursor->ypos, WHITE);
+                    break;
+                case JAPAN:
+                    DrawTexture(starBullet, cursor->xpos, cursor->ypos, WHITE);
+                    break;
+                case SPACE:
+                    DrawTexture(greenBullet, cursor->xpos, cursor->ypos, WHITE);
+                    break;
+                default:
+                    break;
                 }
             }
         }
