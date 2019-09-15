@@ -365,6 +365,33 @@ player.c.s:
 	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/player.c.s
 .PHONY : player.c.s
 
+scores.obj: scores.c.obj
+
+.PHONY : scores.obj
+
+# target to build an object file
+scores.c.obj:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/scores.c.obj
+.PHONY : scores.c.obj
+
+scores.i: scores.c.i
+
+.PHONY : scores.i
+
+# target to preprocess a source file
+scores.c.i:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/scores.c.i
+.PHONY : scores.c.i
+
+scores.s: scores.c.s
+
+.PHONY : scores.s
+
+# target to generate assembly for a file
+scores.c.s:
+	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/scores.c.s
+.PHONY : scores.c.s
+
 settings.obj: settings.c.obj
 
 .PHONY : settings.obj
@@ -455,6 +482,9 @@ help:
 	@echo ... player.obj
 	@echo ... player.i
 	@echo ... player.s
+	@echo ... scores.obj
+	@echo ... scores.i
+	@echo ... scores.s
 	@echo ... settings.obj
 	@echo ... settings.i
 	@echo ... settings.s

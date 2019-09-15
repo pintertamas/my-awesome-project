@@ -1,2 +1,1 @@
-#include "global.h"
-#include "ball.h"
+#include "coin.h"
