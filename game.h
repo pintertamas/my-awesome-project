@@ -4,6 +4,8 @@
 #include "ball.h"
 #include "bullet.h"
 
+clock_t roundStart;
+clock_t roundEnd;
 double **endGame;
 bool isPaused;
 void game ();

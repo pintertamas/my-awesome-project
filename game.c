@@ -167,6 +167,7 @@ void renderBackground () {
 }
 
 void game () {
+    roundStart = clock();
     setupBackupArray();
     ballNumber_current = 0;
     while (!WindowShouldClose()) {
@@ -191,10 +192,10 @@ void game () {
         pause_resume();
         playerLife();
 
-        //isThereAnyInvisibleBall(balls);
-
-        if (gameState != GAME)
+        if (gameState != GAME) {
+            roundEnd = clock();
             break;
+        }
         ClearBackground(BACKGROUND_COLOR);
         //-----------------------------------------------------
         BeginDrawing();

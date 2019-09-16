@@ -174,4 +174,12 @@ void loadImage(){
     textures[42] = LoadImage("Textures/backgrounds/logo.png");
     ImageFormat(&textures[42], UNCOMPRESSED_R8G8B8A8);
     logo = LoadTextureFromImage(textures[42]);
+
+    textures[43] = LoadImage("Textures/scoresLogo.png");
+    ImageFormat(&textures[43], UNCOMPRESSED_R8G8B8A8);
+    scoresLogo = LoadTextureFromImage(textures[43]);
+
+    textures[44] = LoadImage("Textures/crown.png");
+    ImageFormat(&textures[44], UNCOMPRESSED_R8G8B8A8);
+    crown = LoadTextureFromImage(textures[44]);
 }

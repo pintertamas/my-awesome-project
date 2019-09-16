@@ -5,6 +5,8 @@
 #include "bullet.h"
 #include "game.h"
 
+Color settingsBackground = {0,190,255};
+
 void settingsButtonClick () {
     if (isOverButton(easyButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         if (gameDifficulty == EASY)
@@ -133,8 +135,6 @@ void initGameData () {
 }
 
 void settings () {
-
-    Color settingsBackground = {0,190,255};
     while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
     {
         ClearBackground(settingsBackground);

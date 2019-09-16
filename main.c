@@ -23,6 +23,7 @@ int main(void)
     setupButtons();
     shoot = clock();
     inCollision = false;
+    readFromFile(scoreArray);
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
     background = BACKGROUND_UNSET;
@@ -64,6 +65,7 @@ int main(void)
     //---------------------------------------------------------
     freeList_bullet();
     freeList_ball();
+    writeToFile(scoreArray);
     CloseWindow();                                                                                                      // Close window and OpenGL context
     //---------------------------------------------------------
     return 0;
