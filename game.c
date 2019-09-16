@@ -178,7 +178,6 @@ void renderBackground () {
 
     if(clock() - damageTime <= 500) {
         onDamageAnimation();
-        printf("%ld\n", damageTime);
     } else {
         DrawTexture(heart, 10, 30, WHITE);
     }
