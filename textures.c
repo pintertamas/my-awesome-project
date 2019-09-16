@@ -190,4 +190,8 @@ void loadImage(){
     textures[46] = LoadImage("Textures/buttons/clearButton_clicked.png");
     ImageFormat(&textures[46], UNCOMPRESSED_R8G8B8A8);
     clear_clicked = LoadTextureFromImage(textures[46]);
+
+    textures[47] = LoadImage("Textures/heart_onDamage.png");
+    ImageFormat(&textures[47], UNCOMPRESSED_R8G8B8A8);
+    heart_onDamage = LoadTextureFromImage(textures[47]);
 }

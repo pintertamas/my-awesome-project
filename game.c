@@ -4,6 +4,12 @@
 #include "menu.h"
 #include "textures.h"
 
+Vector2 position = { 10.0f, 30.0f };
+Rectangle frameRec = { 0.0f, 0.0f, 140 / 4, 30 };
+int currentFrame = 0;
+int framesCounter = 0;
+int framesSpeed = 8;
+
 void setupBackupArray () {                                                                                              //stores the necessary data for the game resume
     endGame = (double **) malloc(ballNumber * sizeof(double *));
     for(int i = 0; i < ballNumber; i++) {
@@ -72,6 +78,7 @@ bool playerBallCollision (Ball *head) {
 void playerLife () {
     if (playerBallCollision(balls) && !inCollision) {
         lifePoints--;
+        damageTime = clock();
         inCollision = true;
     }
     if (!playerBallCollision(balls) && inCollision) {
@@ -135,6 +142,21 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
     }
 }
 
+void onDamageAnimation () {
+    framesCounter++;
+
+    if (framesCounter >= (60/framesSpeed))
+    {
+        framesCounter = 0;
+        currentFrame++;
+
+        if (currentFrame > 3) currentFrame = 0;
+
+        frameRec.x = (float)currentFrame*140/4;
+    }
+    DrawTextureRec(heart_onDamage, frameRec, position, WHITE);  // Draw part of the texture
+}
+
 void renderBackground () {
     switch (background) {
         case BACKGROUND_UNSET:
@@ -154,7 +176,12 @@ void renderBackground () {
             break;
     }
 
-    DrawTexture(heart, 10, 30, WHITE);
+    if(clock() - damageTime <= 500) {
+        onDamageAnimation();
+        printf("%ld\n", damageTime);
+    } else {
+        DrawTexture(heart, 10, 30, WHITE);
+    }
     Vector2 pausePosition = {150, 30};
 
     if (background == SPACE) {
@@ -168,6 +195,7 @@ void renderBackground () {
 
 void game () {
     roundStart = clock();
+    damageTime = 0;
     setupBackupArray();
     ballNumber_current = 0;
     while (!WindowShouldClose()) {

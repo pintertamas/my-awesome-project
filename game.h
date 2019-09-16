@@ -6,6 +6,7 @@
 
 clock_t roundStart;
 clock_t roundEnd;
+clock_t damageTime;
 double **endGame;
 bool isPaused;
 void game ();
