@@ -83,7 +83,7 @@ void loadImage(){
     ImageFormat(&textures[19], UNCOMPRESSED_R8G8B8A8);
     backButton_clicked = LoadTextureFromImage(textures[19]);
 
-    textures[20] = LoadImage("Textures/settingsLogo.png");
+    textures[20] = LoadImage("Textures/backgrounds/settingsLogo.png");
     ImageFormat(&textures[20], UNCOMPRESSED_R8G8B8A8);
     settingsLogo = LoadTextureFromImage(textures[20]);
 
@@ -175,7 +175,7 @@ void loadImage(){
     ImageFormat(&textures[42], UNCOMPRESSED_R8G8B8A8);
     logo = LoadTextureFromImage(textures[42]);
 
-    textures[43] = LoadImage("Textures/scoresLogo.png");
+    textures[43] = LoadImage("Textures/backgrounds/scoresLogo.png");
     ImageFormat(&textures[43], UNCOMPRESSED_R8G8B8A8);
     scoresLogo = LoadTextureFromImage(textures[43]);
 

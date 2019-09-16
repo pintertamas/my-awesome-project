@@ -166,7 +166,7 @@ void scoresMenuButtons () {
     }
     if(isOverButton(clearLeaderBoard) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(clear_clicked, clearLeaderBoard.x, clearLeaderBoard.y, WHITE);
-        //resetLeaderBoard();
+        resetLeaderBoard();
     } else {
         DrawTexture(clear_simple, clearLeaderBoard.x, clearLeaderBoard.y, WHITE);
     }
