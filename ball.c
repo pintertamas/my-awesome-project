@@ -33,16 +33,6 @@ Ball *freeBalls (Ball *head) {
     return head;
 }
 
-void isThereAnyInvisibleBall (Ball *head) {
-    for(Ball *cursor = head; cursor->next != NULL; cursor = cursor->next) {
-        if(cursor->visible == false) {
-            printf("VAN\n");
-            return;
-        }
-    }
-    printf("NINCS\n");
-}
-
 Ball *list_append_ball (Ball *head) {
     Ball *new;
     new = (Ball *) malloc(sizeof(Ball));

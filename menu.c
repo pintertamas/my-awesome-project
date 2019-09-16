@@ -1,10 +1,12 @@
 #include "menu.h"
+#include "game.h"
 #include "ball.h"
 #include "bullet.h"
 #include "player.h"
 #include "textures.h"
 #include "buttons.h"
 #include "settings.h"
+
 
 void renderMenu () {
 
@@ -70,7 +72,7 @@ void wait (int timeDiff) {
             gameState = GAME;
             initGameData();
             bulletSpeed = 15;
-            bulletDamage = 1;
+            bulletDamage = 5;
         }
     }
 }

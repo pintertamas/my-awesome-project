@@ -67,7 +67,7 @@ bool playerBallCollision (Ball *head) {
         double d = cursor->ypos + cursor->radius;
         if (screenHeight - player.ysize < d) {
             if (cursor->xpos + cursor->radius > player.xpos &&
-                    cursor->xpos - cursor->radius < player.xpos + player.xsize) {
+                cursor->xpos - cursor->radius < player.xpos + player.xsize) {
                 return true;
             }
         }
@@ -77,6 +77,7 @@ bool playerBallCollision (Ball *head) {
 
 void playerLife () {
     if (playerBallCollision(balls) && !inCollision) {
+        DrawRectangle(0, 0, screenWidth, screenHeight, WHITE);
         lifePoints--;
         damageTime = clock();
         inCollision = true;
@@ -128,12 +129,12 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
             int a_square = pow(abs((int)bullet_cursor->xpos - (int)ball_cursor->xpos), 2);
             int b_square = pow(abs((int)bullet_cursor->ypos - (int)ball_cursor->ypos), 2);
             if (sqrt(a_square + b_square) < bulletRadius + ball_cursor->radius) {
-                 if(bullet_cursor->visible == true){
-                     ball_cursor->HP -= bulletDamage;
-                     bullet_cursor->visible = false;
-                 }
+                if(bullet_cursor->visible == true){
+                    ball_cursor->HP -= bulletDamage;
+                    bullet_cursor->visible = false;
+                }
             }
-            if (ball_cursor->HP == 0) {
+            if (ball_cursor->HP <= 0) {
                 if(ball_cursor->visible == true)
                     ballNumber_current --;
                 ball_cursor->visible = false;
