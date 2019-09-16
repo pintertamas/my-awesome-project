@@ -182,4 +182,12 @@ void loadImage(){
     textures[44] = LoadImage("Textures/crown.png");
     ImageFormat(&textures[44], UNCOMPRESSED_R8G8B8A8);
     crown = LoadTextureFromImage(textures[44]);
+
+    textures[45] = LoadImage("Textures/buttons/clearButton_simple.png");
+    ImageFormat(&textures[45], UNCOMPRESSED_R8G8B8A8);
+    clear_simple = LoadTextureFromImage(textures[45]);
+
+    textures[46] = LoadImage("Textures/buttons/clearButton_clicked.png");
+    ImageFormat(&textures[46], UNCOMPRESSED_R8G8B8A8);
+    clear_clicked = LoadTextureFromImage(textures[46]);
 }

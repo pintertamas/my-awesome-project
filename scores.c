@@ -2,6 +2,7 @@
 #include "global.h"
 #include "bullet.h"
 #include "ball.h"
+#include "buttons.h"
 #include "menu.h"
 #include "textures.h"
 #include "settings.h"
@@ -53,7 +54,7 @@ void renderScores (int array[10][2], int x, int y, int fs, int textSpace) {
 
 void writeToFile (int array[10][2]) {
     FILE *file;
-    file = fopen("scores.bin", "wt");
+    file = fopen("scores.txt", "wt");
     if(file == NULL) {
         perror("cannot open file");
         return;
@@ -66,7 +67,7 @@ void writeToFile (int array[10][2]) {
 
 void readFromFile (int array[10][2]) {
     FILE *file;
-    file = fopen("scores.bin", "rt");
+    file = fopen("scores.txt", "rt");
     if(file == NULL) {
         perror("cannot read the file");
         return;
@@ -115,6 +116,13 @@ void updateScores (int array[10][2], int number) {
         array[index][1] = 3;
 }
 
+void resetLeaderBoard () {
+    for(int i = 0; i < 10; i++) {
+        scoreArray[i][0] = 0;
+        scoreArray[i][1] = 0;
+    }
+}
+
 void endOfGame () {
     score_time = (int)((roundEnd - roundStart) / 1000);
     updateScores(scoreArray, score_time);
@@ -156,10 +164,15 @@ void scoresMenuButtons () {
         DrawTexture(backButton_clicked, backButton.x, backButton.y, WHITE);
         gameState = MENU;
     }
+    if(isOverButton(clearLeaderBoard) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        DrawTexture(clear_clicked, clearLeaderBoard.x, clearLeaderBoard.y, WHITE);
+        //resetLeaderBoard();
+    } else {
+        DrawTexture(clear_simple, clearLeaderBoard.x, clearLeaderBoard.y, WHITE);
+    }
 }
 
 void scores() {
-    readFromFile(scoreArray);
     arraySort(scoreArray);
     while (!WindowShouldClose()) {
         ClearBackground(settingsBackground);

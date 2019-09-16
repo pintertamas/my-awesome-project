@@ -26,6 +26,11 @@ void setupButtons () {
     backButton.w = buttonHeight / 2;
     backButton.h = buttonHeight / 2;
 
+    clearLeaderBoard.x = menu_screenWidth / 2 - buttonWidth / 2;
+    clearLeaderBoard.y = menu_screenHeight - buttonWidth * 2;
+    clearLeaderBoard.w = buttonWidth;
+    clearLeaderBoard.h = buttonHeight;
+
     easyButton.x = buttonWidth / 2;
     easyButton.y = buttonHeight + buttonHeight / 2;
     easyButton.w = buttonWidth;

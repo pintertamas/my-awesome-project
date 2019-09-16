@@ -14,6 +14,7 @@ int buttonHeight;
 Button startButton;
 Button settingsButton;
 Button scoresButton;
+Button clearLeaderBoard;
 Button easyButton;
 Button mediumButton;
 Button hardButton;

@@ -42,7 +42,6 @@ void menuButtonClick () {
         DrawTexture(startButton_clicked, startButton.x, startButton.y, WHITE);
         startTime = clock();
         setupPlayer();
-
     }
     if (isOverButton(settingsButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(settingsButton_clicked, settingsButton.x, settingsButton.y, WHITE);
