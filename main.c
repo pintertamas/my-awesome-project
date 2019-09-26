@@ -24,7 +24,7 @@ int main(void)
     shoot = clock();
     inCollision = false;
     readFromFile(scoreArray);
-    gameState = MENU;
+    gameState = END;
     gameDifficulty = DIFFICULTY_UNSET;
     background = BACKGROUND_UNSET;
     //----------------------------------------------------------                                                        // Main game loop

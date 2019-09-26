@@ -19,12 +19,11 @@ typedef struct Ball{
 extern Ball *balls;
 extern int ballNumber;                                                                                                  //number of balls on the playfield at a time
 extern int ballNumber_current;
-
-void isThereAnyInvisibleBall (Ball *head);
+int balls_destroyed;
 
 void spawnBall ();
 void freeList_ball ();
-Ball *freeBalls (Ball *head);
+Ball *freeBalls_dead (Ball *head);
 void ballBounce (Ball *ball, bool gravity);
 void collisionWall (Ball *head);
 void updateBalls (Ball *head);

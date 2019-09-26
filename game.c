@@ -141,8 +141,10 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
                 }
             }
             if (ball_cursor->HP <= 0) {
-                if(ball_cursor->visible == true)
+                if(ball_cursor->visible == true) {
                     ballNumber_current --;
+                    balls_destroyed++;
+                }
                 ball_cursor->visible = false;
             }
         }
@@ -206,6 +208,7 @@ void game () {
     damageTime = 0;
     setupBackupArray();
     ballNumber_current = 0;
+    balls_destroyed = 0;
     while (!WindowShouldClose()) {
         renderBackground();
         renderBalls();
@@ -221,7 +224,7 @@ void game () {
         updateBullets();
         renderBullets();
         bullets = freeBullets_outside(bullets);
-        balls = freeBalls(balls);
+        balls = freeBalls_dead(balls);
 
         BulletBallCollision(balls, bullets);
 

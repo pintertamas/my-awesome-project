@@ -8,12 +8,12 @@
 #include "settings.h"
 #include "game.h"
 
-int scoreArray[10][2];
+int scoreArray[10][3];
 
-void renderScores (int array[10][2], int x, int y, int fs, int textSpace) {
+void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
     for(int i = 0; i < 10; i++) {
-        int min = (int)array[9-i][0] / 60;
-        int sec = array[9-i][0] - 60 * min;
+        int min = (int)array[9-i][1] / 60;
+        int sec = array[9-i][1] - 60 * min;
 
         Vector2 numberPosition;
         if(i == 9)
@@ -35,7 +35,9 @@ void renderScores (int array[10][2], int x, int y, int fs, int textSpace) {
         else
             DrawTextEx(font, FormatText("%d ", sec), scorePosition, fs, 1, BLACK);
 
-        switch (array[9-i][1]) {
+        DrawText(FormatText("%d ", array[9-i][0]), 10, 100+25*i, 20, BLACK);
+
+        switch (array[9-i][2]) {
             case 0:
                 DrawTextEx(font, "-", difficultyPosition, fs, 1, BLACK);
                 break;
@@ -52,7 +54,7 @@ void renderScores (int array[10][2], int x, int y, int fs, int textSpace) {
     }
 }
 
-void writeToFile (int array[10][2]) {
+void writeToFile (int array[10][3]) {
     FILE *file;
     file = fopen("scores.txt", "wt");
     if(file == NULL) {
@@ -60,12 +62,12 @@ void writeToFile (int array[10][2]) {
         return;
     }
     for(int i = 0; i < 10; i++) {
-        fprintf(file, "%d %d\n", array[i][0], array[i][1]);
+        fprintf(file, "%d %d %d\n", array[i][0], array[i][1], array[i][2]);
     }
     fclose(file);
 }
 
-void readFromFile (int array[10][2]) {
+void readFromFile (int array[10][3]) {
     FILE *file;
     file = fopen("scores.txt", "rt");
     if(file == NULL) {
@@ -75,11 +77,12 @@ void readFromFile (int array[10][2]) {
     for(int i = 0; i < 10; i++) {
         fscanf(file, "%d", &array[i][0]);
         fscanf(file, "%d", &array[i][1]);
+        fscanf(file, "%d", &array[i][2]);
     }
     fclose(file);
 }
 
-void arraySort(int array[10][2]) {
+void arraySort(int array[10][3]) {
     for (int i = 0; i < 9; ++i) {
         int min = i;
         for (int j = i+1; j < 10; ++j)
@@ -87,18 +90,21 @@ void arraySort(int array[10][2]) {
                 min = j;
 
         if (min != i) {
-            int temp[2];
+            int temp[3];
             temp[0] = array[min][0];
             temp[1] = array[min][1];
+            temp[2] = array[min][2];
             array[min][0] = array[i][0];
             array[min][1] = array[i][1];
+            array[min][2] = array[i][2];
             array[i][0] = temp[0];
             array[i][1] = temp[1];
+            array[i][2] = temp[2];
         }
     }
 }
 
-void updateScores (int array[10][2], int number) {
+void updateScores (int array[10][3], int number) {
     int lowest = 1000000;
     int index = 0;
     for(int i = 0; i < 10; i++) {
@@ -107,28 +113,32 @@ void updateScores (int array[10][2], int number) {
             index = i;
         }
     }
+    array[index][1] = score_time;
+
     array[index][0] = number;
     if(gameDifficulty == EASY)
-        array[index][1] = 1;
+        array[index][2] = 1;
     else if(gameDifficulty == MEDIUM)
-        array[index][1] = 2;
+        array[index][2] = 2;
     else if(gameDifficulty == HARD)
-        array[index][1] = 3;
+        array[index][2] = 3;
 }
 
 void resetLeaderBoard () {
     for(int i = 0; i < 10; i++) {
         scoreArray[i][0] = 0;
         scoreArray[i][1] = 0;
+        scoreArray[i][2] = 0;
     }
 }
 
 void endOfGame () {
     score_time = (int)((roundEnd - roundStart) / 1000);
-    updateScores(scoreArray, score_time);
+    updateScores(scoreArray, balls_destroyed/*score_time*/);
     arraySort(scoreArray);
     freeList_bullet();
     freeList_ball();
+    printf("%d ", balls_destroyed);
     while (!WindowShouldClose()) {
         DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
