@@ -3,6 +3,7 @@
 #include "player.h"
 #include "menu.h"
 #include "textures.h"
+#include "settings.h"
 
 Vector2 position = { 10.0f, 30.0f };
 Rectangle frameRec = { 0.0f, 0.0f, 140 / 4, 30 };
@@ -209,6 +210,7 @@ void game () {
     setupBackupArray();
     ballNumber_current = 0;
     balls_destroyed = 0;
+    initGameData();
     while (!WindowShouldClose()) {
         renderBackground();
         renderBalls();

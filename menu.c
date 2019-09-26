@@ -58,21 +58,18 @@ void menuButtonClick () {
     }
 }
 
-void wait (int timeDiff) {
+void wait (int timeDiff, int time) {
     if (startTime != 0 && gameDifficulty != DIFFICULTY_UNSET && background != BACKGROUND_UNSET) {
-        if (timeDiff >= 0 && timeDiff < 1000)
-            DrawText("3", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
-        else if (timeDiff >= 1000 && timeDiff < 2000)
-            DrawText("2", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
-        else if (timeDiff >= 2000 && timeDiff < 3000)
-            DrawText("1", menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
-        else {
-            startTime = 0;
-            roundStartTime = clock();
-            gameState = GAME;
-            initGameData();
-            bulletSpeed = 15;
-            bulletDamage = 5;
+        for(int i = 0; i < time; i++) {
+            if(timeDiff >= i * 1000 && timeDiff < (i+1) * 1000)
+                DrawText(FormatText("%d", time-i), menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
+            if (timeDiff >= time * 1000) {
+                startTime = 0;
+                roundStartTime = clock();
+                gameState = GAME;
+                bulletSpeed = 15;
+                bulletDamage = 5;
+            }
         }
     }
 }
@@ -83,7 +80,7 @@ void renderButtons () {
     DrawTexture(settingsButton_simple, settingsButton.x, settingsButton.y, WHITE);
 
     int timeDiff = clock() - startTime;
-    wait(timeDiff);
+    wait(timeDiff, 3);
     if (startTime != 0) {                                                                                               //without this, the error massages would appear at every start
         if (gameDifficulty == DIFFICULTY_UNSET) {
             if (timeDiff <= 1000)
