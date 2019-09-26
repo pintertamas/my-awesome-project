@@ -92,9 +92,7 @@ void renderButtons () {
         if (background == BACKGROUND_UNSET)
             if (timeDiff <= 1000)
                 DrawText("SELECT BACKGROUND FIRST!", menu_screenWidth / 2 - 75, scoresButton.y + buttonHeight + 60, 10, BLACK);
-
     }
-
 }
 
 void menu () {
