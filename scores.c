@@ -10,10 +10,30 @@
 
 int scoreArray[10][3];
 
+void renderTime (Vector2 position, int time, int fontSize) {
+    int min = time / 60;
+    int sec = time - 60 * min;
+
+    if(sec == 0 && min == 0) {
+        DrawTextEx(font, "  --:--", position, fontSize, 1, BLACK);
+    } else {
+        if(min <= 10)
+            DrawTextEx(font, FormatText("0%d:", min), position, fontSize, 1, BLACK);
+        else
+            DrawTextEx(font, FormatText("%d:", min), position, fontSize, 1, BLACK);
+
+        position.x += 3 * fontSize / 2;
+        if(sec < 10)
+            DrawTextEx(font, FormatText("0%d ", sec), position, fontSize, 1, BLACK);
+        else
+            DrawTextEx(font, FormatText("%d ", sec), position, fontSize, 1, BLACK);
+    }
+}
+
 void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
     for(int i = 0; i < 10; i++) {
-        int min = (int)array[9-i][1] / 60;
-        int sec = array[9-i][1] - 60 * min;
+        /*int min = (int)array[9-i][1] / 60;
+        int sec = array[9-i][1] - 60 * min;*/
 
         Vector2 numberPosition;
         if(i == 9)
@@ -21,30 +41,14 @@ void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
         else
             numberPosition.x = x - 40;
         numberPosition.y = y + i * 30;
-        Vector2 scorePosition = {x + 50, y + i * 30};
-        Vector2 difficultyPosition = {x + textSpace + 50, y + i * 30};
+        Vector2 timePosition = {x + 55, y + i * 30};
+        Vector2 difficultyPosition = {x + textSpace + 55, y + i * 30};
         Vector2 ballCountPosition = {x, y + i * 30};
 
         DrawTextEx(font, FormatText("%d: ", i+1), numberPosition, fs, 1, BLACK);
-
         DrawTextEx(font, FormatText("%d", array[9-i][0]), ballCountPosition, fs, 1, BLACK);
 
-        if(sec == 0 && min == 0) {
-            DrawTextEx(font, "  --:--", scorePosition, fs, 1, BLACK);
-        } else {
-            if(min <= 10)
-                DrawTextEx(font, FormatText("0%d:", min), scorePosition, fs, 1, BLACK);
-            else
-                DrawTextEx(font, FormatText("%d:", min), scorePosition, fs, 1, BLACK);
-            scorePosition.x += 3 * fs / 2;
-            if(sec < 10)
-                DrawTextEx(font, FormatText("0%d ", sec), scorePosition, fs, 1, BLACK);
-            else
-                DrawTextEx(font, FormatText("%d ", sec), scorePosition, fs, 1, BLACK);
-        }
-
-
-        //DrawText(FormatText("%d ", array[9-i][0]), 10, 100+25*i, 20, BLACK);
+        renderTime(timePosition, array[9-i][1], fs);
 
         switch (array[9-i][2]) {
             case 0:
@@ -113,6 +117,17 @@ void arraySort(int array[10][3]) {
     }
 }
 
+void renderDifficulty (Vector2 where) {
+    if(gameDifficulty == EASY)
+        DrawTextEx(font, "EASY", where, 26,1, BLACK);
+    else if(gameDifficulty == MEDIUM)
+        DrawTextEx(font, "MEDIUM", where, 26,1, BLACK);
+    else if(gameDifficulty == HARD)
+        DrawTextEx(font, "HARD", where, 26,1, BLACK);
+    else
+        DrawTextEx(font, "  -", where, 26,1, BLACK);
+}
+
 void updateScores (int array[10][3], int number) {
     int lowest = 1000000;
     int index = 0;
@@ -122,15 +137,9 @@ void updateScores (int array[10][3], int number) {
             index = i;
         }
     }
-    array[index][1] = score_time;
-
     array[index][0] = number;
-    if(gameDifficulty == EASY)
-        array[index][2] = 1;
-    else if(gameDifficulty == MEDIUM)
-        array[index][2] = 2;
-    else if(gameDifficulty == HARD)
-        array[index][2] = 3;
+    array[index][1] = score_time;
+    array[index][2] = gameDifficulty;
 }
 
 void resetLeaderBoard () {
@@ -143,16 +152,22 @@ void resetLeaderBoard () {
 
 void endOfGame () {
     score_time = (int)((roundEnd - roundStart) / 1000);
-    updateScores(scoreArray, balls_destroyed/*score_time*/);
+    updateScores(scoreArray, balls_destroyed);
     arraySort(scoreArray);
     freeList_bullet();
     freeList_ball();
-    printf("%d ", balls_destroyed);
     while (!WindowShouldClose()) {
         DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
 
-        renderScores(scoreArray, screenWidth/2 - 120, 330, 26, 140);
+        Vector2 timePosition = {screenWidth / 2 - 100, 330};
+        Vector2 difficultyPosition = {timePosition.x + 150, timePosition.y};
+        DrawTextEx(font, FormatText("%d %d", balls_destroyed, score_time), timePosition, 26,1, BLACK);
+        renderTime(timePosition, score_time, 26);
+        renderDifficulty(difficultyPosition);
+
+
+        //renderScores(scoreArray, screenWidth/2 - 120, 330, 26, 140);
 
         if (isOverButton(backButton) &&
             IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
@@ -196,7 +211,7 @@ void scores() {
         ClearBackground(settingsBackground);
         renderScoresMenu();
         scoresMenuButtons();
-        renderScores(scoreArray, menu_screenWidth / 2 - 90, 150, 32, 100);
+        renderScores(scoreArray, menu_screenWidth / 2 - 100, 150, 32, 100);
 
         if (gameState != SCORES)
             break;
