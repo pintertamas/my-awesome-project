@@ -114,15 +114,15 @@ void arraySort(int array[10][3]) {
     }
 }
 
-void renderDifficulty (Vector2 where) {
+void renderDifficulty (Vector2 where, int fontSize) {
     if(gameDifficulty == EASY)
-        DrawTextEx(font, "EASY", where, 26,1, BLACK);
+        DrawTextEx(font, "Game difficulty:   EASY", where, fontSize,1, BLACK);
     else if(gameDifficulty == MEDIUM)
-        DrawTextEx(font, "MEDIUM", where, 26,1, BLACK);
+        DrawTextEx(font, "Game difficulty:  MEDIUM", where, fontSize,1, BLACK);
     else if(gameDifficulty == HARD)
-        DrawTextEx(font, "HARD", where, 26,1, BLACK);
+        DrawTextEx(font, "Game difficulty:   HARD", where, fontSize,1, BLACK);
     else
-        DrawTextEx(font, "  -", where, 26,1, BLACK);
+        DrawTextEx(font, "  -", where, fontSize,1, BLACK);
 }
 
 void updateScores (int array[10][3], int number) {
@@ -157,15 +157,15 @@ void endOfGame () {
         DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
 
-        Vector2 ballCountPosition = {screenWidth / 2 - 140, 400};
-        Vector2 timePosition = {ballCountPosition.x + 110, ballCountPosition.y};
-        Vector2 difficultyPosition = {timePosition.x + 120, timePosition.y};
-        DrawTextEx(font, FormatText("%d", balls_destroyed), ballCountPosition, 26,1, BLACK);
-        renderTime(timePosition, score_time, 26);
-        renderDifficulty(difficultyPosition);
-
-
-        //renderScores(scoreArray, screenWidth/2 - 120, 330, 26, 140);
+        Vector2 ballCountPosition = {screenWidth / 2 - 170, 600};
+        Vector2 timePosition = {ballCountPosition.x, ballCountPosition.y - 100};
+        Vector2 difficultyPosition = {timePosition.x, timePosition.y - 100};
+        int fontSize = 36;
+        DrawTextEx(font, FormatText("Total balls popped:   %d", balls_destroyed), ballCountPosition, fontSize,1, BLACK);
+        DrawTextEx(font, "Game time: ", timePosition, fontSize,1, BLACK);
+        timePosition.x += 260;
+        renderTime(timePosition, score_time, fontSize);
+        renderDifficulty(difficultyPosition, fontSize);
 
         if (isOverButton(backButton) &&
             IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
