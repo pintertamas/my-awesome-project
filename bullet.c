@@ -55,7 +55,7 @@ Bullet *list_append_bullet (Bullet *head, double xpos, double ypos) {
 }
 
 void spawnBullets () {
-    int gap = 2;
+    int gap = 4;
     double playerCenter = player.xpos + (double)player.xsize / 2;
     double leftPoint = bulletCount * bulletRadius + ((bulletCount - 1) / 2) * gap;
 
