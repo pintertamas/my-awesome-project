@@ -60,8 +60,7 @@ void spawnBullets () {
     double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
 
 
-    if (IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay && lifePoints != 0) {
-        //printf("%f\n", (double)(clock() - shoot));
+    if (IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay && player_isAlive) {
         shoot = clock();
 
         for(int i = 0; i < bulletCount; i++) {
@@ -70,21 +69,22 @@ void spawnBullets () {
                     playerCenter - leftPoint + i * 4 * bulletRadius + bulletRadius,
                     screenHeight - player.ysize - bulletRadius * 3
                     );
-            //printf("%d ", (int)bullets->xpos);
         }
     }
 }
 
 void updateBullets () {
-    for(Bullet *cursor = bullets; cursor != NULL; cursor = cursor->next) {
-        cursor->ypos -= bulletSpeed;
+    if(player_isAlive) {
+        for(Bullet *cursor = bullets; cursor != NULL; cursor = cursor->next) {
+            cursor->ypos -= bulletSpeed;
+        }
     }
 }
 
 void renderBullets () {
-    for(Bullet *cursor = bullets; cursor != NULL; cursor = cursor->next) {
+    for (Bullet *cursor = bullets; cursor != NULL; cursor = cursor->next) {
         if (cursor->ypos >= bulletRadius && cursor->visible == true) {
-            switch(background) {
+            switch (background) {
                 case FOREST:
                     DrawTexture(brownBullet, cursor->xpos, cursor->ypos, WHITE);
                     break;
@@ -99,7 +99,7 @@ void renderBullets () {
                     break;
                 default:
                     break;
-                }
             }
         }
+    }
 }

@@ -5,6 +5,7 @@
 #include "bullet.h"
 #include "game.h"
 
+
 Color settingsBackground = {0,190,255};
 
 void settingsButtonClick () {

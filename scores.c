@@ -133,7 +133,6 @@ void endOfGame () {
         DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
 
-
         renderScores(scoreArray, screenWidth/2 - 90, 330, 26, 140);
 
         if (isOverButton(backButton) &&

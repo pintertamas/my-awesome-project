@@ -14,14 +14,16 @@ void setupPlayer(){                                                             
 }
 
 void movePlayer() {
-    if (IsKeyDown(KEY_LEFT))
-        player.xpos -= (float)player.speed;
-    if (player.xpos < 0)
-        player.xpos = 0;
-    if (IsKeyDown(KEY_RIGHT))
-        player.xpos += (float)player.speed;
-    if (player.xpos > (float)(screenWidth - player.xsize))
-        player.xpos = (float)(screenWidth - player.xsize);
+    if(player_isAlive) {
+        if (IsKeyDown(KEY_LEFT))
+            player.xpos -= (float) player.speed;
+        if (player.xpos < 0)
+            player.xpos = 0;
+        if (IsKeyDown(KEY_RIGHT))
+            player.xpos += (float) player.speed;
+        if (player.xpos > (float) (screenWidth - player.xsize))
+            player.xpos = (float) (screenWidth - player.xsize);
+    }
 }
 
 void renderPlayer(){

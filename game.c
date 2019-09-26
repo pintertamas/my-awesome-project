@@ -9,6 +9,7 @@ Rectangle frameRec = { 0.0f, 0.0f, 140 / 4, 30 };
 int currentFrame = 0;
 int framesCounter = 0;
 int framesSpeed = 8;
+double **endGame = NULL;
 
 void setupBackupArray () {                                                                                              //stores the necessary data for the game resume
     endGame = (double **) malloc(ballNumber * sizeof(double *));
@@ -50,9 +51,9 @@ void stopGame (StopGame stopTheGame) {
                 cursor->vx = endGame[i][0];
                 cursor->vy = endGame[i][1];
                 cursor->gravity = endGame[i][2];
-                player.speed = endGame[i][3];
-                bulletSpeed = endGame[i][4];
-                bulletDamage = endGame[i][5];
+                player.speed = (double)endGame[i][3];
+                bulletSpeed = (double)endGame[i][4];
+                bulletDamage = (double)endGame[i][5];
                 i++;
             }
             break;
@@ -67,7 +68,7 @@ bool playerBallCollision (Ball *head) {
         double d = cursor->ypos + cursor->radius;
         if (screenHeight - player.ysize < d) {
             if (cursor->xpos + cursor->radius > player.xpos &&
-                    cursor->xpos - cursor->radius < player.xpos + player.xsize) {
+                cursor->xpos - cursor->radius < player.xpos + player.xsize) {
                 return true;
             }
         }
@@ -77,6 +78,7 @@ bool playerBallCollision (Ball *head) {
 
 void playerLife () {
     if (playerBallCollision(balls) && !inCollision) {
+        DrawRectangle(0, 0, screenWidth, screenHeight, WHITE);
         lifePoints--;
         damageTime = clock();
         inCollision = true;
@@ -84,8 +86,11 @@ void playerLife () {
     if (!playerBallCollision(balls) && inCollision) {
         inCollision = false;
     }
-    if (lifePoints == 0) {
-        stopGame(PAUSE);
+    if (lifePoints <= 0) {
+        player_isAlive = false;
+    }
+
+    if(player_isAlive == false) {
         Vector2 gameOverPosition = {210, 470};
         if (background == SPACE || background == MOUNTAINS) {
             DrawText("GAME OVER!", 150, 400, 50, WHITE);
@@ -95,10 +100,10 @@ void playerLife () {
             DrawText("GAME OVER!", 150, 400, 50, BLACK);
             DrawTextEx(font, "press X to continue", gameOverPosition, 20, 2, BLACK);
         }
-
-        if(IsKeyDown(KEY_X))
-            gameState = END;
     }
+
+    if(IsKeyDown(KEY_X))
+        gameState = END;
 }
 
 void pause_resume () {
@@ -128,12 +133,12 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
             int a_square = pow(abs((int)bullet_cursor->xpos - (int)ball_cursor->xpos), 2);
             int b_square = pow(abs((int)bullet_cursor->ypos - (int)ball_cursor->ypos), 2);
             if (sqrt(a_square + b_square) < bulletRadius + ball_cursor->radius) {
-                 if(bullet_cursor->visible == true){
-                     ball_cursor->HP -= bulletDamage;
-                     bullet_cursor->visible = false;
-                 }
+                if(bullet_cursor->visible == true){
+                    ball_cursor->HP -= bulletDamage;
+                    bullet_cursor->visible = false;
+                }
             }
-            if (ball_cursor->HP == 0) {
+            if (ball_cursor->HP <= 0) {
                 if(ball_cursor->visible == true)
                     ballNumber_current --;
                 ball_cursor->visible = false;
@@ -193,6 +198,7 @@ void renderBackground () {
 }
 
 void game () {
+    player_isAlive = true;
     roundStart = clock();
     damageTime = 0;
     setupBackupArray();

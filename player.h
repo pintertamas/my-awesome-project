@@ -11,6 +11,8 @@ typedef struct Player{
 
 Player player;
 
+bool player_isAlive;
+
 extern int playerSpeed;                                                                                                   //the speed of the player
 
 void setupPlayer();

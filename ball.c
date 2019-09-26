@@ -4,7 +4,7 @@
 
 Ball *balls = NULL;
 
-int ballNumber = 10;
+int ballNumber;
 int ballNumber_current = 0;
 
 void freeList_ball () {
@@ -31,16 +31,6 @@ Ball *freeBalls (Ball *head) {
         }
     }
     return head;
-}
-
-void isThereAnyInvisibleBall (Ball *head) {
-    for(Ball *cursor = head; cursor->next != NULL; cursor = cursor->next) {
-        if(cursor->visible == false) {
-            printf("VAN\n");
-            return;
-        }
-    }
-    printf("NINCS\n");
 }
 
 Ball *list_append_ball (Ball *head) {
@@ -137,12 +127,12 @@ void ballBounce(Ball *head, bool gravity) {
 }
 
 void renderBalls() {
-    for(Ball *cursor = balls; cursor != NULL; cursor = cursor->next) {
+    for (Ball *cursor = balls; cursor != NULL; cursor = cursor->next) {
         if (cursor->visible == true) {
             Vector2 textPosition = {
                     cursor->xpos - cursor->radius / 2,
                     cursor->ypos - cursor->radius / 3};
-            switch(cursor->radius) {
+            switch (cursor->radius) {
                 case 20:
                     DrawTexture(greenBall, cursor->xpos - cursor->radius, cursor->ypos - cursor->radius, WHITE);
                     break;
@@ -161,7 +151,7 @@ void renderBalls() {
                 default:
                     break;
             }
-            DrawTextEx(font, FormatText ("%d", cursor->HP), textPosition, 2 * cursor->radius / 3, 2, BLACK);
+            DrawTextEx(font, FormatText("%d", cursor->HP), textPosition, 2 * cursor->radius / 3, 2, BLACK);
         }
     }
 }
