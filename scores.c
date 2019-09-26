@@ -32,9 +32,6 @@ void renderTime (Vector2 position, int time, int fontSize) {
 
 void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
     for(int i = 0; i < 10; i++) {
-        /*int min = (int)array[9-i][1] / 60;
-        int sec = array[9-i][1] - 60 * min;*/
-
         Vector2 numberPosition;
         if(i == 9)
             numberPosition.x = x - 55;
@@ -160,9 +157,10 @@ void endOfGame () {
         DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
 
-        Vector2 timePosition = {screenWidth / 2 - 100, 330};
-        Vector2 difficultyPosition = {timePosition.x + 150, timePosition.y};
-        DrawTextEx(font, FormatText("%d %d", balls_destroyed, score_time), timePosition, 26,1, BLACK);
+        Vector2 ballCountPosition = {screenWidth / 2 - 140, 400};
+        Vector2 timePosition = {ballCountPosition.x + 110, ballCountPosition.y};
+        Vector2 difficultyPosition = {timePosition.x + 120, timePosition.y};
+        DrawTextEx(font, FormatText("%d", balls_destroyed), ballCountPosition, 26,1, BLACK);
         renderTime(timePosition, score_time, 26);
         renderDifficulty(difficultyPosition);
 
@@ -189,7 +187,7 @@ void endOfGame () {
 void renderScoresMenu () {
     DrawTexture(scoresLogo, menu_screenWidth / 2 - 230, 30, WHITE);
     DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
-    DrawTexture(crown, menu_screenWidth / 2 - 160, 152, WHITE);
+    DrawTexture(crown, menu_screenWidth / 2 - 165, 152, WHITE);
 }
 
 void scoresMenuButtons () {
