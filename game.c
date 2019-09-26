@@ -63,13 +63,15 @@ void stopGame (StopGame stopTheGame) {
 }
 
 bool playerBallCollision (Ball *head) {
-    Ball *cursor;
-    for (cursor = head; cursor != NULL; cursor = cursor->next) {
-        double d = cursor->ypos + cursor->radius;
-        if (screenHeight - player.ysize < d) {
-            if (cursor->xpos + cursor->radius > player.xpos &&
-                cursor->xpos - cursor->radius < player.xpos + player.xsize) {
-                return true;
+    if(player_isAlive) {
+        Ball *cursor;
+        for (cursor = head; cursor != NULL; cursor = cursor->next) {
+            double d = cursor->ypos + cursor->radius;
+            if (screenHeight - player.ysize < d) {
+                if (cursor->xpos + cursor->radius > player.xpos &&
+                    cursor->xpos - cursor->radius < player.xpos + player.xsize) {
+                    return true;
+                }
             }
         }
     }
@@ -148,18 +150,19 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
 }
 
 void onDamageAnimation () {
-    framesCounter++;
+    if(player_isAlive) {
+        framesCounter++;
 
-    if (framesCounter >= (60/framesSpeed))
-    {
-        framesCounter = 0;
-        currentFrame++;
+        if (framesCounter >= (60 / framesSpeed)) {
+            framesCounter = 0;
+            currentFrame++;
 
-        if (currentFrame > 3) currentFrame = 0;
+            if (currentFrame > 3) currentFrame = 0;
 
-        frameRec.x = (float)currentFrame*140/4;
+            frameRec.x = (float) currentFrame * 140 / 4;
+        }
+        DrawTextureRec(heart_onDamage, frameRec, position, WHITE);  // Draw part of the texture
     }
-    DrawTextureRec(heart_onDamage, frameRec, position, WHITE);  // Draw part of the texture
 }
 
 void renderBackground () {

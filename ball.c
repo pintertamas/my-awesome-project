@@ -1,6 +1,7 @@
 #include "global.h"
 #include "ball.h"
 #include "textures.h"
+#include "player.h"
 
 Ball *balls = NULL;
 
@@ -169,10 +170,12 @@ void collisionWall(Ball *head) {
 }
 
 void applyPhysics_Balls(Ball *head) {
-    for(Ball *cursor = head; cursor != NULL; cursor = cursor->next) {
-        if (cursor->visible == true) {
-            ballBounce(cursor, false);
-            collisionWall(cursor);
+    if(player_isAlive) {
+        for (Ball *cursor = head; cursor != NULL; cursor = cursor->next) {
+            if (cursor->visible == true) {
+                ballBounce(cursor, false);
+                collisionWall(cursor);
+            }
         }
     }
 }
