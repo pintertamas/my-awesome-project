@@ -1,4 +1,5 @@
 # My awesome project
+Az alapotlet ez:
 
 ### **GOLYÓK**
 

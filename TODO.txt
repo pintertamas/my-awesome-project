@@ -1,6 +1,4 @@
-endgame feliratok + teljesítés idejét kijelezni
 labdák sebződés közben "rezegnek"
-scores opció
 pénzek
 ha meghalsz, akkor is lehessen új játékot kezdeni
 sebzés
