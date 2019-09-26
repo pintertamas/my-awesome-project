@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="240px"
+   height="240px"
+   viewBox="0 0 240 240"
+   version="1.1"
+   id="SVGRoot"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="restartButton.svg"
+   inkscape:export-filename="F:\Documents\BME\Prog1\my-awesome-project\cmake-build-debug\Textures\buttons\restartButton.png"
+   inkscape:export-xdpi="48"
+   inkscape:export-ydpi="48">
+  <defs
+     id="defs1414" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="65.061032"
+     inkscape:cy="141.58731"
+     inkscape:document-units="px"
+     inkscape:current-layer="g2055"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata1417">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1995">
+      <g
+         id="g2009">
+        <rect
+           id="rect52"
+           width="240"
+           height="240"
+           x="0"
+           y="0"
+           style="fill:#cccccc;stroke-width:1.09292424"
+           ry="44.899773" />
+        <g
+           id="g2055"
+           transform="matrix(0.90909091,0,0,0.90909091,10.909091,10.909091)">
+          <rect
+             ry="43.216026"
+             style="fill:#e6e6e6;stroke-width:1.05193937"
+             y="4.5"
+             x="4.5"
+             height="231"
+             width="231"
+             id="rect52-5" />
+          <g
+             id="g2065"
+             transform="matrix(0.9047619,0,0,0.9047619,11.428571,11.428572)">
+            <g
+               transform="matrix(0.93024938,0,0,0.93024938,18.371883,8.3718825)"
+               id="g2001">
+              <path
+                 inkscape:connector-curvature="0"
+                 id="path1974"
+                 d="M 119.99924,20.000006 V 40.580117 A 79.408789,79.408789 0 0 1 199.39769,119.9889 79.408789,79.408789 0 0 1 119.9889,199.39768 79.408789,79.408789 0 0 1 40.580111,119.99924 H 20 A 100.00009,100.00009 0 0 0 81.732062,212.38847 100.00009,100.00009 0 0 0 190.71028,190.71028 100.00009,100.00009 0 0 0 212.38847,81.732063 100.00009,100.00009 0 0 0 119.99924,20.000006 Z"
+                 style="fill:#3e3e3e;fill-opacity:1;stroke:#3e3e3e;stroke-width:15;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+              <path
+                 inkscape:connector-curvature="0"
+                 id="path1981"
+                 d="M 115.25202,12.5 A 18.945192,17.79 0 0 0 96.306832,30.290003 18.945192,17.79 0 0 0 115.25202,48.08 Z"
+                 style="fill:#3e3e3e;fill-opacity:1;stroke:none;stroke-width:9.95835495;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+            </g>
+            <path
+               inkscape:transform-center-x="-1.3125716e-06"
+               transform="matrix(0.99492689,0,0,0.73760416,10,30.522465)"
+               inkscape:transform-center-y="-6.8851918"
+               d="m 69.83578,115.8354 -64.6715599,0 L 37.5,59.828186 Z"
+               inkscape:randomized="0"
+               inkscape:rounded="0"
+               inkscape:flatsided="true"
+               sodipodi:arg2="1.5707963"
+               sodipodi:arg1="0.52359878"
+               sodipodi:r2="18.669069"
+               sodipodi:r1="37.338142"
+               sodipodi:cy="97.166328"
+               sodipodi:cx="37.5"
+               sodipodi:sides="3"
+               id="path2003"
+               style="fill:#3e3e3e;fill-opacity:1;stroke:#3e3e3e;stroke-width:10.32919598;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+               sodipodi:type="star" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
