@@ -11,7 +11,7 @@ int shootDelay = 69;
 int bulletCount = 5;
 int bulletRadius = 5;
 int bulletSpeed = 10;
-int bulletDamage = 1;
+int bulletDamage = 5;
 
 void freeList_bullet () {
     Bullet *tmp;
