@@ -120,7 +120,6 @@ void ballBounce(Ball *head, bool gravity) {
 
     head->xpos += head->vx;
     //---------------------
-    //ball->vy *= .99;                                                                                                  //slowing down the ball int the y axis
     if (gravity == true) {
         head->vx *= (double).996;                                                                                       //slowing the ball down in the x axis
     }
