@@ -66,8 +66,6 @@ void wait (int timeDiff, int time) {
             if (timeDiff >= time * 1000) {
                 startTime = 0;
                 gameState = GAME;
-                bulletSpeed = 15;
-                bulletDamage = 5;
             }
         }
     }

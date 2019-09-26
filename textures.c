@@ -160,9 +160,9 @@ void loadImage(){
     ImageFormat(&textures[38], UNCOMPRESSED_R8G8B8A8);
     purpleBall = LoadTextureFromImage(textures[38]);
 
-    textures[39] = LoadImage("Textures/icon.png");
+    textures[39] = LoadImage("Textures/buttons/restartButton.png");
     ImageFormat(&textures[39], UNCOMPRESSED_R8G8B8A8);
-    window_icon = LoadTextureFromImage(textures[39]);
+    restartGameButton = LoadTextureFromImage(textures[39]);
 
     textures[40] = LoadImage("Textures/players/car.png");
     ImageFormat(&textures[40], UNCOMPRESSED_R8G8B8A8);

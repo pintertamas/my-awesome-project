@@ -8,6 +8,7 @@ clock_t roundStart;
 clock_t roundEnd;
 clock_t damageTime;
 double **endGame;
+void setupBackupArray ();
 bool isPaused;
 void game ();
 typedef enum StopGame { PAUSE, RESUME}StopGame;

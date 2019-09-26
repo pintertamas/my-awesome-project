@@ -133,6 +133,11 @@ void initGameData () {
             lifePoints  = 1;
             break;
     }
+    bulletSpeed = 15;
+    bulletDamage = 5;
+    shootDelay = 69;
+    bulletCount = 5;
+    bulletRadius = 5;
 }
 
 void settings () {

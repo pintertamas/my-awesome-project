@@ -2,16 +2,15 @@
 #include "player.h"
 #include "textures.h"
 #include "bullet.h"
-#include "game.h"
 #include "menu.h"
 
 Bullet *bullets = NULL;
 clock_t shoot;
-int shootDelay = 69;
-int bulletCount = 5;
-int bulletRadius = 5;
-int bulletSpeed = 10;
-int bulletDamage = 5;
+int shootDelay;
+int bulletCount;
+int bulletRadius;
+int bulletSpeed;
+int bulletDamage;
 
 void freeList_bullet () {
     Bullet *tmp;

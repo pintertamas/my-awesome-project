@@ -57,6 +57,7 @@ void stopGame (StopGame stopTheGame) {
                 bulletDamage = (double)endGame[i][5];
                 i++;
             }
+            free(endGame);
             break;
         default:
             break;
@@ -103,10 +104,10 @@ void playerLife () {
             DrawText("GAME OVER!", 150, 400, 50, BLACK);
             DrawTextEx(font, "press X to continue", gameOverPosition, 20, 2, BLACK);
         }
+        if(IsKeyDown(KEY_X))
+            gameState = END;
     }
 
-    if(IsKeyDown(KEY_X))
-        gameState = END;
 }
 
 void pause_resume () {
@@ -205,6 +206,7 @@ void renderBackground () {
 
 void game () {
     player_isAlive = true;
+    setupPlayer();
     roundStart = clock();
     damageTime = 0;
     setupBackupArray();

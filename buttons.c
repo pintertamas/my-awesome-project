@@ -31,6 +31,11 @@ void setupButtons () {
     clearLeaderBoard.w = buttonWidth;
     clearLeaderBoard.h = buttonHeight;
 
+    restartButton.x = screenWidth / 2 - buttonHeight / 2;
+    restartButton.y = 700;
+    restartButton.w = 1.5*buttonHeight;
+    restartButton.h = 1.5*buttonHeight;
+
     easyButton.x = buttonWidth / 2;
     easyButton.y = buttonHeight + buttonHeight / 2;
     easyButton.w = buttonWidth;

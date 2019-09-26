@@ -31,7 +31,8 @@ void renderTime (Vector2 position, int time, int fontSize) {
 }
 
 void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
-    for(int i = 0; i < 10; i++) {
+
+    for(int i = 0; i < 10; i++) {                                                                                       //scores
         Vector2 numberPosition;
         if(i == 9)
             numberPosition.x = x - 55;
@@ -122,7 +123,7 @@ void renderDifficulty (Vector2 where, int fontSize) {
     else if(gameDifficulty == HARD)
         DrawTextEx(font, "Game difficulty:   HARD", where, fontSize,1, BLACK);
     else
-        DrawTextEx(font, "  -", where, fontSize,1, BLACK);
+        DrawTextEx(font, "Game difficulty:   UNSET", where, fontSize,1, BLACK);
 }
 
 void updateScores (int array[10][3], int number) {
@@ -147,6 +148,34 @@ void resetLeaderBoard () {
     }
 }
 
+void endScreenButtons () {
+    if (isOverButton(backButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        DrawTexture(backButton_clicked, backButton.x, backButton.y, WHITE);
+        startTime = 0;
+        gameState = MENU;
+    }
+    else if (isOverButton(restartButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        startTime = 0;
+        gameState = GAME;
+    }
+}
+
+void renderEnd() {
+    DrawTexture(background_gameOver, 0, 0, WHITE);
+    DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
+    DrawTexture(restartGameButton, restartButton.x, restartButton.y, WHITE);                                            //restartButton
+
+    Vector2 ballCountPosition = {screenWidth / 2 - 170, 600};
+    Vector2 timePosition = {ballCountPosition.x, ballCountPosition.y - 100};
+    Vector2 difficultyPosition = {timePosition.x, timePosition.y - 100};
+    int fontSize = 36;
+    DrawTextEx(font, FormatText("Total balls popped:   %d", balls_destroyed), ballCountPosition, fontSize,1, BLACK);
+    DrawTextEx(font, "Game time: ", timePosition, fontSize,1, BLACK);
+    timePosition.x += 260;
+    renderTime(timePosition, score_time, fontSize);
+    renderDifficulty(difficultyPosition, fontSize);
+}
+
 void endOfGame () {
     score_time = (int)((roundEnd - roundStart) / 1000);
     updateScores(scoreArray, balls_destroyed);
@@ -154,25 +183,9 @@ void endOfGame () {
     freeList_bullet();
     freeList_ball();
     while (!WindowShouldClose()) {
-        DrawTexture(background_gameOver, 0, 0, WHITE);
-        DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
+        renderEnd();
+        endScreenButtons();
 
-        Vector2 ballCountPosition = {screenWidth / 2 - 170, 600};
-        Vector2 timePosition = {ballCountPosition.x, ballCountPosition.y - 100};
-        Vector2 difficultyPosition = {timePosition.x, timePosition.y - 100};
-        int fontSize = 36;
-        DrawTextEx(font, FormatText("Total balls popped:   %d", balls_destroyed), ballCountPosition, fontSize,1, BLACK);
-        DrawTextEx(font, "Game time: ", timePosition, fontSize,1, BLACK);
-        timePosition.x += 260;
-        renderTime(timePosition, score_time, fontSize);
-        renderDifficulty(difficultyPosition, fontSize);
-
-        if (isOverButton(backButton) &&
-            IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            DrawTexture(backButton_clicked, backButton.x, backButton.y, WHITE);
-            startTime = 0;
-            gameState = MENU;
-        }
         ClearBackground(settingsBackground);
 
         if (gameState != END)
