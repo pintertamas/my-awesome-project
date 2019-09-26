@@ -84,7 +84,7 @@ void renderButtons () {
 
     int timeDiff = clock() - startTime;
     wait(timeDiff);
-    if (startTime != 0) {
+    if (startTime != 0) {                                                                                               //without this, the error massages would appear at every start
         if (gameDifficulty == DIFFICULTY_UNSET) {
             if (timeDiff <= 1000)
                 DrawText("SELECT DIFFICULTY FIRST!", menu_screenWidth / 2 - 75, scoresButton.y + buttonHeight + 20, 10, BLACK);
