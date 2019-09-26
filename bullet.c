@@ -55,9 +55,9 @@ Bullet *list_append_bullet (Bullet *head, double xpos, double ypos) {
 }
 
 void spawnBullets () {
+    int gap = 2;
     double playerCenter = player.xpos + (double)player.xsize / 2;
-    double leftPoint = (bulletCount - 0.5) * 2 * bulletRadius;
-
+    double leftPoint = bulletCount * bulletRadius + ((bulletCount - 1) / 2) * gap;
 
     if (IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay && player_isAlive) {
         shoot = clock();
@@ -65,7 +65,7 @@ void spawnBullets () {
         for(int i = 0; i < bulletCount; i++) {
             bullets = list_append_bullet(
                     bullets,
-                    playerCenter - leftPoint + i * 4 * bulletRadius + bulletRadius,
+                    playerCenter - leftPoint + i * (2 * bulletRadius + gap),
                     screenHeight - player.ysize - bulletRadius * 3
                     );
         }
