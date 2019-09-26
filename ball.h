@@ -20,6 +20,7 @@ extern Ball *balls;
 extern int ballNumber;                                                                                                  //number of balls on the playfield at a time
 extern int ballNumber_current;
 int balls_destroyed;
+int damageDealt;
 
 void spawnBall ();
 void freeList_ball ();

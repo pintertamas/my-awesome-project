@@ -165,23 +165,24 @@ void renderEnd() {
     DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
     DrawTexture(restartGameButton, restartButton.x, restartButton.y, WHITE);                                            //restartButton
 
-    Vector2 ballCountPosition = {screenWidth / 2 - 170, 600};
-    Vector2 timePosition = {ballCountPosition.x, ballCountPosition.y - 100};
-    Vector2 difficultyPosition = {timePosition.x, timePosition.y - 100};
+    int gap = 55;
+    Vector2 ballCountPosition = {screenWidth / 2 - 170, 550};
+    Vector2 timePosition = {ballCountPosition.x, ballCountPosition.y - gap};
+    Vector2 difficultyPosition = {timePosition.x, timePosition.y - gap};
+    Vector2 damagePosition = {difficultyPosition.x, difficultyPosition.y - gap};
     int fontSize = 36;
     DrawTextEx(font, FormatText("Total balls popped:   %d", balls_destroyed), ballCountPosition, fontSize,1, BLACK);
     DrawTextEx(font, "Game time: ", timePosition, fontSize,1, BLACK);
     timePosition.x += 260;
     renderTime(timePosition, score_time, fontSize);
     renderDifficulty(difficultyPosition, fontSize);
+    DrawTextEx(font, FormatText("Damage dealt:    %d", damageDealt), damagePosition, fontSize,1, BLACK);
 }
 
 void endOfGame () {
     score_time = (int)((roundEnd - roundStart) / 1000);
     updateScores(scoreArray, balls_destroyed);
     arraySort(scoreArray);
-    freeList_bullet();
-    freeList_ball();
     while (!WindowShouldClose()) {
         renderEnd();
         endScreenButtons();

@@ -38,13 +38,7 @@ Ball *list_append_ball (Ball *head) {
     Ball *new;
     new = (Ball *) malloc(sizeof(Ball));
 
-    int difficultyBalance;
-    if (ballNumber % 2 == 0)
-        difficultyBalance = ballNumber / 2;
-    else
-        difficultyBalance = (ballNumber + 1) / 2;
-
-    int size = GetRandomValue(1, difficultyBalance);
+    int size = GetRandomValue(1, 5);
     switch(size) {
         case 1:
             new->radius = 20;

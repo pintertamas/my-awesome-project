@@ -134,7 +134,7 @@ void initGameData () {
             break;
     }
     bulletSpeed = 15;
-    bulletDamage = 5;
+    bulletDamage = 15;
     shootDelay = 69;
     bulletCount = 5;
     bulletRadius = 5;

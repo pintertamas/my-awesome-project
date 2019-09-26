@@ -139,6 +139,7 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
             if (sqrt(a_square + b_square) < bulletRadius + ball_cursor->radius) {
                 if(bullet_cursor->visible == true){
                     ball_cursor->HP -= bulletDamage;
+                    damageDealt += bulletDamage;
                     bullet_cursor->visible = false;
                 }
             }
@@ -212,6 +213,7 @@ void game () {
     setupBackupArray();
     ballNumber_current = 0;
     balls_destroyed = 0;
+    damageDealt = 0;
     initGameData();
     while (!WindowShouldClose()) {
         renderBackground();
@@ -219,6 +221,7 @@ void game () {
         movePlayer();
         renderPlayer();
         playerBallCollision(balls);
+        BulletBallCollision(balls, bullets);
 
         applyPhysics_Balls(balls);
         updateBalls(balls);
@@ -230,12 +233,13 @@ void game () {
         bullets = freeBullets_outside(bullets);
         balls = freeBalls_dead(balls);
 
-        BulletBallCollision(balls, bullets);
 
         pause_resume();
         playerLife();
 
         if (gameState != GAME) {
+            freeList_bullet();
+            freeList_ball();
             roundEnd = clock();
             break;
         }
