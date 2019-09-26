@@ -21,21 +21,30 @@ void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
         else
             numberPosition.x = x - 40;
         numberPosition.y = y + i * 30;
-        Vector2 scorePosition = {x, y + i * 30};
-        Vector2 difficultyPosition = {x + textSpace, y + i * 30};
+        Vector2 scorePosition = {x + 50, y + i * 30};
+        Vector2 difficultyPosition = {x + textSpace + 50, y + i * 30};
+        Vector2 ballCountPosition = {x, y + i * 30};
 
         DrawTextEx(font, FormatText("%d: ", i+1), numberPosition, fs, 1, BLACK);
-        if(min <= 10)
-            DrawTextEx(font, FormatText("0%d:", min), scorePosition, fs, 1, BLACK);
-        else
-            DrawTextEx(font, FormatText("%d:", min), scorePosition, fs, 1, BLACK);
-        scorePosition.x += 3 * fs / 2;
-        if(sec < 10)
-            DrawTextEx(font, FormatText("0%d ", sec), scorePosition, fs, 1, BLACK);
-        else
-            DrawTextEx(font, FormatText("%d ", sec), scorePosition, fs, 1, BLACK);
 
-        DrawText(FormatText("%d ", array[9-i][0]), 10, 100+25*i, 20, BLACK);
+        DrawTextEx(font, FormatText("%d", array[9-i][0]), ballCountPosition, fs, 1, BLACK);
+
+        if(sec == 0 && min == 0) {
+            DrawTextEx(font, "  --:--", scorePosition, fs, 1, BLACK);
+        } else {
+            if(min <= 10)
+                DrawTextEx(font, FormatText("0%d:", min), scorePosition, fs, 1, BLACK);
+            else
+                DrawTextEx(font, FormatText("%d:", min), scorePosition, fs, 1, BLACK);
+            scorePosition.x += 3 * fs / 2;
+            if(sec < 10)
+                DrawTextEx(font, FormatText("0%d ", sec), scorePosition, fs, 1, BLACK);
+            else
+                DrawTextEx(font, FormatText("%d ", sec), scorePosition, fs, 1, BLACK);
+        }
+
+
+        //DrawText(FormatText("%d ", array[9-i][0]), 10, 100+25*i, 20, BLACK);
 
         switch (array[9-i][2]) {
             case 0:
@@ -143,7 +152,7 @@ void endOfGame () {
         DrawTexture(background_gameOver, 0, 0, WHITE);
         DrawTexture(backButton_simple, backButton.x, backButton.y, WHITE);
 
-        renderScores(scoreArray, screenWidth/2 - 90, 330, 26, 140);
+        renderScores(scoreArray, screenWidth/2 - 120, 330, 26, 140);
 
         if (isOverButton(backButton) &&
             IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
