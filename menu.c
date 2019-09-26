@@ -65,7 +65,6 @@ void wait (int timeDiff, int time) {
                 DrawText(FormatText("%d", time-i), menu_screenWidth / 2 - 15, menu_screenHeight / 3, 60, BLACK);
             if (timeDiff >= time * 1000) {
                 startTime = 0;
-                roundStartTime = clock();
                 gameState = GAME;
                 bulletSpeed = 15;
                 bulletDamage = 5;

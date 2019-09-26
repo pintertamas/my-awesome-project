@@ -26,7 +26,6 @@ void menu ();
 void renderMenu ();
 Font font;
 clock_t startTime;
-clock_t roundStartTime;
 bool isOverButton (Button button);
 
 
