@@ -18,7 +18,7 @@ void freeList_ball () {
 }
 
 Ball *freeBalls_dead (Ball *head) {
-    if(head->HP == 0) {
+    if(head->HP <= 0) {
         Ball *tmp = head;
         head = head->next;
         free(tmp);
