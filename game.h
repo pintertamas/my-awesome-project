@@ -7,6 +7,7 @@
 clock_t roundStart;
 clock_t roundEnd;
 clock_t damageTime;
+bool isPaused;
 double **endGame;
 void setupBackupArray ();
 bool isPaused;

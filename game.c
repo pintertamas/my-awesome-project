@@ -24,6 +24,7 @@ void stopGame (StopGame stopTheGame) {
     int i;
     switch (stopTheGame) {
         case PAUSE:
+            isPaused = true;
             i = 0;
             for(cursor = balls; cursor != NULL; cursor = cursor->next) {
                 endGame[i][0] = cursor->vx;
@@ -47,6 +48,7 @@ void stopGame (StopGame stopTheGame) {
             }
             break;
         case RESUME:
+            isPaused = false;
             i = 0;
             for(cursor = balls; cursor != NULL; cursor = cursor->next) {
                 cursor->vx = endGame[i][0];

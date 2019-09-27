@@ -3,6 +3,7 @@
 #include "textures.h"
 #include "bullet.h"
 #include "menu.h"
+#include "game.h"
 
 Bullet *bullets = NULL;
 clock_t shoot;
@@ -59,7 +60,7 @@ void spawnBullets () {
     double playerCenter = player.xpos + (double)player.xsize / 2;
     double leftPoint = bulletCount * bulletRadius + ((bulletCount - 1) / 2) * gap;
 
-    if (IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay && player_isAlive) {
+    if (IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay && player_isAlive && !isPaused) {
         shoot = clock();
 
         for(int i = 0; i < bulletCount; i++) {
