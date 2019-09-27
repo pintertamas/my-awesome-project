@@ -94,12 +94,6 @@
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/buttons.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/coin.c">
-			<Option target="my-awesome-project"/>
-		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/coin.h">
-			<Option target="my-awesome-project"/>
-		</Unit>
 		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/game.c">
 			<Option target="my-awesome-project"/>
 		</Unit>

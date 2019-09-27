@@ -5,7 +5,6 @@
 #include "bullet.h"
 #include "game.h"
 
-
 Color settingsBackground = {0,190,255};
 
 void settingsButtonClick () {
@@ -124,18 +123,18 @@ void initGameData () {
             break;
         case MEDIUM:
             ballNumber = 5;
-            bulletCount = 3;
+            bulletCount = 4;
             lifePoints  = 3;
             break;
         case HARD:
             ballNumber = 6;
-            bulletCount = 5;
+            bulletCount = 3;
             lifePoints  = 1;
             break;
     }
-    bulletSpeed = 15;
+    bulletSpeed = 13;
     bulletDamage = 10;
-    shootDelay = 50;
+    shootDelay = 69;
     bulletRadius = 5;
 }
 

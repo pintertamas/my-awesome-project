@@ -1,6 +1,5 @@
 #include "scores.h"
 #include "global.h"
-#include "bullet.h"
 #include "ball.h"
 #include "buttons.h"
 #include "menu.h"

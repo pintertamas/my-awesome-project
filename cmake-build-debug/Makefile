@@ -203,33 +203,6 @@ buttons.c.s:
 	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/buttons.c.s
 .PHONY : buttons.c.s
 
-coin.obj: coin.c.obj
-
-.PHONY : coin.obj
-
-# target to build an object file
-coin.c.obj:
-	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/coin.c.obj
-.PHONY : coin.c.obj
-
-coin.i: coin.c.i
-
-.PHONY : coin.i
-
-# target to preprocess a source file
-coin.c.i:
-	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/coin.c.i
-.PHONY : coin.c.i
-
-coin.s: coin.c.s
-
-.PHONY : coin.s
-
-# target to generate assembly for a file
-coin.c.s:
-	$(MAKE) -f CMakeFiles\my-awesome-project.dir\build.make CMakeFiles/my-awesome-project.dir/coin.c.s
-.PHONY : coin.c.s
-
 game.obj: game.c.obj
 
 .PHONY : game.obj
@@ -464,9 +437,6 @@ help:
 	@echo ... buttons.obj
 	@echo ... buttons.i
 	@echo ... buttons.s
-	@echo ... coin.obj
-	@echo ... coin.i
-	@echo ... coin.s
 	@echo ... game.obj
 	@echo ... game.i
 	@echo ... game.s
