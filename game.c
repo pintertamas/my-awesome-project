@@ -235,7 +235,6 @@ void game () {
         bullets = freeBullets_outside(bullets);
         balls = freeBalls_dead(balls);
 
-
         pause_resume();
         playerLife();
 
