@@ -2,7 +2,7 @@
 #include "player.h"
 #include "textures.h"
 #include "menu.h"
-
+//
 int playerSpeed = 10;                                                                                                     //the speed of the bullets
 
 void setupPlayer(){                                                                                                       //the player is a 50x70 image
