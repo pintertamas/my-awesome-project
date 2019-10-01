@@ -58,7 +58,7 @@ void menuButtonClick () {
     }
 }
 
-void wait (int timeDiff, int time) {
+void wait_sec (int timeDiff, int time) {
     if (startTime != 0 && gameDifficulty != DIFFICULTY_UNSET && background != BACKGROUND_UNSET) {
         for(int i = 0; i < time; i++) {
             if(timeDiff >= i * 1000 && timeDiff < (i+1) * 1000)
@@ -77,7 +77,7 @@ void renderButtons () {
     DrawTexture(settingsButton_simple, settingsButton.x, settingsButton.y, WHITE);
 
     int timeDiff = clock() - startTime;
-    wait(timeDiff, 3);
+    wait_sec(timeDiff, 3);
     if (startTime != 0) {                                                                                               //without this, the error massages would appear at every start
         if (gameDifficulty == DIFFICULTY_UNSET) {
             if (timeDiff <= 1000)
