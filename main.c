@@ -13,12 +13,12 @@ int main(void)
 {
     //----------------------------------------------------------                                                        // Initialization
     InitWindow(menu_screenWidth, menu_screenHeight, "My Awesome Game");
-    Image icon = LoadImage("Textures/heart.png");
+    Image icon = LoadImage("../Textures/heart.png");
     SetWindowIcon(icon);
     SetTargetFPS(60);
 
     loadImage();
-    font = LoadFont("Textures/font.ttf");
+    font = LoadFont("../Textures/font.ttf");
     setupPlayer();
     setupButtons();
     shoot = clock();
