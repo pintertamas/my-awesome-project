@@ -66,7 +66,7 @@ void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
 
 void writeToFile (int array[10][3]) {
     FILE *file;
-    file = fopen("scores.txt", "wt");
+    file = fopen("../scores.txt", "wt");
     if(file == NULL) {
         perror("cannot open file");
         return;
@@ -79,7 +79,7 @@ void writeToFile (int array[10][3]) {
 
 void readFromFile (int array[10][3]) {
     FILE *file;
-    file = fopen("scores.txt", "rt");
+    file = fopen("../scores.txt", "rt");
     if(file == NULL) {
         perror("cannot read the file");
         return;
