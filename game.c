@@ -156,7 +156,7 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
     }
 }
 
-void onDamageAnimation () {
+void onDamageAnimation_heart () {
     if(player_isAlive) {
         framesCounter++;
 
@@ -192,7 +192,7 @@ void renderBackground () {
     }
 
     if(clock() - damageTime <= 500) {
-        onDamageAnimation();
+        onDamageAnimation_heart();
     } else {
         DrawTexture(heart, 10, 30, WHITE);
     }
