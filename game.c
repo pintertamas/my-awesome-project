@@ -25,6 +25,7 @@ void freeBackupArray () {
         free(endGame[i]);
     }
     free(endGame);
+    endGame = NULL;
 }
 
 void stopGame (StopGame stopTheGame) {
