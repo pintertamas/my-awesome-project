@@ -20,6 +20,13 @@ void setupBackupArray () {                                                      
     }
 }
 
+void freeBackupArray () {
+    for(int i = 0; i < ballNumber; i++) {
+        free(endGame[i]);
+    }
+    free(endGame);
+}
+
 void stopGame (StopGame stopTheGame) {
     Ball *cursor;
     int i;
@@ -60,7 +67,6 @@ void stopGame (StopGame stopTheGame) {
                 bulletDamage = (double)endGame[i][5];
                 i++;
             }
-            free(endGame);
             break;
         default:
             break;
@@ -115,12 +121,14 @@ void playerLife () {
 
 void pause_resume () {
     if (IsKeyPressed(KEY_Z) && !isPaused && lifePoints > 0) {
+        setupBackupArray();
         stopGame(PAUSE);
         isPaused = true;
     }
 
     if (IsKeyPressed(KEY_X) && isPaused) {
         stopGame(RESUME);
+        freeBackupArray();
         isPaused = false;
     }
 
@@ -213,7 +221,6 @@ void game () {
     setupPlayer();
     roundStart = clock();
     damageTime = 0;
-    setupBackupArray();
     ballNumber_current = 0;
     balls_destroyed = 0;
     damageDealt = 0;
