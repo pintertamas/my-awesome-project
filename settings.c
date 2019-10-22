@@ -4,6 +4,7 @@
 #include "ball.h"
 #include "bullet.h"
 #include "game.h"
+#include "debugmalloc.h"
 
 Color settingsBackground = {0,190,255};
 

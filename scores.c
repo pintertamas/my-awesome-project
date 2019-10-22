@@ -6,6 +6,7 @@
 #include "textures.h"
 #include "settings.h"
 #include "game.h"
+#include "debugmalloc.h"
 
 int scoreArray[10][3];
 

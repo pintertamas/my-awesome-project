@@ -4,6 +4,7 @@
 #include "menu.h"
 #include "textures.h"
 #include "settings.h"
+#include "debugmalloc.h"
 
 Vector2 position = { 10.0f, 30.0f };
 Rectangle frameRec = { 0.0f, 0.0f, 140 / 4, 30 };

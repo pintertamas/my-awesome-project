@@ -1,4 +1,5 @@
 #include "global.h"
+#include "debugmalloc.h"
 
 int resolutionX = 1920;
 int resolutionY = 1080;

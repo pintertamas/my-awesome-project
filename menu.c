@@ -6,7 +6,7 @@
 #include "textures.h"
 #include "buttons.h"
 #include "settings.h"
-
+#include "debugmalloc.h"
 
 void renderMenu () {
 

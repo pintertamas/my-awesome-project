@@ -1,6 +1,6 @@
 #include "global.h"
 #include "textures.h"
-
+#include "debugmalloc.h"
 
 void loadImage(){
 

@@ -2,6 +2,7 @@
 #include "player.h"
 #include "textures.h"
 #include "menu.h"
+#include "debugmalloc.h"
 
 int playerSpeed = 10;                                                                                                     //the speed of the bullets
 

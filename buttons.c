@@ -1,5 +1,6 @@
 #include "buttons.h"
 #include "global.h"
+#include "debugmalloc.h"
 
 void setupButtons () {
 

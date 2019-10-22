@@ -2,6 +2,7 @@
 #include "ball.h"
 #include "textures.h"
 #include "player.h"
+#include "debugmalloc.h"
 
 Ball *balls = NULL;
 

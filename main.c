@@ -8,6 +8,7 @@
 #include "textures.h"
 #include "buttons.h"
 #include "scores.h"
+#include "debugmalloc.h"
 
 int main(void)
 {

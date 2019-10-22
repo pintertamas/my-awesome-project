@@ -8,138 +8,138 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug"/>
+				<Option working_dir="D:/school/my-awesome-project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="my-awesome-project">
-				<Option output="F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/my-awesome-project.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug"/>
+				<Option output="D:/school/my-awesome-project/cmake-build-debug/my-awesome-project.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/school/my-awesome-project/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+					<Add directory="C:/MinGW/include"/>
+					<Add directory="C:/MinGW/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include"/>
+					<Add directory="C:/MinGW/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include-fixed"/>
+					<Add directory="C:/MinGW/bin/../lib/gcc/i686-w64-mingw32/7.2.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 my-awesome-project"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 my-awesome-project"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="my-awesome-project/fast">
-				<Option output="F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/my-awesome-project.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug"/>
+				<Option output="D:/school/my-awesome-project/cmake-build-debug/my-awesome-project.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/school/my-awesome-project/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+					<Add directory="C:/MinGW/include"/>
+					<Add directory="C:/MinGW/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include"/>
+					<Add directory="C:/MinGW/bin/../lib/gcc/i686-w64-mingw32/7.2.0/include-fixed"/>
+					<Add directory="C:/MinGW/bin/../lib/gcc/i686-w64-mingw32/7.2.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 my-awesome-project/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 my-awesome-project/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug"/>
+				<Option working_dir="D:/school/my-awesome-project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug"/>
+				<Option working_dir="D:/school/my-awesome-project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;F:/Documents/BME/Prog1/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/school/my-awesome-project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/ball.c">
+		<Unit filename="D:/school/my-awesome-project/ball.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/ball.h">
+		<Unit filename="D:/school/my-awesome-project/ball.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/bullet.c">
+		<Unit filename="D:/school/my-awesome-project/bullet.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/bullet.h">
+		<Unit filename="D:/school/my-awesome-project/bullet.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/buttons.c">
+		<Unit filename="D:/school/my-awesome-project/buttons.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/buttons.h">
+		<Unit filename="D:/school/my-awesome-project/buttons.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/game.c">
+		<Unit filename="D:/school/my-awesome-project/game.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/game.h">
+		<Unit filename="D:/school/my-awesome-project/game.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/global.c">
+		<Unit filename="D:/school/my-awesome-project/global.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/global.h">
+		<Unit filename="D:/school/my-awesome-project/global.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/main.c">
+		<Unit filename="D:/school/my-awesome-project/main.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/menu.c">
+		<Unit filename="D:/school/my-awesome-project/menu.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/menu.h">
+		<Unit filename="D:/school/my-awesome-project/menu.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/player.c">
+		<Unit filename="D:/school/my-awesome-project/player.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/player.h">
+		<Unit filename="D:/school/my-awesome-project/player.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/scores.c">
+		<Unit filename="D:/school/my-awesome-project/scores.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/scores.h">
+		<Unit filename="D:/school/my-awesome-project/scores.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/settings.c">
+		<Unit filename="D:/school/my-awesome-project/settings.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/settings.h">
+		<Unit filename="D:/school/my-awesome-project/settings.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/textures.c">
+		<Unit filename="D:/school/my-awesome-project/textures.c">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/textures.h">
+		<Unit filename="D:/school/my-awesome-project/textures.h">
 			<Option target="my-awesome-project"/>
 		</Unit>
-		<Unit filename="F:/Documents/BME/Prog1/my-awesome-project/CMakeLists.txt">
+		<Unit filename="D:/school/my-awesome-project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

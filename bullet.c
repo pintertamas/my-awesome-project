@@ -4,6 +4,7 @@
 #include "bullet.h"
 #include "menu.h"
 #include "game.h"
+#include "debugmalloc.h"
 
 Bullet *bullets = NULL;
 clock_t shoot;
