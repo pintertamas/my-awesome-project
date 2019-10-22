@@ -64,6 +64,8 @@ int main(void)
         }
     }
     //---------------------------------------------------------
+    if(endGame != NULL)
+        freeBackupArray();
     freeList_bullet();
     freeList_ball();
     writeToFile(scoreArray);

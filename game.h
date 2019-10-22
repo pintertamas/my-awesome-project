@@ -10,6 +10,7 @@ clock_t damageTime;
 bool isPaused;
 double **endGame;
 void setupBackupArray ();
+void freeBackupArray ();
 bool isPaused;
 void game ();
 typedef enum StopGame { PAUSE, RESUME}StopGame;
