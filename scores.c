@@ -86,9 +86,9 @@ void readFromFile (int array[10][3]) {
         return;
     }
     for(int i = 0; i < 10; i++) {
-        fscanf(file, "%d", &array[i][0]);
-        fscanf(file, "%d", &array[i][1]);
-        fscanf(file, "%d", &array[i][2]);
+        for (int j = 0; j < 3; ++j) {
+            fscanf(file, "%d", &array[i][0]);
+        }
     }
     fclose(file);
 }
@@ -102,15 +102,11 @@ void arraySort(int array[10][3]) {
 
         if (min != i) {
             int temp[3];
-            temp[0] = array[min][0];
-            temp[1] = array[min][1];
-            temp[2] = array[min][2];
-            array[min][0] = array[i][0];
-            array[min][1] = array[i][1];
-            array[min][2] = array[i][2];
-            array[i][0] = temp[0];
-            array[i][1] = temp[1];
-            array[i][2] = temp[2];
+            for (int j = 0; j < 3; ++j) {
+                temp[j] = array[min][j];
+                array[min][j] = array[i][j];
+                array[i][j] = temp[j];
+            }
         }
     }
 }
@@ -142,9 +138,9 @@ void updateScores (int array[10][3], int number) {
 
 void resetLeaderBoard () {
     for(int i = 0; i < 10; i++) {
-        scoreArray[i][0] = 0;
-        scoreArray[i][1] = 0;
-        scoreArray[i][2] = 0;
+        for (int j = 0; j < 3; ++j) {
+            scoreArray[i][j] = 0;
+        }
     }
 }
 
