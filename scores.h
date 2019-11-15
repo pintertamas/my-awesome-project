@@ -1,11 +1,17 @@
 #ifndef MY_AWESOME_PROJECT_SCORES_H
 #define MY_AWESOME_PROJECT_SCORES_H
 
+typedef struct Score {
+    int ballsDestroyed;
+    int time;
+    int difficulty;
+}Score;
+
+Score topScores[10];
 int score_time;
-int scoreArray[10][3];
-void readFromFile (int array[10][3]);
-void writeToFile (int array[10][3]);
-void endOfGame ();
-void scores();
+void readFromFile (Score *scoreArray);
+void writeToFile (Score *scoreArray);
+void endOfGame (Score *scoreArray);
+void scores(Score *scoreArray);
 
 #endif //MY_AWESOME_PROJECT_SCORES_H

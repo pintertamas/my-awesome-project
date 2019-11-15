@@ -24,7 +24,7 @@ int main(void)
     setupButtons();
     shoot = clock();
     inCollision = false;
-    readFromFile(scoreArray);
+    readFromFile(topScores);
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
     background = BACKGROUND_UNSET;
@@ -54,12 +54,12 @@ int main(void)
                 EnableCursor();
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
                 ClearBackground(BACKGROUND_COLOR);
-                scores();
+                scores(topScores);
                 break;
             case END:
                 EnableCursor();
                 SetWindowSize(screenWidth, screenHeight);
-                endOfGame();
+                endOfGame(topScores);
                 break;
         }
     }
@@ -68,7 +68,7 @@ int main(void)
         freeBackupArray();
     freeList_bullet();
     freeList_ball();
-    writeToFile(scoreArray);
+    writeToFile(topScores);
     CloseWindow();                                                                                                      // Close window and OpenGL context
     //---------------------------------------------------------
     return 0;

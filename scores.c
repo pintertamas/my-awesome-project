@@ -8,7 +8,7 @@
 #include "game.h"
 #include "debugmalloc.h"
 
-int scoreArray[10][3];
+Score topScores[10];
 
 void renderTime (Vector2 position, int time, int fontSize) {
     int min = time / 60;
@@ -30,8 +30,7 @@ void renderTime (Vector2 position, int time, int fontSize) {
     }
 }
 
-void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
-
+void renderScores (Score scoreArray[10], int x, int y, int fs, int textSpace) {
     for(int i = 0; i < 10; i++) {                                                                                       //scores
         Vector2 numberPosition;
         if(i == 9)
@@ -44,11 +43,11 @@ void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
         Vector2 ballCountPosition = {x, y + i * 30};
 
         DrawTextEx(font, FormatText("%d: ", i+1), numberPosition, fs, 1, BLACK);
-        DrawTextEx(font, FormatText("%d", array[9-i][0]), ballCountPosition, fs, 1, BLACK);
+        DrawTextEx(font, FormatText("%d", scoreArray[9-i].ballsDestroyed), ballCountPosition, fs, 1, BLACK);
 
-        renderTime(timePosition, array[9-i][1], fs);
+        renderTime(timePosition, scoreArray[9-i].time, fs);
 
-        switch (array[9-i][2]) {
+        switch (scoreArray[9-i].difficulty) {
             case 0:
                 DrawTextEx(font, "-", difficultyPosition, fs, 1, BLACK);
                 break;
@@ -65,7 +64,7 @@ void renderScores (int array[10][3], int x, int y, int fs, int textSpace) {
     }
 }
 
-void writeToFile (int array[10][3]) {
+void writeToFile (Score scoreArray[10]) {
     FILE *file;
     file = fopen("../scores.txt", "wt");
     if(file == NULL) {
@@ -73,12 +72,12 @@ void writeToFile (int array[10][3]) {
         return;
     }
     for(int i = 0; i < 10; i++) {
-        fprintf(file, "%d %d %d\n", array[i][0], array[i][1], array[i][2]);
+        fprintf(file, "%d %d %d\n", scoreArray[i].ballsDestroyed, scoreArray[i].time, scoreArray[i].difficulty);
     }
     fclose(file);
 }
 
-void readFromFile (int array[10][3]) {
+void readFromFile (Score scoreArray[10]) {
     FILE *file;
     file = fopen("../scores.txt", "rt");
     if(file == NULL) {
@@ -87,26 +86,24 @@ void readFromFile (int array[10][3]) {
     }
     for(int i = 0; i < 10; i++) {
         for (int j = 0; j < 3; ++j) {
-            fscanf(file, "%d", &array[i][0]);
+            fscanf(file, "%d", &scoreArray[i].ballsDestroyed);
         }
     }
     fclose(file);
 }
 
-void arraySort(int array[10][3]) {
+void arraySort(Score scoreArray[10]) {
     for (int i = 0; i < 9; ++i) {
         int min = i;
         for (int j = i+1; j < 10; ++j)
-            if (array[j][0] < array[min][0])
+            if (scoreArray[j].ballsDestroyed < scoreArray[min].ballsDestroyed)
                 min = j;
 
         if (min != i) {
-            int temp[3];
-            for (int j = 0; j < 3; ++j) {
-                temp[j] = array[min][j];
-                array[min][j] = array[i][j];
-                array[i][j] = temp[j];
-            }
+            Score temp;
+            temp = scoreArray[min];
+            scoreArray[min] = scoreArray[i];
+            scoreArray[i] = temp;
         }
     }
 }
@@ -122,25 +119,25 @@ void renderDifficulty (Vector2 where, int fontSize) {
         DrawTextEx(font, "Game difficulty:   UNSET", where, fontSize,1, BLACK);
 }
 
-void updateScores (int array[10][3], int number) {
+void updateScores (Score scoreArray[10], int number) {
     int lowest = 1000000;
     int index = 0;
     for(int i = 0; i < 10; i++) {
-        if(array[i][0] < lowest || array[i][0] == 0) {
-            lowest = array[i][0];
+        if(scoreArray[i].ballsDestroyed < lowest || scoreArray[i].ballsDestroyed == 0) {
+            lowest = scoreArray[i].ballsDestroyed;
             index = i;
         }
     }
-    array[index][0] = number;
-    array[index][1] = score_time;
-    array[index][2] = gameDifficulty;
+    scoreArray[index].ballsDestroyed = number;
+    scoreArray[index].time = score_time;
+    scoreArray[index].difficulty = gameDifficulty;
 }
 
-void resetLeaderBoard () {
+void resetLeaderBoard (Score scoreArray[10]) {
     for(int i = 0; i < 10; i++) {
-        for (int j = 0; j < 3; ++j) {
-            scoreArray[i][j] = 0;
-        }
+        scoreArray[i].ballsDestroyed = 0;
+        scoreArray[i].time = 0;
+        scoreArray[i].difficulty = 0;
     }
 }
 
@@ -175,7 +172,7 @@ void renderEnd() {
     DrawTextEx(font, FormatText("Damage dealt:    %d", damageDealt), damagePosition, fontSize,1, BLACK);
 }
 
-void endOfGame () {
+void endOfGame (Score scoreArray[10]) {
     score_time = (int)((roundEnd - roundStart) / 1000);
     updateScores(scoreArray, balls_destroyed);
     arraySort(scoreArray);
@@ -200,25 +197,25 @@ void renderScoresMenu () {
     DrawTexture(crown, menu_screenWidth / 2 - 165, 152, WHITE);
 }
 
-void scoresMenuButtons () {
+void scoresMenuButtons (Score scoreArray[10]) {
     if (isOverButton(backButton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(backButton_clicked, backButton.x, backButton.y, WHITE);
         gameState = MENU;
     }
     if(isOverButton(clearLeaderBoard) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         DrawTexture(clear_clicked, clearLeaderBoard.x, clearLeaderBoard.y, WHITE);
-        resetLeaderBoard();
+        resetLeaderBoard(scoreArray);
     } else {
         DrawTexture(clear_simple, clearLeaderBoard.x, clearLeaderBoard.y, WHITE);
     }
 }
 
-void scores() {
+void scores(Score scoreArray[10]) {
     arraySort(scoreArray);
     while (!WindowShouldClose()) {
         ClearBackground(settingsBackground);
         renderScoresMenu();
-        scoresMenuButtons();
+        scoresMenuButtons(scoreArray);
         renderScores(scoreArray, menu_screenWidth / 2 - 100, 150, 32, 100);
 
         if (gameState != SCORES)
