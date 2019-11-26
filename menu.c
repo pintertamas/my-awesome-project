@@ -77,7 +77,7 @@ void renderButtons () {
     DrawTexture(settingsButton_simple, settingsButton.x, settingsButton.y, WHITE);
 
     int timeDiff = clock() - startTime;
-    wait_sec(timeDiff, 1);
+    wait_sec(timeDiff, 3);
     if (startTime != 0) {                                                                                               //without this, the error massages would appear at every start
         if (gameDifficulty == DIFFICULTY_UNSET) {
             if (timeDiff <= 1000)
