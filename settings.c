@@ -114,29 +114,29 @@ void initGameData () {
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:
             ballNumber = 0;
-            bulletCount = 0;
+            bulletProps.bulletCount = 0;
             lifePoints  = 0;
             break;
         case EASY:
             ballNumber = 4;
-            bulletCount = 5;
+            bulletProps.bulletCount = 5;
             lifePoints  = 5;
             break;
         case MEDIUM:
             ballNumber = 5;
-            bulletCount = 4;
+            bulletProps.bulletCount = 4;
             lifePoints  = 3;
             break;
         case HARD:
             ballNumber = 6;
-            bulletCount = 3;
+            bulletProps.bulletCount = 3;
             lifePoints  = 1;
             break;
     }
-    bulletSpeed = 13;
-    bulletDamage = 10;
-    shootDelay = 69;
-    bulletRadius = 5;
+    bulletProps.bulletSpeed = 13;
+    bulletProps.bulletDamage = 10;
+    bulletProps.shootDelay = 69;
+    bulletProps.bulletRadius = 5;
 }
 
 void settings () {
@@ -150,8 +150,6 @@ void settings () {
         {
             gameState = MENU;
         }
-
-        //DrawLine(menu_screenWidth/2, 0, menu_screenWidth/2, menu_screenHeight, PINK);
 
         settingsButtonClick();
         renderSettings();

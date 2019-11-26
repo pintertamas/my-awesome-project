@@ -34,8 +34,8 @@ void stopGame (StopGame stopTheGame) {
                 endGame[i].vy = cursor->vy;
                 endGame[i].gravity = cursor->gravity;
                 endGame[i].playerSpeed = player.speed;
-                endGame[i].bulletSpeed = bulletSpeed;
-                endGame[i].bulletDamage = bulletDamage;
+                endGame[i].bulletSpeed = bulletProps.bulletSpeed;
+                endGame[i].bulletDamage = bulletProps.bulletDamage;
                 i++;
             }
 
@@ -45,8 +45,8 @@ void stopGame (StopGame stopTheGame) {
                 cursor->vy = 0;
                 cursor->gravity = 0;
                 player.speed = 0;
-                bulletSpeed = 0;
-                bulletDamage = 0;
+                bulletProps.bulletSpeed = 0;
+                bulletProps.bulletDamage = 0;
                 i++;
             }
             break;
@@ -58,8 +58,8 @@ void stopGame (StopGame stopTheGame) {
                 cursor->vy = endGame[i].vy;
                 cursor->gravity = endGame[i].gravity;
                 player.speed = endGame[i].playerSpeed;
-                bulletSpeed = endGame[i].bulletSpeed;
-                bulletDamage = endGame[i].bulletDamage;
+                bulletProps.bulletSpeed = endGame[i].bulletSpeed;
+                bulletProps.bulletDamage = endGame[i].bulletDamage;
                 i++;
             }
             break;
@@ -142,10 +142,10 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
         for(ball_cursor = ball_head; ball_cursor != NULL; ball_cursor = ball_cursor->next) {
             int a_square = pow(abs((int)bullet_cursor->xpos - (int)ball_cursor->xpos), 2);
             int b_square = pow(abs((int)bullet_cursor->ypos - (int)ball_cursor->ypos), 2);
-            if (sqrt(a_square + b_square) < bulletRadius + ball_cursor->radius) {
+            if (sqrt(a_square + b_square) < bulletProps.bulletRadius + ball_cursor->radius) {
                 if(bullet_cursor->visible == true){
-                    ball_cursor->HP -= bulletDamage;
-                    damageDealt += bulletDamage;
+                    ball_cursor->HP -= bulletProps.bulletDamage;
+                    damageDealt += bulletProps.bulletDamage;
                     bullet_cursor->visible = false;
                 }
             }

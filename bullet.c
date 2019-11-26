@@ -7,12 +7,6 @@
 #include "debugmalloc.h"
 
 Bullet *bullets = NULL;
-clock_t shoot;
-int shootDelay;
-int bulletCount;
-int bulletRadius;
-int bulletSpeed;
-int bulletDamage;
 
 void freeList_bullet () {
     Bullet *tmp;
@@ -59,16 +53,16 @@ Bullet *list_append_bullet (Bullet *head, double xpos, double ypos) {
 void spawnBullets () {
     int gap = 4;
     double playerCenter = player.xpos + (double)player.xsize / 2;
-    double leftPoint = bulletCount * bulletRadius + ((bulletCount - 1) / 2) * gap;
+    double leftPoint = bulletProps.bulletCount * bulletProps.bulletRadius + ((bulletProps.bulletCount - 1) / 2) * gap;
 
-    if (IsKeyDown(KEY_SPACE) && (double)(clock() - shoot) >= shootDelay && player_isAlive && !isPaused) {
-        shoot = clock();
+    if (IsKeyDown(KEY_SPACE) && (double)(clock() - bulletProps.shoot) >= bulletProps.shootDelay && player_isAlive && !isPaused) {
+        bulletProps.shoot = clock();
 
-        for(int i = 0; i < bulletCount; i++) {
+        for(int i = 0; i < bulletProps.bulletCount; i++) {
             bullets = list_append_bullet(
                     bullets,
-                    playerCenter - leftPoint + i * (2 * bulletRadius + gap),
-                    screenHeight - player.ysize - bulletRadius * 3
+                    playerCenter - leftPoint + i * (2 * bulletProps.bulletRadius + gap),
+                    screenHeight - player.ysize - bulletProps.bulletRadius * 3
                     );
         }
     }
@@ -77,14 +71,14 @@ void spawnBullets () {
 void updateBullets () {
     if(player_isAlive) {
         for(Bullet *cursor = bullets; cursor != NULL; cursor = cursor->next) {
-            cursor->ypos -= bulletSpeed;
+            cursor->ypos -= bulletProps.bulletSpeed;
         }
     }
 }
 
 void renderBullets () {
     for (Bullet *cursor = bullets; cursor != NULL; cursor = cursor->next) {
-        if (cursor->ypos >= bulletRadius && cursor->visible == true) {
+        if (cursor->ypos >= bulletProps.bulletRadius && cursor->visible == true) {
             switch (background) {
                 case FOREST:
                     DrawTexture(brownBullet, cursor->xpos, cursor->ypos, WHITE);

@@ -22,7 +22,7 @@ int main(void)
     font = LoadFont("../Textures/font.ttf");
     setupPlayer();
     setupButtons();
-    shoot = clock();
+    bulletProps.shoot = clock();
     inCollision = false;
     readFromFile(topScores);
     gameState = MENU;
