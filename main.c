@@ -64,7 +64,7 @@ int main(void)
         }
     }
     //---------------------------------------------------------
-    if(endGame != NULL)
+    if(pauseResume != NULL)
         freeBackupArray();
     freeList_bullet();
     freeList_ball();

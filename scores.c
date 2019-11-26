@@ -162,17 +162,17 @@ void renderEnd() {
     Vector2 difficultyPosition = {timePosition.x, timePosition.y - gap};
     Vector2 damagePosition = {difficultyPosition.x, difficultyPosition.y - gap};
     int fontSize = 36;
-    DrawTextEx(font, FormatText("Total balls popped:   %d", balls_destroyed), ballCountPosition, fontSize,1, BLACK);
+    DrawTextEx(font, FormatText("Total balls popped:   %d", ballProps.balls_destroyed), ballCountPosition, fontSize,1, BLACK);
     DrawTextEx(font, "Game time: ", timePosition, fontSize,1, BLACK);
     timePosition.x += 260;
     renderTime(timePosition, score_time, fontSize);
     renderDifficulty(difficultyPosition, fontSize);
-    DrawTextEx(font, FormatText("Damage dealt:    %d", damageDealt), damagePosition, fontSize,1, BLACK);
+    DrawTextEx(font, FormatText("Damage dealt:    %d", ballProps.damageDealt), damagePosition, fontSize,1, BLACK);
 }
 
 void endOfGame (Score scoreArray[10]) {
     score_time = (int)((roundEnd - roundStart) / 1000);
-    updateScores(scoreArray, balls_destroyed);
+    updateScores(scoreArray, ballProps.balls_destroyed);
     arraySort(scoreArray);
     while (!WindowShouldClose()) {
         renderEnd();

@@ -11,15 +11,15 @@ Rectangle frameRec = { 0.0f, 0.0f, 140 / 4, 30 };
 int currentFrame = 0;
 int framesCounter = 0;
 int framesSpeed = 8;
-EndGame *endGame = NULL;
+Pause *pauseResume = NULL;
 
 void setupBackupArray () {                                                                                              //stores the necessary data for the game resume
-    endGame = (EndGame *) malloc(ballNumber * sizeof(EndGame));
+    pauseResume = (Pause *) malloc(ballProps.ballNumber * sizeof(Pause));
 }
 
 void freeBackupArray () {
-    free(endGame);
-    endGame = NULL;
+    free(pauseResume);
+    pauseResume = NULL;
 }
 
 void stopGame (StopGame stopTheGame) {
@@ -30,12 +30,12 @@ void stopGame (StopGame stopTheGame) {
             isPaused = true;
             i = 0;
             for(cursor = balls; cursor != NULL; cursor = cursor->next) {
-                endGame[i].vx = cursor->vx;
-                endGame[i].vy = cursor->vy;
-                endGame[i].gravity = cursor->gravity;
-                endGame[i].playerSpeed = player.speed;
-                endGame[i].bulletSpeed = bulletProps.bulletSpeed;
-                endGame[i].bulletDamage = bulletProps.bulletDamage;
+                pauseResume[i].vx = cursor->vx;
+                pauseResume[i].vy = cursor->vy;
+                pauseResume[i].gravity = cursor->gravity;
+                pauseResume[i].playerSpeed = player.speed;
+                pauseResume[i].bulletSpeed = bulletProps.bulletSpeed;
+                pauseResume[i].bulletDamage = bulletProps.bulletDamage;
                 i++;
             }
 
@@ -54,12 +54,12 @@ void stopGame (StopGame stopTheGame) {
             isPaused = false;
             i = 0;
             for(cursor = balls; cursor != NULL; cursor = cursor->next) {
-                cursor->vx = endGame[i].vx;
-                cursor->vy = endGame[i].vy;
-                cursor->gravity = endGame[i].gravity;
-                player.speed = endGame[i].playerSpeed;
-                bulletProps.bulletSpeed = endGame[i].bulletSpeed;
-                bulletProps.bulletDamage = endGame[i].bulletDamage;
+                cursor->vx = pauseResume[i].vx;
+                cursor->vy = pauseResume[i].vy;
+                cursor->gravity = pauseResume[i].gravity;
+                player.speed = pauseResume[i].playerSpeed;
+                bulletProps.bulletSpeed = pauseResume[i].bulletSpeed;
+                bulletProps.bulletDamage = pauseResume[i].bulletDamage;
                 i++;
             }
             break;
@@ -145,14 +145,14 @@ void BulletBallCollision (Ball *ball_head, Bullet *bullet_head) {
             if (sqrt(a_square + b_square) < bulletProps.bulletRadius + ball_cursor->radius) {
                 if(bullet_cursor->visible == true){
                     ball_cursor->HP -= bulletProps.bulletDamage;
-                    damageDealt += bulletProps.bulletDamage;
+                    ballProps.damageDealt += bulletProps.bulletDamage;
                     bullet_cursor->visible = false;
                 }
             }
             if (ball_cursor->HP <= 0) {
                 if(ball_cursor->visible == true) {
-                    ballNumber_current --;
-                    balls_destroyed++;
+                    ballProps.ballNumber_current --;
+                    ballProps.balls_destroyed++;
                 }
                 ball_cursor->visible = false;
             }
@@ -216,9 +216,10 @@ void game () {
     setupPlayer();
     roundStart = clock();
     damageTime = 0;
-    ballNumber_current = 0;
-    balls_destroyed = 0;
-    damageDealt = 0;
+    ballProps.ballNumber_current = 0;
+    ballProps.ballNumber_current = 0;
+    ballProps.balls_destroyed = 0;
+    ballProps.damageDealt = 0;
     initGameData();
     while (!WindowShouldClose()) {
         renderBackground();

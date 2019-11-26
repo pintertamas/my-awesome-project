@@ -6,9 +6,6 @@
 
 Ball *balls = NULL;
 
-int ballNumber;
-int ballNumber_current = 0;
-
 void freeList_ball () {
     Ball *tmp;
     while (balls != NULL) {
@@ -95,9 +92,9 @@ Ball *list_append_ball (Ball *head) {
 }
 
 void spawnBall () {
-    if(ballNumber_current < ballNumber) {
+    if(ballProps.ballNumber_current < ballProps.ballNumber) {
         balls = list_append_ball(balls);
-        ballNumber_current ++;
+        ballProps.ballNumber_current ++;
     }
 }
 

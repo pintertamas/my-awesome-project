@@ -17,10 +17,14 @@ typedef struct Ball{
 }Ball;
 
 extern Ball *balls;
-extern int ballNumber;                                                                                                  //number of balls on the playfield at a time
-extern int ballNumber_current;
-int balls_destroyed;
-int damageDealt;
+
+typedef struct BallProperties{
+    int ballNumber;                                                                                             //number of balls on the playfield at a time
+    int ballNumber_current;
+    int balls_destroyed;
+    int damageDealt;
+}BallProperties;
+BallProperties ballProps;
 
 void spawnBall ();
 void freeList_ball ();

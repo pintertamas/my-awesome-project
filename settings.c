@@ -113,22 +113,22 @@ void renderSettings () {
 void initGameData () {
     switch (gameDifficulty) {
         case DIFFICULTY_UNSET:
-            ballNumber = 0;
+            ballProps.ballNumber = 0;
             bulletProps.bulletCount = 0;
             lifePoints  = 0;
             break;
         case EASY:
-            ballNumber = 4;
+            ballProps.ballNumber = 4;
             bulletProps.bulletCount = 5;
             lifePoints  = 5;
             break;
         case MEDIUM:
-            ballNumber = 5;
+            ballProps.ballNumber = 5;
             bulletProps.bulletCount = 4;
             lifePoints  = 3;
             break;
         case HARD:
-            ballNumber = 6;
+            ballProps.ballNumber = 6;
             bulletProps.bulletCount = 3;
             lifePoints  = 1;
             break;
