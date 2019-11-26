@@ -248,7 +248,6 @@ void game () {
             roundEnd = clock();
             break;
         }
-        ClearBackground(BACKGROUND_COLOR);
         //-----------------------------------------------------
         BeginDrawing();
         EndDrawing();

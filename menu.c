@@ -8,7 +8,7 @@
 #include "settings.h"
 #include "debugmalloc.h"
 
-void renderMenu () {
+void renderMenu (Color BACKGROUND_COLOR) {
 
     double timePassed = GetTime();
     timePassed /= 2;
@@ -90,6 +90,7 @@ void renderButtons () {
 }
 
 void menu () {
+    Color BACKGROUND_COLOR = {0,210,255};
     while (!WindowShouldClose()) {
 
         ClearBackground(BACKGROUND_COLOR);

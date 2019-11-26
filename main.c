@@ -20,6 +20,7 @@ int main(void)
 
     loadImage();
     font = LoadFont("../Textures/font.ttf");
+    Color SCORES_COLOR = {0,210,255};
     setupPlayer();
     setupButtons();
     bulletProps.shoot = clock();
@@ -53,7 +54,7 @@ int main(void)
             case SCORES:
                 EnableCursor();
                 SetWindowSize(menu_screenWidth, menu_screenHeight);
-                ClearBackground(BACKGROUND_COLOR);
+                ClearBackground(SCORES_COLOR);
                 scores(topScores);
                 break;
             case END:
