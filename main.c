@@ -20,7 +20,6 @@ int main(void)
 
     loadImage();
     font = LoadFont("../Textures/font.ttf");
-    Color BACKGROUND_COLOR = {0,210,255};
     setupPlayer();
     setupButtons();
     shoot = clock();

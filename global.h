@@ -18,4 +18,6 @@ extern int screenHeight;
 extern int menu_screenWidth;
 extern int menu_screenHeight;
 
+extern Color BACKGROUND_COLOR;
+
 #endif //MY_AWESOME_PROJECT_GLOBAL_H

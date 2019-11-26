@@ -9,3 +9,5 @@ int screenHeight = 900;
 
 int menu_screenWidth = 900;
 int menu_screenHeight = 600;
+
+Color BACKGROUND_COLOR = {0,210,255};

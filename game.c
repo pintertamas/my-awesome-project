@@ -218,7 +218,6 @@ void renderBackground () {
 }
 
 void game () {
-    Color BACKGROUND_COLOR = {0,210,255};
     player_isAlive = true;
     setupPlayer();
     roundStart = clock();
