@@ -9,9 +9,15 @@ clock_t roundEnd;
 clock_t damageTime;
 bool isPaused;
 
-
-double **endGame;
-
+typedef struct EndGame{
+    double vx;
+    double vy;
+    double gravity;
+    int playerSpeed;
+    int bulletSpeed;
+    int bulletDamage;
+}EndGame;
+EndGame *endGame;
 
 void setupBackupArray ();
 void freeBackupArray ();

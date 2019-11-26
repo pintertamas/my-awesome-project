@@ -11,19 +11,13 @@ Rectangle frameRec = { 0.0f, 0.0f, 140 / 4, 30 };
 int currentFrame = 0;
 int framesCounter = 0;
 int framesSpeed = 8;
-double **endGame = NULL;
+EndGame *endGame = NULL;
 
 void setupBackupArray () {                                                                                              //stores the necessary data for the game resume
-    endGame = (double **) malloc(ballNumber * sizeof(double *));
-    for(int i = 0; i < ballNumber; i++) {
-        endGame[i] = (double *) malloc(6 * sizeof(double));
-    }
+    endGame = (EndGame *) malloc(ballNumber * sizeof(EndGame));
 }
 
 void freeBackupArray () {
-    for(int i = 0; i < ballNumber; i++) {
-        free(endGame[i]);
-    }
     free(endGame);
     endGame = NULL;
 }
@@ -36,12 +30,12 @@ void stopGame (StopGame stopTheGame) {
             isPaused = true;
             i = 0;
             for(cursor = balls; cursor != NULL; cursor = cursor->next) {
-                endGame[i][0] = cursor->vx;
-                endGame[i][1] = cursor->vy;
-                endGame[i][2] = cursor->gravity;
-                endGame[i][3] = (double)player.speed;
-                endGame[i][4] = (double)bulletSpeed;
-                endGame[i][5] = (double)bulletDamage;
+                endGame[i].vx = cursor->vx;
+                endGame[i].vy = cursor->vy;
+                endGame[i].gravity = cursor->gravity;
+                endGame[i].playerSpeed = player.speed;
+                endGame[i].bulletSpeed = bulletSpeed;
+                endGame[i].bulletDamage = bulletDamage;
                 i++;
             }
 
@@ -60,12 +54,12 @@ void stopGame (StopGame stopTheGame) {
             isPaused = false;
             i = 0;
             for(cursor = balls; cursor != NULL; cursor = cursor->next) {
-                cursor->vx = endGame[i][0];
-                cursor->vy = endGame[i][1];
-                cursor->gravity = endGame[i][2];
-                player.speed = (double)endGame[i][3];
-                bulletSpeed = (double)endGame[i][4];
-                bulletDamage = (double)endGame[i][5];
+                cursor->vx = endGame[i].vx;
+                cursor->vy = endGame[i].vy;
+                cursor->gravity = endGame[i].gravity;
+                player.speed = endGame[i].playerSpeed;
+                bulletSpeed = endGame[i].bulletSpeed;
+                bulletDamage = endGame[i].bulletDamage;
                 i++;
             }
             break;
