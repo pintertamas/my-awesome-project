@@ -85,9 +85,7 @@ void readFromFile (Score scoreArray[10]) {
         return;
     }
     for(int i = 0; i < 10; i++) {
-        for (int j = 0; j < 3; ++j) {
-            fscanf(file, "%d", &scoreArray[i].ballsDestroyed);
-        }
+        fscanf(file, "%d %d %d", &scoreArray[i].ballsDestroyed, &scoreArray[i].time, &scoreArray[i].difficulty);
     }
     fclose(file);
 }

@@ -20,6 +20,7 @@ int main(void)
 
     loadImage();
     font = LoadFont("../Textures/font.ttf");
+    Color BACKGROUND_COLOR = {0,210,255};
     setupPlayer();
     setupButtons();
     shoot = clock();
@@ -28,8 +29,8 @@ int main(void)
     gameState = MENU;
     gameDifficulty = DIFFICULTY_UNSET;
     background = BACKGROUND_UNSET;
-    //----------------------------------------------------------                                                        // Main game loop
-    while (!WindowShouldClose())                                                                                        // Detect window close button or ESC key
+    //----------------------------------------------------------
+    while (!WindowShouldClose())
     {
         switch(gameState) {
             case MENU:
