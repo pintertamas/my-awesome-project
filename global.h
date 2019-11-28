@@ -9,13 +9,13 @@
 #include <math.h>
 #include <time.h>
 
-extern int resolutionX;
-extern int resolutionY;
+const int resolutionX;
+const int resolutionY;
 
-extern int screenWidth;
-extern int screenHeight;
+const int screenWidth;
+const int screenHeight;
 
-extern int menu_screenWidth;
-extern int menu_screenHeight;
+const int menu_screenWidth;
+const int menu_screenHeight;
 
 #endif //MY_AWESOME_PROJECT_GLOBAL_H
